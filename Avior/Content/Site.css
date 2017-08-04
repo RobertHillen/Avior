@@ -1,0 +1,93 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.aviorlogo {
+    padding-right: 5px;
+}
+
+.navbar-inverse {
+    background-color: #004990;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+thead th {
+    background-color: #004990;
+    color: #FF7618;
+}
+
+tbody td {
+    background-color: #EEEEEE;
+}
+
+tr td:first-child,
+tr th:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+tr td:last-child,
+tr th:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.navbar-sm .navbar-primary .navbar {
+    min-height: 40px;
+    height: 40px;
+}
+
+.navbar-sm .navbar-primary .navbar .navbar-brand {
+    padding: 0px 12px;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+.navbar-sm .navbar-primary .navbar .navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 40px;
+}
+
+.avior-orange {
+    color: #FF7618 !important;
+}
+
+.avior-blue {
+    color: #004990 !important;
+}
+
+.avior-orange-background {
+    background-color: #FF7618 !important;
+}
+
+.avior-blue-background {
+    background-color: #004990 !important;
+}
+
+

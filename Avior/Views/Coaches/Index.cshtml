@@ -1,0 +1,65 @@
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Coaches.CoachListModel
+
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">Coaches</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Create")'><i class="fa fa-plus-circle"></i> Nieuw</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Telefoon</th>
+            <th>Email adres</th>
+            <th>Team</th>
+            <th>Seizoen</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CoachList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team.Name)
+                </td>
+                <td>
+                    @item.Team.Season.GetDisplayName()
+                </td>
+                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.ID } })
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+}

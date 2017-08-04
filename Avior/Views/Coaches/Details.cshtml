@@ -1,0 +1,131 @@
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Coaches.CoachDetailModel
+
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">Coaches / Details</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Edit", new { id = Model.Details.ID })'><i class="fa fa-edit"></i> Wijzigen</a></li>
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i> Overzicht</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="panel panel-default">
+    <div class="panel-heading avior-blue-background avior-orange">
+        Coach
+    </div>
+    <div class="panel-body avior-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    Naam
+                </div>
+                <div class="col-md-7">
+                    @(Model.Details.Name)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Email adres
+                </div>
+                <div class="col-md-6">
+                    @(Model.Details.Email)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    Telefoon
+                </div>
+                <div class="col-lg-6">
+                    @(Model.Details.PhoneNumber)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading avior-blue-background avior-orange">
+        Team
+    </div>
+    <div class="panel-body avior-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    Naam
+                </div>
+                <div class="col-md-7">
+                    @(Model.Details.Team.Name)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Seizoen
+                </div>
+                <div class="col-md-6">
+                    @(Model.Details.Team.Season.GetDisplayName())
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    Training
+                </div>
+                <div class="col-lg-6">
+                    @(Model.Details.Team.Training1())
+                    @if (!string.IsNullOrEmpty(Model.Details.Team.Training2()))
+                    {
+                        <text>/</text>
+                        @(Model.Details.Team.Training2())
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading avior-blue-background avior-orange">
+        Spelers
+    </div>
+    <div class="panel-body avior-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <span class="label label-default">Naam</span>
+                </div>
+                <div class="col-md-7">
+                    <span class="label label-default">Telefoon</span>
+                </div>
+            </div>
+            @foreach (var player in Model.Details.Players)
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        @player.Name
+                    </div>
+                    <div class="col-md-7">
+                        @player.PhoneNumber
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@*<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+        <li><a href='@Url.Action("Edit", new { id = Model.Details.ID })'><i class="fa fa-edit"></i> Wijzigen</a></li>
+        <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i> Overzicht</a></li>
+    </ul>
+</div>*@

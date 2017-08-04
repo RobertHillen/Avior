@@ -1,0 +1,15 @@
+﻿@{ 
+    var Id = ViewBag.Id;
+}
+
+<td>
+    <a href="@Url.Action("Edit", new { id = Id })" class="btn btn-outline-primary btn-link btn-sm" data-toggle="tooltip" title="Wijzigen">
+        <span class="fa fa-edit" aria-hidden="true"></span>
+    </a>
+    <a href="@Url.Action("Details", new { id = Id })" class="btn btn-outline-primary btn-link btn-sm" data-toggle="tooltip" title="Details">
+        <span class="fa fa-list-alt" aria-hidden="true"></span>
+    </a>
+    <a href="@Url.Action("Delete", new { id = Id })" class="btn btn-outline-primary btn-link btn-sm" data-toggle="tooltip" title="Verwijderen">
+        <span class="fa fa-trash-o" aria-hidden="true"></span>
+    </a>
+</td>
