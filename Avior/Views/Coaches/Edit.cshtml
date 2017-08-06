@@ -1,65 +1,90 @@
-﻿@model Avior.Database.Models.Coach
+﻿@model Avior.Models.Coaches.CoachEditModel
 
-@{
-    ViewBag.Title = "Edit";
+@{ 
+    var command = Model.Command;
+    var teams = Model.Teams;
 }
 
-<h2>Edit</h2>
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelCoaches / @Resources.General.LabelWijzigen</a>
+        </div>
 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
-        <h4>Coach</h4>
-        <hr />
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Coach.LabelNaam
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(m => command.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => command.Name, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Coach.LabelTelefoon
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(m => command.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => command.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Coach.LabelEmail
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(m => command.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => command.Email, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TeamID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TeamID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TeamID, "", new { @class = "text-danger" })
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Coach.LabelTeam
+                </div>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID))
+                    @Html.ValidationMessageFor(m => command.TeamID, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+            @Html.HiddenFor(m => command.ID)
+            @Html.HiddenFor(m => command.Name)
+            @Html.HiddenFor(m => command.Email)
+            @Html.HiddenFor(m => command.PhoneNumber)
+            @Html.HiddenFor(m => command.TeamID)
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-8">
+                    <input type="submit" value="Opslaan" class="btn btn-primary" />
+                </div>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

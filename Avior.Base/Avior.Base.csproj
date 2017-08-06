@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Enums\enuCategory.cs" />
+    <Compile Include="Enums\HtmlSelectOption.cs" />
     <Compile Include="Helpers\enumHelper.cs" />
     <Compile Include="Enums\enuSeason.cs" />
     <Compile Include="Exceptions\AviorConstraintException.cs" />
@@ -54,7 +56,6 @@
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Interfaces\ICommandHandler.cs" />
-    <Compile Include="Interfaces\ICommandProcessor.cs" />
     <Compile Include="Interfaces\IQuery.cs" />
     <Compile Include="Interfaces\IQueryHandler.cs" />
     <Compile Include="Interfaces\IQueryProcessor.cs" />

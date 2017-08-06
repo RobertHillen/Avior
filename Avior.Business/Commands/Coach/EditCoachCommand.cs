@@ -39,6 +39,8 @@ namespace Avior.Business.Commands.Coach
             coach.Email = command.Email;
             coach.PhoneNumber = command.PhoneNumber;
             coach.TeamID = command.TeamID;
+
+            uow.SaveChanges();
         }
     }
 }

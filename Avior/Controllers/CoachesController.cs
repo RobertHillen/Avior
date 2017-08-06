@@ -11,19 +11,25 @@ using Avior.Database.Models;
 using Avior.Models.Coaches;
 using Avior.Helpers;
 using Avior.Business.Code;
+using Avior.Base.Interfaces;
+using Avior.Business.Commands.Coach;
+using Avior.Base.Enums;
 
 namespace Avior.Controllers
 {
     public class CoachesController : AviorController
     {
+        private readonly ICommandHandler<EditCoachCommand> _editCoachCommand;
         private readonly QueryExecutor _queryExecutor;
-
         private AviorDbContext db = new AviorDbContext();
 
         #region Constructor
 
-        public CoachesController(QueryExecutor queryExecutor)
+        public CoachesController(
+            ICommandHandler<EditCoachCommand> editCoachCommand,
+            QueryExecutor queryExecutor)
         {
+            _editCoachCommand = editCoachCommand;
             _queryExecutor = queryExecutor;
         }
 
@@ -51,6 +57,32 @@ namespace Avior.Controllers
 
         #endregion
 
+        #region Edit
+
+        public ActionResult Edit(int id)
+        {
+            var model = GetEditData(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditCoachCommand command)
+        {
+            if (ModelState.IsValid)
+            {
+                _editCoachCommand.Handle(command);
+                return RedirectToAction("Index");
+            }
+
+            var model = GetEditData(command.ID);
+            model.Command = command;
+
+            return View(model);
+        }
+
+        #endregion
+
         public ActionResult Create()
         {
             return View();
@@ -66,32 +98,6 @@ namespace Avior.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(coach);
-        }
-
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Coach coach = db.Coaches.Find(id);
-            if (coach == null)
-            {
-                return HttpNotFound();
-            }
-            return View(coach);
-        }
-
-        [HttpPost]
-        public ActionResult Edit(Coach coach)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(coach).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
             return View(coach);
         }
 
@@ -119,6 +125,18 @@ namespace Avior.Controllers
         }
 
         #region Private helpers
+
+        private CoachEditModel GetEditData(int Id)
+        {
+            var model = new CoachEditModel
+            {
+                Command = _queryExecutor.GetCoachEdit(this, Id),
+                Teams = _queryExecutor.GetTeamHtmlSelectList(this,  HtmlSelectOption.FirstRow_DefaultText)
+            };
+
+            return model;
+        }
+
 
         private CoachListModel GetListData()
         {

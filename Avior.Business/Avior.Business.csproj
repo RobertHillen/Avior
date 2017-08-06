@@ -98,6 +98,7 @@
     <Compile Include="Queries\Coach\GetCoachEditQuery.cs" />
     <Compile Include="Queries\Coach\GetCoachListQuery.cs" />
     <Compile Include="Queries\QueryProcessor.cs" />
+    <Compile Include="Queries\Team\GetTeamHtmlSelectQuery.cs" />
     <Compile Include="Resources\Coach.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,6 +119,7 @@
     <Compile Include="Views\Coach\CoachDetailView.cs" />
     <Compile Include="Views\Player\PlayerDetailView.cs" />
     <Compile Include="Views\Team\TeamDetailView.cs" />
+    <Compile Include="Views\Team\TeamHtmlSelectView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

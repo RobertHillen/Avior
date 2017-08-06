@@ -117,10 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorPrefixAndKey" xml:space="preserve">
-    <value>avior-error-{0}</value>
+  <data name="LabelCoach" xml:space="preserve">
+    <value>Coach</value>
   </data>
-  <data name="SelectATeam" xml:space="preserve">
-    <value>Selecteer een team</value>
+  <data name="LabelEmail" xml:space="preserve">
+    <value>Email adres</value>
+  </data>
+  <data name="LabelNaam" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="LabelSeizoen" xml:space="preserve">
+    <value>Seizoen</value>
+  </data>
+  <data name="LabelSpelers" xml:space="preserve">
+    <value>Spelers</value>
+  </data>
+  <data name="LabelTeam" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="LabelTelefoon" xml:space="preserve">
+    <value>Telefoon</value>
+  </data>
+  <data name="LabelTraining" xml:space="preserve">
+    <value>Training</value>
   </data>
 </root>

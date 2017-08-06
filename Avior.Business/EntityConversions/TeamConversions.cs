@@ -11,6 +11,17 @@ namespace Avior.Business.EntityConversions
 {
     internal static class TeamConversions
     {
+        internal static IQueryable<TeamHtmlSelectView> ToTeamHtmlSelectView(this IQueryable<Team> teams)
+        {
+            return from team in teams
+                   orderby team.Name
+                   select new TeamHtmlSelectView
+                   {
+                       Key = team.Name,
+                       Value = team.ID
+                   };
+        }
+
         internal static IQueryable<TeamDetailView> ToTeamListView(this IQueryable<Team> teams)
         {
             return from team in teams

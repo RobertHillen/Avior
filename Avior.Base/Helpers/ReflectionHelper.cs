@@ -20,7 +20,7 @@ namespace Avior.Base.Helpers
             return _applicationAssemblies.Value;
         }
 
-        public static IEnumerable<Assembly> GetLynxAssemblies()
+        public static IEnumerable<Assembly> GetAviorAssemblies()
         {
             return GetApplicationAssemblies()
                 .Where(assembly => assembly.FullName.ToLower().StartsWith("avior."));

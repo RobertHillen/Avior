@@ -1,7 +1,12 @@
-﻿using Avior.Base.Interfaces;
+﻿using Avior.Base;
+using Avior.Base.Enums;
+using Avior.Base.Interfaces;
 using Avior.Business.Code;
+using Avior.Business.Commands.Coach;
 using Avior.Business.Queries.Coach;
+using Avior.Business.Queries.Team;
 using Avior.Business.Views.Coach;
+using Avior.Business.Views.Team;
 using Avior.Models.Coaches;
 using System;
 using System.Collections.Generic;
@@ -48,20 +53,45 @@ namespace Avior.Helpers
                 return new CoachDetailView();
             }
         }
-                
-        //public EditCoachCommand GetCoachEdit(AviorController controller, int coachId)
-        //{
-        //    try
-        //    {
-        //        var query = new GetCoachEditQuery { Id = coachId };
-        //        return _queryProcessor.Execute(query);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        ThrowOrAddModelError(controller, e);
-        //        return new EditCoachCommand();
-        //    }
-        //}
+
+        public EditCoachCommand GetCoachEdit(AviorController controller, int coachId)
+        {
+            try
+            {
+                var query = new GetCoachEditQuery { Id = coachId };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new EditCoachCommand();
+            }
+        }
+
+        #endregion
+
+        #region Team
+
+        public TeamHtmlSelectView[] GetTeamHtmlSelectList(AviorController controller,  HtmlSelectOption htmlSelectOption = HtmlSelectOption.None, string customText = null)
+        {
+            try
+            {
+                var query = new GetTeamHtmlSelectQuery
+                {
+                    HtmlSelectOption = htmlSelectOption,
+                    HtmlSelectOption_CustomText = customText
+                };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new[]
+                {
+                    new TeamHtmlSelectView {Key = string.Empty, Value = Constants.Invalid_Id}
+                };
+            }
+        }
 
         #endregion
 

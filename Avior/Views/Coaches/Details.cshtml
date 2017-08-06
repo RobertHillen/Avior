@@ -9,13 +9,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="avior-blue navbar-brand" href="#">Coaches / Details</a>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelCoaches / @Resources.General.LabelDetails</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i> Overzicht</a></li>
-                <li><a href='@Url.Action("Edit", new { id = Model.Details.ID })'><i class="fa fa-edit"></i> Wijzigen</a></li>
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+                <li><a href='@Url.Action("Edit", new { id = Model.Details.ID })'><i class="fa fa-edit"></i>@Resources.General.LabelWijzigen</a></li>
             </ul>
         </div>
     </div>
@@ -23,32 +23,32 @@
 
 <div class="panel panel-default">
     <div class="panel-heading avior-blue-background avior-orange">
-        Coach
+        @Resources.Coach.LabelCoach
     </div>
     <div class="panel-body avior-blue">
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    Naam
+                    @Resources.Coach.LabelNaam
                 </div>
-                <div class="col-md-7">
-                    @(Model.Details.Name)
+                <div class="col-md-8">
+                    @Model.Details.Name
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    Email adres
+                    @Resources.Coach.LabelEmail
                 </div>
-                <div class="col-md-6">
-                    @(Model.Details.Email)
+                <div class="col-md-8">
+                    @Model.Details.Email
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    Telefoon
+                    @Resources.Coach.LabelTelefoon
                 </div>
-                <div class="col-lg-6">
-                    @(Model.Details.PhoneNumber)
+                <div class="col-lg-8">
+                    @Model.Details.PhoneNumber
                 </div>
             </div>
         </div>
@@ -57,21 +57,21 @@
 
 <div class="panel panel-default">
     <div class="panel-heading avior-blue-background avior-orange">
-        Team
+        @Resources.Coach.LabelTeam
     </div>
     <div class="panel-body avior-blue">
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    Naam
+                    @Resources.Coach.LabelNaam
                 </div>
                 <div class="col-md-7">
-                    @(Model.Details.Team.Name)
+                    @Model.Details.Team.Name
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2">
-                    Seizoen
+                    @Resources.Coach.LabelSeizoen
                 </div>
                 <div class="col-md-6">
                     @(Model.Details.Team.Season.GetDisplayName())
@@ -79,14 +79,14 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    Training
+                    @Resources.Coach.LabelTraining
                 </div>
                 <div class="col-lg-6">
-                    @(Model.Details.Team.Training1())
+                    @Model.Details.Team.Training1()
                     @if (!string.IsNullOrEmpty(Model.Details.Team.Training2()))
                     {
                         <text>/</text>
-                        @(Model.Details.Team.Training2())
+                        @Model.Details.Team.Training2()
                     }
                 </div>
             </div>
@@ -96,16 +96,16 @@
 
 <div class="panel panel-default">
     <div class="panel-heading avior-blue-background avior-orange">
-        Spelers
+        @Resources.Coach.LabelSpelers
     </div>
     <div class="panel-body avior-blue">
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <span class="label label-default">Naam</span>
+                    <span class="label label-default">@Resources.Coach.LabelNaam</span>
                 </div>
                 <div class="col-md-7">
-                    <span class="label label-default">Telefoon</span>
+                    <span class="label label-default">@Resources.Coach.LabelTelefoon</span>
                 </div>
             </div>
             @foreach (var player in Model.Details.Players)
@@ -122,10 +122,3 @@
         </div>
     </div>
 </div>
-
-@*<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-        <li><a href='@Url.Action("Edit", new { id = Model.Details.ID })'><i class="fa fa-edit"></i> Wijzigen</a></li>
-        <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i> Overzicht</a></li>
-    </ul>
-</div>*@

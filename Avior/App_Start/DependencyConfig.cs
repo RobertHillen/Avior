@@ -18,17 +18,10 @@ namespace Avior.App_Start
     {
         public static void RegisterDependencyContainer(Container container)
         {
-            ConfigureContainer(container);
+            container.RegisterTypes();
 
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
             SimpleInjectorServiceHostFactory.SetContainer(container);
-        }
-
-        public static void ConfigureContainer(Container container)
-        {
-            container.RegisterUnitOfWorks();
-            container.RegisterQueryHandling();
-            container.RegisterCommonTypes();
         }
     }
 }
