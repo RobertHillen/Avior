@@ -41,11 +41,11 @@ namespace Avior.Database.Data
 
                 new Player { Name = "Annelinde Groeneveld", PhoneNumber = "06-22579238", TeamID = 3 },
                 new Player { Name = "Anouk Joosse", PhoneNumber = "06-37273828", TeamID = 3 },
-                new Player { Name = "Aylin Tasbas", PhoneNumber = "06-42458952", TeamID = 3 },
                 new Player { Name = "Delfin Serenci", PhoneNumber = "06-21905172", TeamID = 3 },
-                new Player { Name = "Fatma Alkan", PhoneNumber = "06-40431966", TeamID = 3 },
                 new Player { Name = "Geerte van Amersfoort", PhoneNumber = "06-39287689", TeamID = 3 },
-                new Player { Name = "Vera Hazelaar", PhoneNumber = "06-43140089", TeamID = 3 }
+                new Player { Name = "Aylin Tasbas", PhoneNumber = "06-42458952", TeamID = 3 },
+                new Player { Name = "Vera Hazelaar", PhoneNumber = "06-43140089", TeamID = 3 },
+                new Player { Name = "Sure Sengun", PhoneNumber = "", TeamID = 3 },
             };
             players.ForEach(p => context.Players.Add(p));
             context.SaveChanges();
@@ -56,7 +56,7 @@ namespace Avior.Database.Data
                 new Coach { Name = "Marieke Haverkort", PhoneNumber = "06-20335823", Email = "mariekehaverkort@gmail.com", TeamID = 1 },
                 new Coach { Name = "Sandra Massink", PhoneNumber = "06-20813804", Email = "r.s.massink@kickxl.nl", TeamID = 1 },
                 new Coach { Name = "Marjan van de Vondervoort", PhoneNumber = "06-24248466", Email = "marjan@vondervoort.com", TeamID = 2 },
-                new Coach { Name = "Robert Hillen", PhoneNumber = "06-46722604", Email = "robert@hilting.nl", TeamID = 3 }
+                new Coach { Name = "Marcel Hazelaar", PhoneNumber = "06-46624070", Email = "marcelhazelaar@gmail.com", TeamID = 3 }
             };
             coaches.ForEach(c => context.Coaches.Add(c));
             context.SaveChanges();

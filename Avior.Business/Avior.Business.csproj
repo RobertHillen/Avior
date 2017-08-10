@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\PhoneNumberAttribute.cs" />
     <Compile Include="Code\AviorController.cs" />
     <Compile Include="Commands\Coach\EditCoachCommand.cs" />
     <Compile Include="EntityConversions\CoachConversions.cs" />
@@ -108,6 +109,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Generic.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ValidationMessage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationMessage.resx</DependentUpon>
     </Compile>
     <Compile Include="SImpleInjector\ContainerExtensions.cs" />
     <Compile Include="UnitOfWork\DataUnitOfWork.cs" />
@@ -138,12 +144,16 @@
   <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\Coach.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Coach.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Generic.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Generic.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ValidationMessage.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -117,19 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ExceptionEntityDescription" xml:space="preserve">
-    <value>de coach</value>
+  <data name="GenericPhoneNumberAttributeNoDisplayName" xml:space="preserve">
+    <value>Waarde moet een telefoon nummer zijn</value>
   </data>
-  <data name="ExceptionIdentifierDescriptionId" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="ListLabelEmail" xml:space="preserve">
-    <value>Email adres</value>
-  </data>
-  <data name="ListLabelName" xml:space="preserve">
-    <value>Naam</value>
-  </data>
-  <data name="ListLabelPhoneNumber" xml:space="preserve">
-    <value>Telefoon</value>
+  <data name="GenericPhoneNumberAttributeNoOfDigits" xml:space="preserve">
+    <value>Waarde moet 10 numerieke cijfers bevatten</value>
   </data>
 </root>

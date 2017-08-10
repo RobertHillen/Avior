@@ -2,6 +2,8 @@
 using Avior.Base.Interfaces;
 using Avior.Business.UnitOfWork;
 using Avior.Business.UnitOfWork.Extensions;
+using Avior.Business.Attributes;
+using Avior.Base;
 
 namespace Avior.Business.Commands.Coach
 {
@@ -11,15 +13,20 @@ namespace Avior.Business.Commands.Coach
         public int ID { get; set; }
 
         [Required]
+        [StringLength(100)]
+        [Display(Name = "ListLabelName", ResourceType = typeof(Resources.Coach))]
         public string Name { get; set; }
 
-        [Required]
+        [StringLength(20)]
+        [PhoneNumber]
+        [Display(Name = "ListLabelPhoneNumber", ResourceType = typeof(Resources.Coach))]
         public string PhoneNumber { get; set; }
 
-        [Required]
+        [StringLength(50)]
+        [EmailAddress]
+        [Display(Name = "ListLabelEmail", ResourceType = typeof(Resources.Coach))]
         public string Email { get; set; }
 
-        [Required]
         public int TeamID { get; set; }
     }
 

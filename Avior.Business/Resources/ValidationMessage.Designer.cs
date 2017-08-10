@@ -22,24 +22,24 @@ namespace Avior.Business.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Coach {
+    internal class ValidationMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Coach() {
+        internal ValidationMessage() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Avior.Business.Resources.Coach", typeof(Coach).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Avior.Business.Resources.ValidationMessage", typeof(ValidationMessage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Avior.Business.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,47 +61,20 @@ namespace Avior.Business.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to de coach.
+        ///   Looks up a localized string similar to Waarde moet een telefoon nummer zijn.
         /// </summary>
-        public static string ExceptionEntityDescription {
+        internal static string GenericPhoneNumberAttributeNoDisplayName {
             get {
-                return ResourceManager.GetString("ExceptionEntityDescription", resourceCulture);
+                return ResourceManager.GetString("GenericPhoneNumberAttributeNoDisplayName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ID.
+        ///   Looks up a localized string similar to Waarde moet 10 numerieke cijfers bevatten.
         /// </summary>
-        public static string ExceptionIdentifierDescriptionId {
+        internal static string GenericPhoneNumberAttributeNoOfDigits {
             get {
-                return ResourceManager.GetString("ExceptionIdentifierDescriptionId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email adres.
-        /// </summary>
-        public static string ListLabelEmail {
-            get {
-                return ResourceManager.GetString("ListLabelEmail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Naam.
-        /// </summary>
-        public static string ListLabelName {
-            get {
-                return ResourceManager.GetString("ListLabelName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Telefoon.
-        /// </summary>
-        public static string ListLabelPhoneNumber {
-            get {
-                return ResourceManager.GetString("ListLabelPhoneNumber", resourceCulture);
+                return ResourceManager.GetString("GenericPhoneNumberAttributeNoOfDigits", resourceCulture);
             }
         }
     }
