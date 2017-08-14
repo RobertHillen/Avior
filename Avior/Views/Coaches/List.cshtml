@@ -1,4 +1,5 @@
-﻿@using Avior.Base.Helpers
+﻿@using System.Linq.Expressions
+@using Avior.Base.Helpers
 @model Avior.Models.Coaches.CoachListModel
 
 <nav class="navbar-xs navbar-default">
@@ -45,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Team.Name)
+                    @Html.DisplayFor((Expression<Func<Avior.Models.Coaches.CoachListModel, string>>)(modelItem => item.Team.Name))
                 </td>
                 <td>
                     @item.Team.Season.GetDisplayName()

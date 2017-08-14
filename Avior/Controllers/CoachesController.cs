@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
-using Avior.Database.Data;
-using Avior.Database.Models;
-using Avior.Models.Coaches;
-using Avior.Helpers;
-using Avior.Business.Code;
-using Avior.Base.Interfaces;
-using Avior.Business.Commands.Coach;
 using Avior.Base.Enums;
+using Avior.Base.Interfaces;
+using Avior.Business.Code;
+using Avior.Business.Commands.Coach;
+using Avior.Database.Entity;
+using Avior.Helpers;
+using Avior.Models.Coaches;
 
 namespace Avior.Controllers
 {
@@ -21,7 +14,6 @@ namespace Avior.Controllers
     {
         private readonly ICommandHandler<EditCoachCommand> _editCoachCommand;
         private readonly QueryExecutor _queryExecutor;
-        private AviorDbContext db = new AviorDbContext();
 
         #region Constructor
 
@@ -38,6 +30,11 @@ namespace Avior.Controllers
         #region List
 
         public ActionResult Index()
+        {
+            return RedirectToAction("List");
+        }
+
+        public ActionResult List()
         {
             var model = GetListData();
 
@@ -89,13 +86,13 @@ namespace Avior.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Coach coach)
+        public ActionResult Create(Coaches coach)
         {
             if (ModelState.IsValid)
             {
-                db.Coaches.Add(coach);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                //db.Coaches.Add(coach);
+                //db.SaveChanges();
+                return RedirectToAction("List");
             }
 
             return View(coach);
@@ -107,21 +104,23 @@ namespace Avior.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Coach coach = db.Coaches.Find(id);
-            if (coach == null)
-            {
-                return HttpNotFound();
-            }
-            return View(coach);
+            //Coaches coach = db.Coaches.Find(id);
+            //if (coach == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(coach);
+            return View();
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Coach coach = db.Coaches.Find(id);
-            db.Coaches.Remove(coach);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            //Coaches coach = db.Coaches.Find(id);
+            //db.Coaches.Remove(coach);
+            //db.SaveChanges();
+
+            return RedirectToAction("List");
         }
 
         #region Private helpers

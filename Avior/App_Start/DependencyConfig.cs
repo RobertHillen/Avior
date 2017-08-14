@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using SimpleInjector;
 using SimpleInjector.Integration.Wcf;
 using SimpleInjector.Integration.Web.Mvc;
-using System.Reflection;
-using Avior.Base.Interfaces;
-using Avior.Business.Queries;
-using Avior.Base.Helpers;
-using Avior.Business.SImpleInjector;
+using Avior.Business.SimpleInjector;
 
 namespace Avior.App_Start
 {

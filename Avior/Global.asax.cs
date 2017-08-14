@@ -6,7 +6,6 @@ using System.Web.Routing;
 using log4net;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
-using Avior.Database.Data;
 using Avior.Helpers;
 using Avior.App_Start;
 
@@ -31,22 +30,10 @@ namespace Avior
 
             container.Verify();
 
-            log.Info("[ Initializing SQL Server LocalDB ]");
-            InitializeDatabase();
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
-
-        private void InitializeDatabase()
-        {
-            System.Data.Entity.Database.SetInitializer(new CreateDatabaseIfNotExists<AviorDbContext>());
-            using (var db = new AviorDbContext())
-            {
-                db.Database.Initialize(false);
-            }
         }
     }
 }

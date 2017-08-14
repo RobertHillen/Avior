@@ -1,5 +1,5 @@
-﻿using Avior.Base.Exceptions;
-using System;
+﻿using System;
+using Avior.Base.Exceptions;
 
 namespace Avior.Base.Helpers
 {

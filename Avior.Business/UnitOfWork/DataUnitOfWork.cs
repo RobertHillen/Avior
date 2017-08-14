@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Avior.Database.Models;
+using Avior.Database.Entity;
 
 namespace Avior.Business.UnitOfWork
 {
@@ -16,18 +12,18 @@ namespace Avior.Business.UnitOfWork
             this.mapper = mapper;
         }
 
-        public Repository<Coach> Coaches
+        public Repository<Coaches> Coaches
         {
-            get { return mapper.GetRepository<Coach>(); }
+            get { return mapper.GetRepository<Coaches>(); }
         }
 
-        public Repository<Player> Players
+        public Repository<Players> Players
         {
-            get { return mapper.GetRepository<Player>(); }
+            get { return mapper.GetRepository<Players>(); }
         }
-        public Repository<Team> Teams
+        public Repository<Teams> Teams
         {
-            get { return mapper.GetRepository<Team>(); }
+            get { return mapper.GetRepository<Teams>(); }
         }
 
         public void SaveChanges()

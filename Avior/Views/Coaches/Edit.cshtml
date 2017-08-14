@@ -1,4 +1,5 @@
-﻿@model Avior.Models.Coaches.CoachEditModel
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Coaches.CoachEditModel
 
 @{ 
     var command = Model.Command;
@@ -63,7 +64,7 @@
 
             <div class="form-group row">
                 <div class="col-md-2">
-                    @Resources.Coach.LabelTeam
+                    @Resources.Coach.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
                 </div>
                 <div class="col-md-8">
                     @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID))

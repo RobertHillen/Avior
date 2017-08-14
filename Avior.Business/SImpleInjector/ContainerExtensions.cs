@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SimpleInjector;
 using Avior.Base.Helpers;
 using Avior.Base.Interfaces;
 using Avior.Business.Queries;
 using Avior.Business.UnitOfWork;
-using Avior.Database.Data;
-using Avior.Business.Commands.Coach;
-using Avior.Business.Commands;
+using Avior.Database.Entity;
 
-namespace Avior.Business.SImpleInjector
+namespace Avior.Business.SimpleInjector
 {
     public static class ContainerExtensions
     {
@@ -24,7 +18,7 @@ namespace Avior.Business.SImpleInjector
             // UnitOfWork
             container.Register<IDataUnitOfWork, DataUnitOfWork>(Lifestyle.Scoped);
             container.Register<IRepositoryMapper, EntityFrameWorkRepositoryMapper>(Lifestyle.Scoped);
-            container.Register<DbContext, AviorDbContext>(Lifestyle.Scoped);
+            container.Register<DbContext, AviorDbEntity>(Lifestyle.Scoped);
 
             // QueryHandling
             container.Register<IQueryProcessor, QueryProcessor>(Lifestyle.Scoped);

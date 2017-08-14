@@ -1,4 +1,7 @@
-﻿using Avior.Base;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Avior.Base;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
@@ -7,11 +10,6 @@ using Avior.Business.Queries.Coach;
 using Avior.Business.Queries.Team;
 using Avior.Business.Views.Coach;
 using Avior.Business.Views.Team;
-using Avior.Models.Coaches;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Avior.Helpers
 {

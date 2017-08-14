@@ -1,16 +1,16 @@
 ﻿using System;
 using Avior.Base.Interfaces;
-using Avior.Database.Models;
+using Avior.Database.Entity;
 
 namespace Avior.Business.UnitOfWork
 {
     public interface IDataUnitOfWork : IUnitOfWork
     {
-        Repository<Coach> Coaches { get; }
+        Repository<Coaches> Coaches { get; }
 
-        Repository<Player> Players { get; }
+        Repository<Players> Players { get; }
 
-        Repository<Team> Teams { get; }
+        Repository<Teams> Teams { get; }
 
         void ExecuteWithoutChangeTracking(Action action);
     }

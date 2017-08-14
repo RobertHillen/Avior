@@ -28,14 +28,10 @@ namespace Avior.Business.Queries.Coach
                          where c.ID == parameters.ID
                          select c).SingleOrDefault().ToCoachDisplayView();
 
-            coach.Team = (from t in _uow.Teams
-                          where t.ID == coach.Team.ID
-                          select t).SingleOrDefault().ToTeamDisplayView();
-
             coach.Players = (from p in _uow.Players
                              where p.TeamID == coach.Team.ID
                              orderby p.Name
-                             select p).ToPlayerListView();
+                             select p).ToArray();
 
             return coach;
         }

@@ -260,12 +260,11 @@
     <Content Include="Views\Coaches\Delete.cshtml" />
     <Content Include="Views\Coaches\Details.cshtml" />
     <Content Include="Views\Coaches\Edit.cshtml" />
-    <Content Include="Views\Coaches\Index.cshtml" />
     <Content Include="Views\Shared\_TableModifyButtons.cshtml" />
+    <Content Include="Views\Coaches\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

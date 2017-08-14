@@ -21,19 +21,9 @@ namespace Avior.Business.Queries.Coach
 
         public IQueryable<CoachDetailView> Handle(GetCoachListQuery parameters)
         {
-            var teams = (from t in _uow.Teams
-                         select t).ToTeamListView().ToList();
-
             var coaches = (from c in _uow.Coaches
                            select c).ToCoachListView().ToList();
 
-            foreach (var coach in coaches)
-            {
-                coach.Team = (from t in teams
-                              where t.ID == coach.Team.ID
-                              select t).SingleOrDefault();
-            }
-            
             return coaches.OrderBy(m => m.Team.Name)
                           .AsQueryable();
         }

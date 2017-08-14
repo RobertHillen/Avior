@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Avior.Base.Enums
+﻿namespace Avior.Base.Enums
 {
     public enum HtmlSelectOption
     {

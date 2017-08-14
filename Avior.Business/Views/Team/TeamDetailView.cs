@@ -1,6 +1,6 @@
 ﻿using System;
 using Avior.Base.Enums;
-using System.Globalization;
+using Avior.Business.Helpers;
 
 namespace Avior.Business.Views.Team
 {
@@ -24,23 +24,12 @@ namespace Avior.Business.Views.Team
 
         public string Training1()
         {
-            var culture = new CultureInfo("nl-NL");
-
-            return $"{culture.DateTimeFormat.GetDayName(TrainingDay1)} {TrainingTime1.ToString(@"hh\.mm")}";
+            return TeamHelpers.TrainingDayTime(TrainingDay1, TrainingTime1);
         }
 
         public string Training2()
         {
-            if (TrainingDay2 != null)
-            {
-                var culture = new CultureInfo("nl-NL");
-                var t = ((TimeSpan)TrainingTime2).ToString(@"hh\.mm");
-
-                return $"{culture.DateTimeFormat.GetDayName((DayOfWeek)TrainingDay2)} {((TimeSpan)TrainingTime2).ToString(@"hh\.mm")}";
-            }
-            else
-                return string.Empty;
+            return TeamHelpers.TrainingDayTime(TrainingDay2, TrainingTime2);
         }
-
     }
 }

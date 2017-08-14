@@ -28,14 +28,14 @@ namespace Avior.Business.Queries.Team
 
         public TeamHtmlSelectView[] Handle(GetTeamHtmlSelectQuery parameters)
         {
-            var collection = (from team in uow.Teams
-                              orderby team.Name
-                              select team).ToTeamHtmlSelectView().ToArray();
+            var teams = (from team in uow.Teams
+                         orderby team.Name
+                         select team).ToTeamHtmlSelectView().ToArray();
 
-            return ApplyOption(collection, parameters);
+            return ApplyOption(teams, parameters);
         }
 
-        private TeamHtmlSelectView[] ApplyOption(TeamHtmlSelectView[] collection, GetTeamHtmlSelectQuery parameters)
+        private TeamHtmlSelectView[] ApplyOption(TeamHtmlSelectView[] teams, GetTeamHtmlSelectQuery parameters)
         {
             switch (parameters.HtmlSelectOption)
             {
@@ -48,25 +48,24 @@ namespace Avior.Business.Queries.Team
                             Value = Constants.Invalid_Id
                         }
                     };
-                    return AddRowToCollection(collection, string.Empty, Constants.Invalid_Id);
+                    return AddRowToCollection(teams, string.Empty, Constants.Invalid_Id);
                 case HtmlSelectOption.FirstRow_DefaultText:
-                    return AddRowToCollection(collection, Resources.Generic.SelectATeam, Constants.Invalid_Id);
+                    return AddRowToCollection(teams, Resources.Generic.SelectATeam, Constants.Invalid_Id);
                 case HtmlSelectOption.FirstRow_CustomText:
-                    return AddRowToCollection(collection,
-                        string.IsNullOrEmpty(parameters.HtmlSelectOption_CustomText)
-                            ? Resources.Generic.SelectATeam
-                            : parameters.HtmlSelectOption_CustomText, Constants.Invalid_Id);
+                    return AddRowToCollection(teams, string.IsNullOrEmpty(parameters.HtmlSelectOption_CustomText)
+                                                        ? Resources.Generic.SelectATeam
+                                                        : parameters.HtmlSelectOption_CustomText, Constants.Invalid_Id);
                 case HtmlSelectOption.None:
                 default:
-                    return collection;
+                    return teams;
             }
         }
 
-        public TeamHtmlSelectView[] AddRowToCollection(TeamHtmlSelectView[] collection, string key, decimal value)
+        public TeamHtmlSelectView[] AddRowToCollection(TeamHtmlSelectView[] teams, string key, decimal value)
         {
-            var result = new TeamHtmlSelectView[collection.Length + 1];
+            var result = new TeamHtmlSelectView[teams.Length + 1];
             result[0] = new TeamHtmlSelectView { Key = key, Value = value };
-            collection.CopyTo(result, 1);
+            teams.CopyTo(result, 1);
             return result;
         }
     }

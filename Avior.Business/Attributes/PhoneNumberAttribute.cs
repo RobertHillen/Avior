@@ -1,10 +1,10 @@
-﻿using Avior.Business.Resources;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Resources;
 using System.Web.Mvc;
+using Avior.Business.Resources;
 
 namespace Avior.Business.Attributes
 {
@@ -29,7 +29,7 @@ namespace Avior.Business.Attributes
             yield return new ModelClientValidationRule
             {
                 ErrorMessage = errorMessage,
-                ValidationType = "fiscalnumber"
+                ValidationType = "phonenumber"
             };
         }
 

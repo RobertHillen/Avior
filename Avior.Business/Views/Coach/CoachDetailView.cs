@@ -1,7 +1,7 @@
-﻿using Avior.Base.Interfaces;
-using Avior.Business.Views.Player;
+﻿using System;
+using Avior.Business.Helpers;
 using Avior.Business.Views.Team;
-using System.Linq;
+using Avior.Database.Entity;
 
 namespace Avior.Business.Views.Coach
 {
@@ -17,6 +17,26 @@ namespace Avior.Business.Views.Coach
 
         public TeamDetailView Team { get; set; }
 
-        public IQueryable<PlayerDetailView> Players { get; set; }
+        public Players[] Players { get; set; }
+
+        public string Training1()
+        {
+            if (Team != null)
+            {
+                return TeamHelpers.TrainingDayTime((DayOfWeek)Team.TrainingDay1, Team.TrainingTime1);
+            }
+            else
+                return string.Empty;
+        }
+
+        public string Training2()
+        {
+            if (Team != null)
+            {
+                return TeamHelpers.TrainingDayTime((DayOfWeek)Team.TrainingDay2, Team.TrainingTime2);
+            }
+            else
+                return string.Empty;
+        }
     }
 }

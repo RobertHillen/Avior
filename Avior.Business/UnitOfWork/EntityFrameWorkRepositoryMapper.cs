@@ -1,5 +1,4 @@
-﻿using Avior.Base.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -7,7 +6,7 @@ using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Avior.Base.Helpers;
 
 namespace Avior.Business.UnitOfWork
 {
@@ -134,13 +133,6 @@ namespace Avior.Business.UnitOfWork
 
         #region Helpers
 
-        /// <summary>
-        ///     Finds an SqlException with the specified number within the exception recursively.
-        ///     Sql error messages: http://msdn.microsoft.com/en-us/library/cc645611.aspx
-        /// </summary>
-        /// <param name="e"></param>
-        /// <param name="number"></param>
-        /// <returns></returns>
         private SqlException GetSqlExceptionWithNumber(Exception e, int number)
         {
             var asSqlException = e as SqlException;

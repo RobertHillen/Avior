@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,23 +53,63 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\AviorDbContext.cs" />
-    <Compile Include="Data\AviorInitializer.cs" />
-    <Compile Include="Models\Coach.cs" />
-    <Compile Include="Models\Player.cs" />
-    <Compile Include="Models\Team.cs" />
+    <Compile Include="Entity\AviorDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AviorDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AviorDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AviorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AviorDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AviorDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Coaches.cs">
+      <DependentUpon>AviorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\C__MigrationHistory.cs">
+      <DependentUpon>AviorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Players.cs">
+      <DependentUpon>AviorDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Teams.cs">
+      <DependentUpon>AviorDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entity\AviorDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AviorDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\AviorDB.edmx.diagram">
+      <DependentUpon>AviorDB.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Avior.Base\Avior.Base.csproj">
-      <Project>{0752dfc3-82ee-4a3d-bff2-ada86996fd4d}</Project>
-      <Name>Avior.Base</Name>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entity\AviorDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AviorDB.edmx</DependentUpon>
+      <LastGenOutput>AviorDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\AviorDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AviorDB.edmx</DependentUpon>
+      <LastGenOutput>AviorDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

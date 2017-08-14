@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Avior.Base;
 using Avior.Base.Interfaces;
 using Avior.Business.UnitOfWork;
 using Avior.Business.UnitOfWork.Extensions;
 using Avior.Business.Attributes;
-using Avior.Base;
 
 namespace Avior.Business.Commands.Coach
 {
@@ -45,7 +45,7 @@ namespace Avior.Business.Commands.Coach
             coach.Name = command.Name;
             coach.Email = command.Email;
             coach.PhoneNumber = command.PhoneNumber;
-            coach.TeamID = command.TeamID;
+            coach.Team = command.TeamID != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamID) : null;
 
             uow.SaveChanges();
         }

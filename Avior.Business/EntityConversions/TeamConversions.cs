@@ -1,17 +1,14 @@
-﻿using Avior.Base.Enums;
-using Avior.Business.Views.Team;
-using Avior.Database.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Avior.Base.Enums;
+using Avior.Business.Views.Team;
+using Avior.Database.Entity;
 
 namespace Avior.Business.EntityConversions
 {
     internal static class TeamConversions
     {
-        internal static IQueryable<TeamHtmlSelectView> ToTeamHtmlSelectView(this IQueryable<Team> teams)
+        internal static IQueryable<TeamHtmlSelectView> ToTeamHtmlSelectView(this IQueryable<Teams> teams)
         {
             return from team in teams
                    orderby team.Name
@@ -22,33 +19,33 @@ namespace Avior.Business.EntityConversions
                    };
         }
 
-        internal static IQueryable<TeamDetailView> ToTeamListView(this IQueryable<Team> teams)
+        internal static IQueryable<TeamDetailView> ToTeamListView(this IQueryable<Teams> teams)
         {
             return from team in teams
                    select new TeamDetailView
                    {
                        ID = team.ID,
-                       Season = team.Season,
-                       Category = team.Category,
+                       Season = (enuSeason)team.Season,
+                       Category = (enuCategory)team.Category,
                        Name = team.Name,
-                       TrainingDay1 = team.TrainingDay1,
+                       TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                        TrainingTime1 = team.TrainingTime1,
-                       TrainingDay2 = team.TrainingDay2,
+                       TrainingDay2 = (DayOfWeek)team.TrainingDay2,
                        TrainingTime2 = team.TrainingTime2
                    };
         }
 
-        internal static TeamDetailView ToTeamDisplayView(this Team team)
+        internal static TeamDetailView ToTeamDetailView(this Teams team)
         {
             return new TeamDetailView
             {
                 ID = team.ID,
-                Season = team.Season,
-                Category = team.Category,
+                Season = (enuSeason)team.Season,
+                Category = (enuCategory)team.Category,
                 Name = team.Name,
-                TrainingDay1 = team.TrainingDay1,
+                TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                 TrainingTime1 = team.TrainingTime1,
-                TrainingDay2 = team.TrainingDay2,
+                TrainingDay2 = team.TrainingDay2 == null ? null : (DayOfWeek?)team.TrainingDay2,
                 TrainingTime2 = team.TrainingTime2
             };
         }

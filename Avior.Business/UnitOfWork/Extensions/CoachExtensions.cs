@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using Avior.Base.Helpers;
-using Avior.Database.Models;
+using Avior.Database.Entity;
 
 namespace Avior.Business.UnitOfWork.Extensions
 {
     public static class CoachExtensions
     {
-        public static Coach GetById(this IQueryable<Coach> collection, int id)
+        public static Coaches GetById(this IQueryable<Coaches> collection, int id)
         {
             var coach = collection.SingleOrDefault(e => e.ID == id);
             if (coach == null)
