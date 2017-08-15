@@ -35,14 +35,14 @@ namespace Avior.Business.Attributes
 
         public override bool IsValid(object value)
         {
+            if (value == null)
+            {
+                return true;
+            }
+
             if (value is string)
             {
                 var stringValue = (string)value;
-
-                if (string.IsNullOrEmpty(stringValue))
-                {
-                    return true;
-                }
 
                 bool ok = checkNumberOfDigits(stringValue);
                 ok = ok && checkInvalidChars(stringValue);

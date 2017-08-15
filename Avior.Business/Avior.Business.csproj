@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Attributes\PhoneNumberAttribute.cs" />
     <Compile Include="Code\AviorController.cs" />
+    <Compile Include="Commands\Coach\AddCoachCommand.cs" />
     <Compile Include="Commands\Coach\DeleteCoachCommand.cs" />
     <Compile Include="Commands\Coach\EditCoachCommand.cs" />
     <Compile Include="EntityConversions\CoachConversions.cs" />

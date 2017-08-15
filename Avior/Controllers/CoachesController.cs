@@ -11,6 +11,7 @@ namespace Avior.Controllers
 {
     public class CoachesController : AviorController
     {
+        private readonly ICommandHandler<AddCoachCommand> _addCoachCommand;
         private readonly ICommandHandler<EditCoachCommand> _editCoachCommand;
         private readonly ICommandHandler<DeleteCoachCommand> _deleteCoachCommand;
         private readonly QueryExecutor _queryExecutor;
@@ -18,10 +19,12 @@ namespace Avior.Controllers
         #region Constructor
 
         public CoachesController(
+            ICommandHandler<AddCoachCommand> addCoachCommand,
             ICommandHandler<EditCoachCommand> editCoachCommand,
             ICommandHandler<DeleteCoachCommand> deleteCoachCommand,
             QueryExecutor queryExecutor)
         {
+            _addCoachCommand = addCoachCommand;
             _editCoachCommand = editCoachCommand;
             _deleteCoachCommand = deleteCoachCommand;
             _queryExecutor = queryExecutor;
@@ -56,6 +59,31 @@ namespace Avior.Controllers
 
         #endregion
 
+        #region Add
+
+        public ActionResult Add()
+        {
+            var model = GetAddData();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Add(AddCoachCommand command)
+        {
+            if (ModelState.IsValid)
+            {
+                _addCoachCommand.Handle(command);
+                return RedirectToAction("Index");
+            }
+
+            var model = GetAddData();
+            model.Command = command;
+            return View(model);
+        }
+
+        #endregion
+
         #region Edit
 
         public ActionResult Edit(int id)
@@ -82,24 +110,6 @@ namespace Avior.Controllers
 
         #endregion
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Create(Coaches coach)
-        {
-            if (ModelState.IsValid)
-            {
-                //db.Coaches.Add(coach);
-                //db.SaveChanges();
-                return RedirectToAction("List");
-            }
-
-            return View(coach);
-        }
-
         #region Delete
 
         public ActionResult Delete(int Id)
@@ -120,6 +130,17 @@ namespace Avior.Controllers
         #endregion
 
         #region Private helpers
+
+        private CoachAddModel GetAddData()
+        {
+            var model = new CoachAddModel
+            {
+                Command = new AddCoachCommand(),
+                Teams = _queryExecutor.GetTeamHtmlSelectList(this, HtmlSelectOption.None)
+            };
+
+            return model;
+        }
 
         private CoachEditModel GetEditData(int Id)
         {
