@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  Verwijderen.
+        /// </summary>
+        internal static string LabelVerwijderen {
+            get {
+                return ResourceManager.GetString("LabelVerwijderen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  Wijzigen.
         /// </summary>
         internal static string LabelWijzigen {

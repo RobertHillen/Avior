@@ -129,6 +129,9 @@
   <data name="LabelOverzicht" xml:space="preserve">
     <value> Overzicht</value>
   </data>
+  <data name="LabelVerwijderen" xml:space="preserve">
+    <value> Verwijderen</value>
+  </data>
   <data name="LabelWijzigen" xml:space="preserve">
     <value> Wijzigen</value>
   </data>

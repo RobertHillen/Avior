@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
@@ -13,15 +12,18 @@ namespace Avior.Controllers
     public class CoachesController : AviorController
     {
         private readonly ICommandHandler<EditCoachCommand> _editCoachCommand;
+        private readonly ICommandHandler<DeleteCoachCommand> _deleteCoachCommand;
         private readonly QueryExecutor _queryExecutor;
 
         #region Constructor
 
         public CoachesController(
             ICommandHandler<EditCoachCommand> editCoachCommand,
+            ICommandHandler<DeleteCoachCommand> deleteCoachCommand,
             QueryExecutor queryExecutor)
         {
             _editCoachCommand = editCoachCommand;
+            _deleteCoachCommand = deleteCoachCommand;
             _queryExecutor = queryExecutor;
         }
 
@@ -98,30 +100,24 @@ namespace Avior.Controllers
             return View(coach);
         }
 
-        public ActionResult Delete(int? id)
+        #region Delete
+
+        public ActionResult Delete(int Id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            //Coaches coach = db.Coaches.Find(id);
-            //if (coach == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //return View(coach);
-            return View();
+            var model = GetDetailData(Id);
+
+            return View(model);
         }
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int Id)
         {
-            //Coaches coach = db.Coaches.Find(id);
-            //db.Coaches.Remove(coach);
-            //db.SaveChanges();
+            _deleteCoachCommand.Handle(new DeleteCoachCommand { ID = Id });
 
             return RedirectToAction("List");
         }
+
+        #endregion
 
         #region Private helpers
 

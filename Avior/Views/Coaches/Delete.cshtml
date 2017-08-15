@@ -1,56 +1,75 @@
-﻿@model Avior.Database.Models.Coach
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Coaches.CoachDetailModel
 
-@{
-    ViewBag.Title = "Delete";
-}
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Coach</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TeamID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TeamID)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelCoaches / @Resources.General.LabelVerwijderen</a>
         </div>
-    }
-</div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Resources.Coach.LabelNaam
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Name
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Resources.Coach.LabelTelefoon
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.PhoneNumber
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Resources.Coach.LabelEmail
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Email
+                </div>
+            </div>
+            @if (Model.Details.Team != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        @Resources.Coach.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                    </div>
+                    <div class="col-md-6">
+                        @Model.Details.Team.Name
+                    </div>
+                </div>
+            }
+            
+            <div class="form-group row">
+                <div class="col-md-offset-3 col-md-6">
+                <input type="submit" value="Verwijderen" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @Html.HiddenFor(m => Model.Details.ID)
+}
