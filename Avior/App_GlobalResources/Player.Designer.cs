@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class General {
+    internal class Player {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal General() {
+        internal Player() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.General", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Player", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,47 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Coaches.
+        ///   Looks up a localized string similar to Naam.
         /// </summary>
-        internal static string LabelCoaches {
+        internal static string LabelNaam {
             get {
-                return ResourceManager.GetString("LabelCoaches", resourceCulture);
+                return ResourceManager.GetString("LabelNaam", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Details.
+        ///   Looks up a localized string similar to Speler.
         /// </summary>
-        internal static string LabelDetails {
+        internal static string LabelPlayer {
             get {
-                return ResourceManager.GetString("LabelDetails", resourceCulture);
+                return ResourceManager.GetString("LabelPlayer", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Nieuw.
+        ///   Looks up a localized string similar to Seizoen.
         /// </summary>
-        internal static string LabelNieuw {
+        internal static string LabelSeizoen {
             get {
-                return ResourceManager.GetString("LabelNieuw", resourceCulture);
+                return ResourceManager.GetString("LabelSeizoen", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Overzicht.
+        ///   Looks up a localized string similar to Team.
         /// </summary>
-        internal static string LabelOverzicht {
+        internal static string LabelTeam {
             get {
-                return ResourceManager.GetString("LabelOverzicht", resourceCulture);
+                return ResourceManager.GetString("LabelTeam", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spelers.
+        ///   Looks up a localized string similar to Telefoon.
         /// </summary>
-        internal static string LabelPlayers {
+        internal static string LabelTelefoon {
             get {
-                return ResourceManager.GetString("LabelPlayers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  Verwijderen.
-        /// </summary>
-        internal static string LabelVerwijderen {
-            get {
-                return ResourceManager.GetString("LabelVerwijderen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  Wijzigen.
-        /// </summary>
-        internal static string LabelWijzigen {
-            get {
-                return ResourceManager.GetString("LabelWijzigen", resourceCulture);
+                return ResourceManager.GetString("LabelTelefoon", resourceCulture);
             }
         }
     }

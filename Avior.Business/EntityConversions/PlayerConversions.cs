@@ -1,6 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Avior.Base.Enums;
 using Avior.Business.Views.Player;
+using Avior.Business.Views.Team;
 using Avior.Database.Entity;
+using Avior.Business.Commands.Player;
+using Avior.Base;
 
 namespace Avior.Business.EntityConversions
 {
@@ -14,8 +19,40 @@ namespace Avior.Business.EntityConversions
                        ID = player.ID,
                        Name = player.Name,
                        PhoneNumber = player.PhoneNumber,
-                       Team = player.Team
+                       Team = new TeamDetailView
+                       {
+                           ID = player.Team.ID,
+                           Season = (enuSeason)player.Team.Season,
+                           Category = (enuCategory)player.Team.Category,
+                           Name = player.Team.Name,
+                           TrainingDay1 = (DayOfWeek)player.Team.TrainingDay1,
+                           TrainingTime1 = player.Team.TrainingTime1,
+                           TrainingDay2 = (DayOfWeek)player.Team.TrainingDay2,
+                           TrainingTime2 = player.Team.TrainingTime2
+                       }
                    };
+        }
+
+        internal static PlayerDetailView ToPlayerDisplayView(this Players player)
+        {
+            return new PlayerDetailView()
+            {
+                ID = player.ID,
+                Name = player.Name,
+                PhoneNumber = player.PhoneNumber,
+                Team = player.Team.ToTeamDetailView()
+            };
+        }
+
+        internal static EditPlayerCommand ToEditPlayerCommand(this Players player)
+        {
+            return new EditPlayerCommand
+            {
+                ID = player.ID,
+                Name = player.Name,
+                PhoneNumber = player.PhoneNumber,
+                TeamID = player.Team == null ? Constants.Invalid_Id : player.Team.ID
+            };
         }
     }
 }

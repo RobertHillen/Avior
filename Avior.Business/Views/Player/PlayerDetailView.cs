@@ -1,4 +1,6 @@
-﻿using Avior.Database.Entity;
+﻿using Avior.Business.Views.Coach;
+using Avior.Business.Views.Team;
+using Avior.Database.Entity;
 
 namespace Avior.Business.Views.Player
 {
@@ -9,6 +11,7 @@ namespace Avior.Business.Views.Player
         public string Name { get; set; }
 
         public string PhoneNumber { get; set; }
-        public Teams Team { get; set; }
+
+        public TeamDetailView Team { get; set; }
     }
 }

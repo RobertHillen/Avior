@@ -7,9 +7,12 @@ using Avior.Base.Interfaces;
 using Avior.Business.Code;
 using Avior.Business.Commands.Coach;
 using Avior.Business.Queries.Coach;
+using Avior.Business.Queries.Player;
 using Avior.Business.Queries.Team;
 using Avior.Business.Views.Coach;
+using Avior.Business.Views.Player;
 using Avior.Business.Views.Team;
+using Avior.Business.Commands.Player;
 
 namespace Avior.Helpers
 {
@@ -63,6 +66,52 @@ namespace Avior.Helpers
             {
                 ThrowOrAddModelError(controller, e);
                 return new EditCoachCommand();
+            }
+        }
+
+        #endregion
+
+        #region Player
+
+        public IQueryable<PlayerDetailView> GetPlayerList(AviorController controller)
+        {
+            try
+            {
+                var query = new GetPlayerListQuery();
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new List<PlayerDetailView>().AsQueryable();
+            }
+        }
+
+        public PlayerDetailView GetPlayerDetails(AviorController controller, int Id)
+        {
+            try
+            {
+                var query = new GetPlayerDetailsQuery() { ID = Id };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new PlayerDetailView();
+            }
+        }
+
+        public EditPlayerCommand GetPlayerEdit(AviorController controller, int playerId)
+        {
+            try
+            {
+                var query = new GetPlayerEditQuery { Id = playerId };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new EditPlayerCommand();
             }
         }
 

@@ -1,0 +1,62 @@
+﻿@using System.Linq.Expressions
+@using Avior.Base.Helpers
+@model Avior.Models.Players.PlayerListModel
+
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelPlayers</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Add")'><i class="fa fa-plus-circle"></i>@Resources.General.LabelNieuw</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Resources.Player.LabelPlayer</th>
+            <th>@Resources.Player.LabelTelefoon</th>
+            <th>@Resources.Player.LabelTeam</th>
+            <th>@Resources.Player.LabelSeizoen</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PlayerList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor((Expression<Func<Avior.Models.Players.PlayerListModel, string>>)(modelItem => item.Team.Name))
+                </td>
+                <td>
+                    @item.Team.Season.GetDisplayName()
+                </td>
+                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.ID } })
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+}

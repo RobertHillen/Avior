@@ -1,0 +1,67 @@
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Players.PlayerDetailModel
+
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelPlayers / @Resources.General.LabelVerwijderen</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Resources.Player.LabelNaam
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Name
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    @Resources.Player.LabelTelefoon
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.PhoneNumber
+                </div>
+            </div>
+            @if (Model.Details.Team != null)
+            {
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        @Resources.Player.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                    </div>
+                    <div class="col-md-6">
+                        @Model.Details.Team.Name
+                    </div>
+                </div>
+            }
+
+            <div class="form-group row">
+                <div class="col-md-offset-3 col-md-6">
+                    <input type="submit" value="Verwijderen" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.HiddenFor(m => Model.Details.ID)
+}

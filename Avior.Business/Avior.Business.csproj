@@ -93,6 +93,9 @@
     <Compile Include="Commands\Coach\AddCoachCommand.cs" />
     <Compile Include="Commands\Coach\DeleteCoachCommand.cs" />
     <Compile Include="Commands\Coach\EditCoachCommand.cs" />
+    <Compile Include="Commands\Player\AddPlayerCommand.cs" />
+    <Compile Include="Commands\Player\DeletePlayerCommand.cs" />
+    <Compile Include="Commands\Player\EditPlayerCommand.cs" />
     <Compile Include="EntityConversions\CoachConversions.cs" />
     <Compile Include="EntityConversions\PlayerConversions.cs" />
     <Compile Include="EntityConversions\TeamConversions.cs" />
@@ -101,6 +104,9 @@
     <Compile Include="Queries\Coach\GetCoachDetailsQuery.cs" />
     <Compile Include="Queries\Coach\GetCoachEditQuery.cs" />
     <Compile Include="Queries\Coach\GetCoachListQuery.cs" />
+    <Compile Include="Queries\Player\GetPlayerDetailsQuery.cs" />
+    <Compile Include="Queries\Player\GetPlayerEditQuery.cs" />
+    <Compile Include="Queries\Player\GetPlayerListQuery.cs" />
     <Compile Include="Queries\QueryProcessor.cs" />
     <Compile Include="Queries\Team\GetTeamHtmlSelectQuery.cs" />
     <Compile Include="Resources\Coach.Designer.cs">
@@ -112,6 +118,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Generic.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Player.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Player.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Team.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +138,7 @@
     <Compile Include="UnitOfWork\DataUnitOfWork.cs" />
     <Compile Include="UnitOfWork\EntityFrameWorkRepositoryMapper.cs" />
     <Compile Include="UnitOfWork\Extensions\CoachExtensions.cs" />
+    <Compile Include="UnitOfWork\Extensions\PlayerExtensions.cs" />
     <Compile Include="UnitOfWork\Extensions\TeamExtensions.cs" />
     <Compile Include="UnitOfWork\IDataUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IRepositoryMapper.cs" />
@@ -159,6 +171,10 @@
     <EmbeddedResource Include="Resources\Generic.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Generic.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Player.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Player.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Team.resx">
       <Generator>ResXFileCodeGenerator</Generator>

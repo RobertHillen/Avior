@@ -117,25 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LabelCoaches" xml:space="preserve">
-    <value>Coaches</value>
+  <data name="ExceptionEntityDescription" xml:space="preserve">
+    <value>de speler</value>
   </data>
-  <data name="LabelDetails" xml:space="preserve">
-    <value>Details</value>
+  <data name="ExceptionIdentifierDescriptionId" xml:space="preserve">
+    <value>ID</value>
   </data>
-  <data name="LabelNieuw" xml:space="preserve">
-    <value> Nieuw</value>
+  <data name="ListLabelName" xml:space="preserve">
+    <value>Naam</value>
   </data>
-  <data name="LabelOverzicht" xml:space="preserve">
-    <value> Overzicht</value>
-  </data>
-  <data name="LabelPlayers" xml:space="preserve">
-    <value>Spelers</value>
-  </data>
-  <data name="LabelVerwijderen" xml:space="preserve">
-    <value> Verwijderen</value>
-  </data>
-  <data name="LabelWijzigen" xml:space="preserve">
-    <value> Wijzigen</value>
+  <data name="ListLabelPhoneNumber" xml:space="preserve">
+    <value>Telefoon</value>
   </data>
 </root>

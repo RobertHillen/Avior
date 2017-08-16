@@ -1,0 +1,81 @@
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Players.PlayerEditModel
+
+@{
+    var command = Model.Command;
+    var teams = Model.Teams;
+}
+
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelPlayers / @Resources.General.LabelWijzigen</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <br />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Player.LabelNaam
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(m => command.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => command.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Player.LabelTelefoon
+                </div>
+                <div class="col-md-8">
+                    @Html.EditorFor(m => command.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => command.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-2">
+                    @Resources.Player.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                </div>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID))
+                    @Html.ValidationMessageFor(m => command.TeamID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @Html.HiddenFor(m => command.ID)
+            @Html.HiddenFor(m => command.Name)
+            @Html.HiddenFor(m => command.PhoneNumber)
+            @Html.HiddenFor(m => command.TeamID)
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-8">
+                    <input type="submit" value="Opslaan" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

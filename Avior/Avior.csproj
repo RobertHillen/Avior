@@ -176,12 +176,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>General.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Player.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Player.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CoachesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +196,10 @@
     <Compile Include="Models\Coaches\CoachDetailModel.cs" />
     <Compile Include="Models\Coaches\CoachEditModel.cs" />
     <Compile Include="Models\Coaches\CoachListModel.cs" />
+    <Compile Include="Models\Players\PlayerAddModel.cs" />
+    <Compile Include="Models\Players\PlayerDetailModel.cs" />
+    <Compile Include="Models\Players\PlayerEditModel.cs" />
+    <Compile Include="Models\Players\PlayerListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +273,10 @@
     <Content Include="Views\Coaches\Edit.cshtml" />
     <Content Include="Views\Shared\_TableModifyButtons.cshtml" />
     <Content Include="Views\Coaches\List.cshtml" />
+    <Content Include="Views\Players\List.cshtml" />
+    <Content Include="Views\Players\Details.cshtml" />
+    <Content Include="Views\Players\Edit.cshtml" />
+    <Content Include="Views\Players\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -300,6 +314,12 @@
     <Content Include="App_GlobalResources\General.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>General.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Player.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Player.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
