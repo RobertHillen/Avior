@@ -6,6 +6,9 @@
     <title>@ViewBag.Title - Avior Volleybal Training</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
     <div class="navbar-sm navbar-inverse navbar-fixed-top">
@@ -25,7 +28,7 @@
                     <li>@Html.ActionLink("Teams", "Index", "Teams")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("About", "Index", "About")</li>
+                    <li>@Html.ActionLink("Log", "Index", "Log")</li>
                 </ul>
             </div>
         </div>
@@ -38,8 +41,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

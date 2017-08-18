@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Avior.Business.Helpers
 {
-    public static class TeamHelpers
+    public static class TeamHelper
     {
         public static string TrainingDayTime(DayOfWeek? day, TimeSpan? time)
         {

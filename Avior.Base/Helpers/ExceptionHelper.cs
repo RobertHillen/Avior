@@ -3,11 +3,25 @@ using Avior.Base.Exceptions;
 
 namespace Avior.Base.Helpers
 {
-        public static class ExceptionHelper
-        {
-            #region ConstraintException
+    public static class ExceptionHelper
+    {
+        #region Avior Exception
 
-            public static AviorConstraintException CreateAviorConstraintException(Exception innerException)
+        public static AviorException CreateAviorException(string message)
+        {
+            return new AviorException(message);
+        }
+
+        public static AviorException CreateAviorException(string message, Exception innerException)
+        {
+            return new AviorException(message, innerException);
+        }
+
+        #endregion
+        
+        #region ConstraintException
+
+        public static AviorConstraintException CreateAviorConstraintException(Exception innerException)
             {
                 return new AviorConstraintException(innerException);
             }
@@ -28,62 +42,48 @@ namespace Avior.Base.Helpers
                 return new AviorDataNotFoundException(entityDescription, entityIdentifier, identifierDescription);
             }
 
-            #endregion
+        #endregion
 
-            #region Validation Exception
+        #region Validation Exception
 
-            //public static LynxValidationException CreateLynxValidationException(string message)
-            //{
-            //    return new LynxValidationException(message);
-            //}
+        //public static LynxValidationException CreateLynxValidationException(string message)
+        //{
+        //    return new LynxValidationException(message);
+        //}
 
-            //public static LynxValidationException CreateLynxValidationException(string message, Exception innerException)
-            //{
-            //    return new LynxValidationException(message, innerException);
-            //}
+        //public static LynxValidationException CreateLynxValidationException(string message, Exception innerException)
+        //{
+        //    return new LynxValidationException(message, innerException);
+        //}
 
-            #endregion
+        #endregion
 
-            #region Verification Exception
+        #region Verification Exception
 
-            //public static LynxVerificationException CreateLynxVerificationException(string message)
-            //{
-            //    return new LynxVerificationException(message);
-            //}
+        //public static LynxVerificationException CreateLynxVerificationException(string message)
+        //{
+        //    return new LynxVerificationException(message);
+        //}
 
-            //public static LynxVerificationException CreateLynxVerificationException(string message, Exception innerException)
-            //{
-            //    return new LynxVerificationException(message, innerException);
-            //}
+        //public static LynxVerificationException CreateLynxVerificationException(string message, Exception innerException)
+        //{
+        //    return new LynxVerificationException(message, innerException);
+        //}
 
-            #endregion
+        #endregion
 
-            #region Data Sql Exception
+        #region Data Sql Exception
 
-            //public static LynxSqlException CreateLynxSqlException()
-            //{
-            //    return new LynxSqlException();
-            //}
+        //public static LynxSqlException CreateLynxSqlException()
+        //{
+        //    return new LynxSqlException();
+        //}
 
-            //public static LynxSqlException CreateLynxSqlException(Exception innerException)
-            //{
-            //    return new LynxSqlException(innerException);
-            //}
+        //public static LynxSqlException CreateLynxSqlException(Exception innerException)
+        //{
+        //    return new LynxSqlException(innerException);
+        //}
 
-            #endregion
-
-            #region Avior Exception
-
-            //public static LynxException CreateLynxException(string message)
-            //{
-            //    return new LynxException(message);
-            //}
-
-            //public static LynxException CreateLynxException(string message, Exception innerException)
-            //{
-            //    return new LynxException(message, innerException);
-            //}
-
-            #endregion
-        }
+        #endregion
+    }
 }

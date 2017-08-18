@@ -90,4 +90,7 @@ tr th:last-child {
     background-color: #004990 !important;
 }
 
-
+.table.no-border tr td,
+.table.no-border tr th {
+    border-width: 0;
+}

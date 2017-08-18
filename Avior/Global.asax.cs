@@ -17,9 +17,7 @@ namespace Avior
 
         protected void Application_Start()
         {
-            log.Info("[ Starting Avior application ]");
-
-            log.Info("[ Initializing SimpleInjector ]");
+            log.Info("Starting Avior application");
 
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();

@@ -48,6 +48,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Enums\enuCategory.cs" />
     <Compile Include="Enums\HtmlSelectOption.cs" />
+    <Compile Include="Exceptions\AviorException.cs" />
     <Compile Include="Helpers\enumHelper.cs" />
     <Compile Include="Enums\enuSeason.cs" />
     <Compile Include="Exceptions\AviorConstraintException.cs" />

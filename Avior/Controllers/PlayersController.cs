@@ -5,6 +5,7 @@ using Avior.Business.Code;
 using Avior.Business.Commands.Player;
 using Avior.Helpers;
 using Avior.Models.Players;
+using log4net;
 
 namespace Avior.Controllers
 {
@@ -14,6 +15,8 @@ namespace Avior.Controllers
         private readonly ICommandHandler<EditPlayerCommand> _editPlayerCommand;
         private readonly ICommandHandler<DeletePlayerCommand> _deletePlayerCommand;
         private readonly QueryExecutor _queryExecutor;
+
+        private readonly ILog logger = LogManager.GetLogger(typeof(PlayersController));
 
         #region Constructor
 
@@ -40,6 +43,8 @@ namespace Avior.Controllers
 
         public ActionResult List()
         {
+            logger.Info("List");
+
             var model = GetListData();
 
             return View(model);
@@ -51,6 +56,8 @@ namespace Avior.Controllers
 
         public ActionResult Details(int id)
         {
+            logger.InfoFormat("Details Id: {0}", id);
+
             var model = GetDetailData(id);
 
             return View(model);
@@ -62,6 +69,8 @@ namespace Avior.Controllers
 
         public ActionResult Add()
         {
+            logger.Info("Add");
+
             var model = GetAddData();
 
             return View(model);
@@ -72,6 +81,8 @@ namespace Avior.Controllers
         {
             if (ModelState.IsValid)
             {
+                logger.InfoFormat("Add Save {0}", command.Name);
+
                 _addPlayerCommand.Handle(command);
                 return RedirectToAction("Index");
             }
@@ -87,6 +98,8 @@ namespace Avior.Controllers
 
         public ActionResult Edit(int id)
         {
+            logger.InfoFormat("Edit Id: {0}", id);
+
             var model = GetEditData(id);
 
             return View(model);
@@ -97,6 +110,8 @@ namespace Avior.Controllers
         {
             if (ModelState.IsValid)
             {
+                logger.InfoFormat("Edit Save {0}", command.ID);
+
                 _editPlayerCommand.Handle(command);
                 return RedirectToAction("Index");
             }
@@ -111,17 +126,21 @@ namespace Avior.Controllers
 
         #region Delete
 
-        public ActionResult Delete(int Id)
+        public ActionResult Delete(int id)
         {
-            var model = GetDetailData(Id);
+            logger.InfoFormat("Delete Id: {0} ?", id);
+
+            var model = GetDetailData(id);
 
             return View(model);
         }
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int Id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            _deletePlayerCommand.Handle(new DeletePlayerCommand { ID = Id });
+            logger.InfoFormat("Deleted Id: {0}", id);
+
+            _deletePlayerCommand.Handle(new DeletePlayerCommand { ID = id });
 
             return RedirectToAction("List");
         }

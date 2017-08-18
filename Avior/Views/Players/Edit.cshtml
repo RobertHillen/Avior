@@ -57,7 +57,7 @@
                     @Resources.Player.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
                 </div>
                 <div class="col-md-8">
-                    @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID))
+                    @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID), new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => command.TeamID, "", new { @class = "text-danger" })
                 </div>
             </div>

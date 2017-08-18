@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        internal static string LabelLog {
+            get {
+                return ResourceManager.GetString("LabelLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  Nieuw.
         /// </summary>
         internal static string LabelNieuw {

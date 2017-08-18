@@ -24,12 +24,12 @@ namespace Avior.Business.Views.Team
 
         public string Training1()
         {
-            return TeamHelpers.TrainingDayTime(TrainingDay1, TrainingTime1);
+            return TeamHelper.TrainingDayTime(TrainingDay1, TrainingTime1);
         }
 
         public string Training2()
         {
-            return TeamHelpers.TrainingDayTime(TrainingDay2, TrainingTime2);
+            return TeamHelper.TrainingDayTime(TrainingDay2, TrainingTime2);
         }
     }
 }

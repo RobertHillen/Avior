@@ -13,6 +13,9 @@ using Avior.Business.Views.Coach;
 using Avior.Business.Views.Player;
 using Avior.Business.Views.Team;
 using Avior.Business.Commands.Player;
+using Avior.Models.Log;
+using Avior.Business.Queries.Log;
+using Avior.Business.Views.Log;
 
 namespace Avior.Helpers
 {
@@ -136,6 +139,32 @@ namespace Avior.Helpers
                 return new[]
                 {
                     new TeamHtmlSelectView {Key = string.Empty, Value = Constants.Invalid_Id}
+                };
+            }
+        }
+
+        #endregion
+
+        #region Log 
+
+        public LogFileHtmlSelectView[] GetLogFileHtmlSelectList(AviorController controller, string root, HtmlSelectOption htmlSelectOption = HtmlSelectOption.None, string customText = null)
+        {
+            try
+            {
+                var query = new GetLogFileHtmlSelectQuery
+                {
+                    Root = root,
+                    HtmlSelectOption = htmlSelectOption,
+                    HtmlSelectOption_CustomText = customText
+                };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new[]
+                {
+                    new LogFileHtmlSelectView {Key = string.Empty, Value = Constants.Invalid_Id}
                 };
             }
         }

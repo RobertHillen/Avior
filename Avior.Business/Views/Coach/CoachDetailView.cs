@@ -23,7 +23,7 @@ namespace Avior.Business.Views.Coach
         {
             if (Team != null)
             {
-                return TeamHelpers.TrainingDayTime((DayOfWeek)Team.TrainingDay1, Team.TrainingTime1);
+                return TeamHelper.TrainingDayTime((DayOfWeek)Team.TrainingDay1, Team.TrainingTime1);
             }
             else
                 return string.Empty;
@@ -33,7 +33,7 @@ namespace Avior.Business.Views.Coach
         {
             if (Team != null)
             {
-                return TeamHelpers.TrainingDayTime((DayOfWeek)Team.TrainingDay2, Team.TrainingTime2);
+                return TeamHelper.TrainingDayTime((DayOfWeek)Team.TrainingDay2, Team.TrainingTime2);
             }
             else
                 return string.Empty;
