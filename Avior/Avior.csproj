@@ -300,6 +300,7 @@
     <Content Include="Views\Teams\Edit.cshtml" />
     <Content Include="Views\Teams\Delete.cshtml" />
     <Content Include="Views\Teams\Add.cshtml" />
+    <Content Include="Views\Players\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
