@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Coaches.
+        /// </summary>
+        internal static string LabelCoaches {
+            get {
+                return ResourceManager.GetString("LabelCoaches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email adres.
         /// </summary>
         internal static string LabelEmail {

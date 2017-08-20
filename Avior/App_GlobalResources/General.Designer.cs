@@ -115,6 +115,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Teams.
+        /// </summary>
+        internal static string LabelTeams {
+            get {
+                return ResourceManager.GetString("LabelTeams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  Verwijderen.
         /// </summary>
         internal static string LabelVerwijderen {

@@ -19,7 +19,7 @@ namespace Avior.Business.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ValidationMessage {
@@ -75,6 +75,15 @@ namespace Avior.Business.Resources {
         internal static string GenericPhoneNumberAttributeNoOfDigits {
             get {
                 return ResourceManager.GetString("GenericPhoneNumberAttributeNoOfDigits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waarde moet een tijd aanduiding zijn (hh:mm).
+        /// </summary>
+        internal static string GenericTimeSpanAttributeNoDisplayName {
+            get {
+                return ResourceManager.GetString("GenericTimeSpanAttributeNoDisplayName", resourceCulture);
             }
         }
     }

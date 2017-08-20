@@ -26,7 +26,7 @@ namespace Avior.Business.Queries.Coach
         {
             var coach = (from c in _uow.Coaches
                          where c.ID == parameters.ID
-                         select c).SingleOrDefault().ToCoachDisplayView();
+                         select c).SingleOrDefault().ToCoachDetailView();
 
             coach.Players = (from p in _uow.Players
                              where p.TeamID == coach.Team.ID

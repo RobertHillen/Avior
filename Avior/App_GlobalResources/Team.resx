@@ -117,13 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="GenericPhoneNumberAttributeNoDisplayName" xml:space="preserve">
-    <value>Waarde moet een telefoon nummer zijn</value>
+  <data name="LabelCategory" xml:space="preserve">
+    <value>Categorie</value>
   </data>
-  <data name="GenericPhoneNumberAttributeNoOfDigits" xml:space="preserve">
-    <value>Waarde moet 10 numerieke cijfers bevatten</value>
+  <data name="LabelName" xml:space="preserve">
+    <value>Naam</value>
   </data>
-  <data name="GenericTimeSpanAttributeNoDisplayName" xml:space="preserve">
-    <value>Waarde moet een tijd aanduiding zijn (hh:mm)</value>
+  <data name="LabelPlayers" xml:space="preserve">
+    <value>Spelers</value>
+  </data>
+  <data name="LabelSeason" xml:space="preserve">
+    <value>Seizoen</value>
+  </data>
+  <data name="LabelTeam" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="LabelTraining1" xml:space="preserve">
+    <value>Training 1</value>
+  </data>
+  <data name="LabelTraining2" xml:space="preserve">
+    <value>Training 2</value>
   </data>
 </root>

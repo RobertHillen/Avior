@@ -1,6 +1,8 @@
 ﻿using System;
 using Avior.Base.Enums;
 using Avior.Business.Helpers;
+using Avior.Business.Views.Coach;
+using Avior.Database.Entity;
 
 namespace Avior.Business.Views.Team
 {
@@ -21,6 +23,10 @@ namespace Avior.Business.Views.Team
         public DayOfWeek? TrainingDay2 { get; set; }
 
         public TimeSpan? TrainingTime2 { get; set; }
+
+        public Coaches[] Coaches { get; set; }
+
+        public Players[] Players { get; set; }
 
         public string Training1()
         {

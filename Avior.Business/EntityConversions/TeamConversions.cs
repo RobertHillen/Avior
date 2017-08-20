@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Avior.Base.Enums;
+using Avior.Business.Commands.Team;
 using Avior.Business.Views.Team;
 using Avior.Database.Entity;
 
@@ -30,7 +31,7 @@ namespace Avior.Business.EntityConversions
                        Name = team.Name,
                        TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                        TrainingTime1 = team.TrainingTime1,
-                       TrainingDay2 = (DayOfWeek)team.TrainingDay2,
+                       TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
                        TrainingTime2 = team.TrainingTime2
                    };
         }
@@ -45,7 +46,24 @@ namespace Avior.Business.EntityConversions
                 Name = team.Name,
                 TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                 TrainingTime1 = team.TrainingTime1,
-                TrainingDay2 = team.TrainingDay2 == null ? null : (DayOfWeek?)team.TrainingDay2,
+                TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
+                TrainingTime2 = team.TrainingTime2,
+                Coaches = team.Coaches.ToArray(),
+                Players = team.Players.ToArray()
+            };
+        }
+
+        internal static EditTeamCommand ToEditTeamCommand(this Teams team)
+        {
+            return new EditTeamCommand
+            {
+                ID = team.ID,
+                Season = (enuSeason)team.Season,
+                Category = (enuCategory)team.Category,
+                Name = team.Name,
+                TrainingDay1 = (DayOfWeek)team.TrainingDay1,
+                TrainingTime1 = team.TrainingTime1,
+                TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
                 TrainingTime2 = team.TrainingTime2
             };
         }

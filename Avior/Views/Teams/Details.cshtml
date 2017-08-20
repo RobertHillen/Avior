@@ -1,0 +1,136 @@
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Teams.TeamDetailModel
+
+<nav class="navbar-xs navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelTeams / @Resources.General.LabelDetails</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+                <li><a href='@Url.Action("Edit", new { id = Model.Details.ID })'><i class="fa fa-edit"></i>@Resources.General.LabelWijzigen</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="panel panel-default">
+    <div class="panel-heading avior-blue-background avior-orange">
+        @Resources.Team.LabelTeam
+    </div>
+    <div class="panel-body avior-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    @Resources.Team.LabelName
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Name
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    @Resources.Team.LabelSeason
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Season.GetDisplayName()
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    @Resources.Team.LabelCategory
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Category.GetDisplayName()
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    @Resources.Team.LabelTraining1
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Training1()
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    @Resources.Team.LabelTraining2
+                </div>
+                <div class="col-md-6">
+                    @Model.Details.Training2()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading avior-blue-background avior-orange">
+        @Resources.Coach.LabelCoaches
+    </div>
+    <div class="panel-body avior-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <span class="label label-default">@Resources.Coach.LabelNaam</span>
+                </div>
+                <div class="col-md-3">
+                    <span class="label label-default">@Resources.Coach.LabelEmail</span>
+                </div>
+                <div class="col-md-6">
+                    <span class="label label-default">@Resources.Coach.LabelTelefoon</span>
+                </div>
+            </div>
+            @foreach (var coach in Model.Details.Coaches)
+            {
+                <div class="row">
+                    <div class="col-md-3">
+                        @coach.Name
+                    </div>
+                    <div class="col-md-3">
+                        @coach.Email
+                    </div>
+                    <div class="col-md-6">
+                        @coach.PhoneNumber
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading avior-blue-background avior-orange">
+        @Resources.Player.LabelPlayers
+    </div>
+    <div class="panel-body avior-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <span class="label label-default">@Resources.Player.LabelNaam</span>
+                </div>
+                <div class="col-md-6">
+                    <span class="label label-default">@Resources.Player.LabelTelefoon</span>
+                </div>
+            </div>
+            @foreach (var player in Model.Details.Players)
+            {
+                <div class="row">
+                    <div class="col-md-3">
+                        @player.Name
+                    </div>
+                    <div class="col-md-6">
+                        @player.PhoneNumber
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

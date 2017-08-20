@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Player {
+    internal class Team {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Player() {
+        internal Team() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Player", global::System.Reflection.Assembly.Load("App_GlobalResources"));
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Resources.Team", global::System.Reflection.Assembly.Load("App_GlobalResources"));
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Naam.
+        ///   Looks up a localized string similar to Categorie.
         /// </summary>
-        internal static string LabelNaam {
+        internal static string LabelCategory {
             get {
-                return ResourceManager.GetString("LabelNaam", resourceCulture);
+                return ResourceManager.GetString("LabelCategory", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Speler.
+        ///   Looks up a localized string similar to Naam.
         /// </summary>
-        internal static string LabelPlayer {
+        internal static string LabelName {
             get {
-                return ResourceManager.GetString("LabelPlayer", resourceCulture);
+                return ResourceManager.GetString("LabelName", resourceCulture);
             }
         }
         
@@ -90,9 +90,9 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Seizoen.
         /// </summary>
-        internal static string LabelSeizoen {
+        internal static string LabelSeason {
             get {
-                return ResourceManager.GetString("LabelSeizoen", resourceCulture);
+                return ResourceManager.GetString("LabelSeason", resourceCulture);
             }
         }
         
@@ -106,11 +106,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Telefoon.
+        ///   Looks up a localized string similar to Training 1.
         /// </summary>
-        internal static string LabelTelefoon {
+        internal static string LabelTraining1 {
             get {
-                return ResourceManager.GetString("LabelTelefoon", resourceCulture);
+                return ResourceManager.GetString("LabelTraining1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training 2.
+        /// </summary>
+        internal static string LabelTraining2 {
+            get {
+                return ResourceManager.GetString("LabelTraining2", resourceCulture);
             }
         }
     }

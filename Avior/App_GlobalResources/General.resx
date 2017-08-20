@@ -135,6 +135,9 @@
   <data name="LabelPlayers" xml:space="preserve">
     <value>Spelers</value>
   </data>
+  <data name="LabelTeams" xml:space="preserve">
+    <value>Teams</value>
+  </data>
   <data name="LabelVerwijderen" xml:space="preserve">
     <value> Verwijderen</value>
   </data>

@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\PhoneNumberAttribute.cs" />
+    <Compile Include="Attributes\TimeSpanAttribute.cs" />
     <Compile Include="Code\AviorController.cs" />
     <Compile Include="Commands\Coach\AddCoachCommand.cs" />
     <Compile Include="Commands\Coach\DeleteCoachCommand.cs" />
@@ -96,6 +97,9 @@
     <Compile Include="Commands\Player\AddPlayerCommand.cs" />
     <Compile Include="Commands\Player\DeletePlayerCommand.cs" />
     <Compile Include="Commands\Player\EditPlayerCommand.cs" />
+    <Compile Include="Commands\Team\AddTeamCommand.cs" />
+    <Compile Include="Commands\Team\DeleteTeamCommand.cs" />
+    <Compile Include="Commands\Team\EditTeamCommand.cs" />
     <Compile Include="EntityConversions\CoachConversions.cs" />
     <Compile Include="EntityConversions\LogConversions.cs" />
     <Compile Include="EntityConversions\PlayerConversions.cs" />
@@ -112,7 +116,10 @@
     <Compile Include="Queries\Player\GetPlayerEditQuery.cs" />
     <Compile Include="Queries\Player\GetPlayerListQuery.cs" />
     <Compile Include="Queries\QueryProcessor.cs" />
+    <Compile Include="Queries\Team\GetTeamDetailsQuery.cs" />
+    <Compile Include="Queries\Team\GetTeamEditQuery.cs" />
     <Compile Include="Queries\Team\GetTeamHtmlSelectQuery.cs" />
+    <Compile Include="Queries\Team\GetTeamListQuery.cs" />
     <Compile Include="Resources\Coach.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -120,6 +120,9 @@
   <data name="LabelCoach" xml:space="preserve">
     <value>Coach</value>
   </data>
+  <data name="LabelCoaches" xml:space="preserve">
+    <value>Coaches</value>
+  </data>
   <data name="LabelEmail" xml:space="preserve">
     <value>Email adres</value>
   </data>

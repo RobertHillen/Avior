@@ -123,6 +123,9 @@
   <data name="LabelPlayer" xml:space="preserve">
     <value>Speler</value>
   </data>
+  <data name="LabelPlayers" xml:space="preserve">
+    <value>Spelers</value>
+  </data>
   <data name="LabelSeizoen" xml:space="preserve">
     <value>Seizoen</value>
   </data>

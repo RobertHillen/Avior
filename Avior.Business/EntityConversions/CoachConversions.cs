@@ -34,7 +34,7 @@ namespace Avior.Business.EntityConversions
                 };
         }
 
-        internal static CoachDetailView ToCoachDisplayView(this Coaches coach)
+        internal static CoachDetailView ToCoachDetailView(this Coaches coach)
         {
             return new CoachDetailView()
             {

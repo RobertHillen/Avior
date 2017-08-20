@@ -27,9 +27,11 @@ SET IDENTITY_INSERT [dbo].[Coaches] ON
 INSERT INTO [dbo].[Coaches] ([ID], [Name], [PhoneNumber], [Email], [TeamID])
 VALUES (1, 'Marieke Haverkort', '06-20335823', 'mariekehaverkort@gmail.com', 1)
 INSERT INTO [dbo].[Coaches] ([ID], [Name], [PhoneNumber], [Email], [TeamID])
-VALUES (2, 'Marjan van de Vondervoort', '06-24248466', 'marjan@vondervoort.com', 2)
+VALUES (2, 'Sandra Massink', '06-20813804', 'r.s.massink@kickxl.nl', 1)
 INSERT INTO [dbo].[Coaches] ([ID], [Name], [PhoneNumber], [Email], [TeamID])
-VALUES (3, 'Marcel Hazelaar', '06-46624070', 'marcelhazelaar@gmail.com', 3)
+VALUES (3, 'Marjan van de Vondervoort', '06-24248466', 'marjan@vondervoort.com', 2)
+INSERT INTO [dbo].[Coaches] ([ID], [Name], [PhoneNumber], [Email], [TeamID])
+VALUES (4, 'Marcel Hazelaar', '06-46624070', 'marcelhazelaar@gmail.com', 3)
 
 SET IDENTITY_INSERT [dbo].[Coaches] OFF
 

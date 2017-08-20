@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -181,6 +182,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Player.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Team.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Team.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -189,6 +195,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,6 +210,10 @@
     <Compile Include="Models\Players\PlayerDetailModel.cs" />
     <Compile Include="Models\Players\PlayerEditModel.cs" />
     <Compile Include="Models\Players\PlayerListModel.cs" />
+    <Compile Include="Models\Teams\TeamAddModel.cs" />
+    <Compile Include="Models\Teams\TeamDetailModel.cs" />
+    <Compile Include="Models\Teams\TeamEditModel.cs" />
+    <Compile Include="Models\Teams\TeamListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +295,11 @@
     <Content Include="Views\Players\Delete.cshtml" />
     <Content Include="Views\Log\List.cshtml" />
     <Content Include="Views\Log\LogContent.cshtml" />
+    <Content Include="Views\Teams\List.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,6 +343,12 @@
     <Content Include="App_GlobalResources\Player.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Player.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Team.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Team.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

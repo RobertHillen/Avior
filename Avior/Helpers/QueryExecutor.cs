@@ -16,6 +16,7 @@ using Avior.Business.Commands.Player;
 using Avior.Models.Log;
 using Avior.Business.Queries.Log;
 using Avior.Business.Views.Log;
+using Avior.Business.Commands.Team;
 
 namespace Avior.Helpers
 {
@@ -140,6 +141,48 @@ namespace Avior.Helpers
                 {
                     new TeamHtmlSelectView {Key = string.Empty, Value = Constants.Invalid_Id}
                 };
+            }
+        }
+
+        public IQueryable<TeamDetailView> GetTeamList(AviorController controller)
+        {
+            try
+            {
+                var query = new GetTeamListQuery();
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new List<TeamDetailView>().AsQueryable();
+            }
+        }
+
+        public TeamDetailView GetTeamDetails(AviorController controller, int Id)
+        {
+            try
+            {
+                var query = new GetTeamDetailsQuery() { ID = Id };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new TeamDetailView();
+            }
+        }
+
+        public EditTeamCommand GetTeamEdit(AviorController controller, int teamId)
+        {
+            try
+            {
+                var query = new GetTeamEditQuery { Id = teamId };
+                return _queryProcessor.Execute(query);
+            }
+            catch (Exception e)
+            {
+                ThrowOrAddModelError(controller, e);
+                return new EditTeamCommand();
             }
         }
 
