@@ -23,9 +23,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Teams", "Index", "Teams")</li>
                     <li>@Html.ActionLink("Coaches", "Index", "Coaches")</li>
                     <li>@Html.ActionLink("Spelers", "Index", "Players")</li>
-                    <li>@Html.ActionLink("Teams", "Index", "Teams")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Log", "Index", "Log")</li>
@@ -37,7 +37,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Avior Volleybal Training</p>
+            <p>&copy; @DateTime.Now.Year - Robert Hillen</p>
         </footer>
     </div>
 

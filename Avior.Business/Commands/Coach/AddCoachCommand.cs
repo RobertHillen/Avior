@@ -2,9 +2,9 @@
 using Avior.Business.Attributes;
 using Avior.Business.UnitOfWork;
 using Avior.Database.Entity;
+using Avior.Base;
 using Avior.Base.Interfaces;
 using Avior.Business.UnitOfWork.Extensions;
-using Avior.Base;
 
 namespace Avior.Business.Commands.Coach
 {
@@ -17,7 +17,7 @@ namespace Avior.Business.Commands.Coach
 
         [StringLength(20)]
         [PhoneNumber]
-        [Display(Name = "ListLabelPhoneNumber", ResourceType = typeof(Resources.Coach))]
+        [Display(Name = "ListLabelPhone", ResourceType = typeof(Resources.Coach))]
         public string PhoneNumber { get; set; }
 
         [StringLength(50)]

@@ -177,6 +177,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>General.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Log.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Log.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Player.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -280,8 +285,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Coaches\Add.cshtml" />
     <Content Include="Views\Coaches\Delete.cshtml" />
@@ -350,6 +353,12 @@
     <Content Include="App_GlobalResources\Team.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Team.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Log.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Log.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

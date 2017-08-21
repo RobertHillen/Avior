@@ -117,31 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LabelCoaches" xml:space="preserve">
-    <value>Coaches</value>
+  <data name="LabelAdd" xml:space="preserve">
+    <value> Nieuw</value>
+  </data>
+  <data name="LabelDelete" xml:space="preserve">
+    <value> Verwijderen</value>
   </data>
   <data name="LabelDetails" xml:space="preserve">
     <value>Details</value>
   </data>
-  <data name="LabelLog" xml:space="preserve">
-    <value>Log</value>
+  <data name="LabelEdit" xml:space="preserve">
+    <value> Wijzigen</value>
   </data>
-  <data name="LabelNieuw" xml:space="preserve">
-    <value> Nieuw</value>
-  </data>
-  <data name="LabelOverzicht" xml:space="preserve">
+  <data name="LabelList" xml:space="preserve">
     <value> Overzicht</value>
   </data>
-  <data name="LabelPlayers" xml:space="preserve">
-    <value>Spelers</value>
-  </data>
-  <data name="LabelTeams" xml:space="preserve">
-    <value>Teams</value>
-  </data>
-  <data name="LabelVerwijderen" xml:space="preserve">
-    <value> Verwijderen</value>
-  </data>
-  <data name="LabelWijzigen" xml:space="preserve">
-    <value> Wijzigen</value>
+  <data name="LabelSave" xml:space="preserve">
+    <value>Opslaan</value>
   </data>
 </root>

@@ -52,7 +52,7 @@ namespace Avior.Business.Attributes
 
         private bool Validate(TimeSpan value)
         {
-            var ok = (value.Hours >= 15 && value.Hours <= 22);
+            var ok = (value.Hours >= 10 && value.Hours <= 22);
             ok = ok && (value.Minutes == 0 || value.Minutes == 15 || value.Minutes == 30 || value.Minutes == 45);
             ok = ok && (value.Seconds == 0);
 

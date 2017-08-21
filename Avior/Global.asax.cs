@@ -6,8 +6,8 @@ using System.Web.Routing;
 using log4net;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
-using Avior.Helpers;
 using Avior.App_Start;
+using Avior.Helpers;
 
 namespace Avior
 {

@@ -129,7 +129,7 @@
   <data name="ListLabelName" xml:space="preserve">
     <value>Naam</value>
   </data>
-  <data name="ListLabelPhoneNumber" xml:space="preserve">
+  <data name="ListLabelPhone" xml:space="preserve">
     <value>Telefoon</value>
   </data>
 </root>

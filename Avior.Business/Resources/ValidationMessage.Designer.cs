@@ -22,7 +22,7 @@ namespace Avior.Business.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ValidationMessage {
+    public class ValidationMessage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Avior.Business.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Avior.Business.Resources.ValidationMessage", typeof(ValidationMessage).Assembly);
@@ -51,7 +51,7 @@ namespace Avior.Business.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Avior.Business.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Waarde moet een telefoon nummer zijn.
         /// </summary>
-        internal static string GenericPhoneNumberAttributeNoDisplayName {
+        public static string GenericPhoneNumberAttributeNoDisplayName {
             get {
                 return ResourceManager.GetString("GenericPhoneNumberAttributeNoDisplayName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Avior.Business.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Waarde moet 10 numerieke cijfers bevatten.
         /// </summary>
-        internal static string GenericPhoneNumberAttributeNoOfDigits {
+        public static string GenericPhoneNumberAttributeNoOfDigits {
             get {
                 return ResourceManager.GetString("GenericPhoneNumberAttributeNoOfDigits", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Avior.Business.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Waarde moet een tijd aanduiding zijn (hh:mm).
         /// </summary>
-        internal static string GenericTimeSpanAttributeNoDisplayName {
+        public static string GenericTimeSpanAttributeNoDisplayName {
             get {
                 return ResourceManager.GetString("GenericTimeSpanAttributeNoDisplayName", resourceCulture);
             }

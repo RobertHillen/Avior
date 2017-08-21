@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Avior.Base.Interfaces;
 using Avior.Business.Commands.Coach;
+using Avior.Business.EntityConversions;
 using Avior.Business.UnitOfWork;
 using Avior.Business.UnitOfWork.Extensions;
-using Avior.Business.EntityConversions;
 
 namespace Avior.Business.Queries.Coach
 {

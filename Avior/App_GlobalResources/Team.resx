@@ -120,17 +120,23 @@
   <data name="LabelCategory" xml:space="preserve">
     <value>Categorie</value>
   </data>
+  <data name="LabelDeleteWarning" xml:space="preserve">
+    <value>Deze zijn gekoppeld aan dit team en is dus niet te verwijderen.</value>
+  </data>
   <data name="LabelName" xml:space="preserve">
     <value>Naam</value>
-  </data>
-  <data name="LabelPlayers" xml:space="preserve">
-    <value>Spelers</value>
   </data>
   <data name="LabelSeason" xml:space="preserve">
     <value>Seizoen</value>
   </data>
   <data name="LabelTeam" xml:space="preserve">
     <value>Team</value>
+  </data>
+  <data name="LabelTeams" xml:space="preserve">
+    <value>Teams</value>
+  </data>
+  <data name="LabelTraining" xml:space="preserve">
+    <value>Training</value>
   </data>
   <data name="LabelTraining1" xml:space="preserve">
     <value>Training 1</value>

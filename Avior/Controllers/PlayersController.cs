@@ -1,11 +1,11 @@
 ﻿using System.Web.Mvc;
+using log4net;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
 using Avior.Business.Commands.Player;
 using Avior.Helpers;
 using Avior.Models.Players;
-using log4net;
 
 namespace Avior.Controllers
 {

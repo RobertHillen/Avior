@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
+using Avior.Business.Attributes;
 using Avior.Business.UnitOfWork;
 using Avior.Business.UnitOfWork.Extensions;
-using Avior.Business.Attributes;
 
 namespace Avior.Business.Commands.Team
 {
@@ -21,6 +21,7 @@ namespace Avior.Business.Commands.Team
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "ListLabelName", ResourceType = typeof(Resources.Team))]
         public string Name { get; set; }
 
         [Required]
@@ -28,11 +29,13 @@ namespace Avior.Business.Commands.Team
 
         [Required]
         [TimeSpan]
+        [Display(Name = "ListLabelTraining", ResourceType = typeof(Resources.Team))]
         public TimeSpan TrainingTime1 { get; set; }
 
         public DayOfWeek? TrainingDay2 { get; set; }
 
         [TimeSpan]
+        [Display(Name = "ListLabelTraining", ResourceType = typeof(Resources.Team))]
         public TimeSpan? TrainingTime2 { get; set; }
     }
 

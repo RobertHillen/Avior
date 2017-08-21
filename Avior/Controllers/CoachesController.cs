@@ -171,7 +171,6 @@ namespace Avior.Controllers
             return model;
         }
 
-
         private CoachListModel GetListData()
         {
             var model = new CoachListModel

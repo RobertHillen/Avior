@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
+using Avior.Base;
 using Avior.Base.Enums;
+using Avior.Business.Commands.Player;
 using Avior.Business.Views.Player;
 using Avior.Business.Views.Team;
 using Avior.Database.Entity;
-using Avior.Business.Commands.Player;
-using Avior.Base;
 
 namespace Avior.Business.EntityConversions
 {

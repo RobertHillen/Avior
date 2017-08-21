@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Avior.Base;
 using Avior.Base.Interfaces;
+using Avior.Business.Attributes;
 using Avior.Business.UnitOfWork;
 using Avior.Business.UnitOfWork.Extensions;
-using Avior.Business.Attributes;
 
 namespace Avior.Business.Commands.Player
 {
@@ -19,7 +19,7 @@ namespace Avior.Business.Commands.Player
 
         [StringLength(20)]
         [PhoneNumber]
-        [Display(Name = "ListLabelPhoneNumber", ResourceType = typeof(Resources.Player))]
+        [Display(Name = "ListLabelPhone", ResourceType = typeof(Resources.Player))]
         public string PhoneNumber { get; set; }
 
         public int TeamID { get; set; }

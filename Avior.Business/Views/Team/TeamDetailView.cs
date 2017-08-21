@@ -1,7 +1,6 @@
 ﻿using System;
 using Avior.Base.Enums;
 using Avior.Business.Helpers;
-using Avior.Business.Views.Coach;
 using Avior.Database.Entity;
 
 namespace Avior.Business.Views.Team

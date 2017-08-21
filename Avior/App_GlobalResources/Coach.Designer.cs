@@ -90,45 +90,27 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Naam.
         /// </summary>
-        internal static string LabelNaam {
+        internal static string LabelName {
             get {
-                return ResourceManager.GetString("LabelNaam", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Seizoen.
-        /// </summary>
-        internal static string LabelSeizoen {
-            get {
-                return ResourceManager.GetString("LabelSeizoen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Spelers.
-        /// </summary>
-        internal static string LabelSpelers {
-            get {
-                return ResourceManager.GetString("LabelSpelers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Team.
-        /// </summary>
-        internal static string LabelTeam {
-            get {
-                return ResourceManager.GetString("LabelTeam", resourceCulture);
+                return ResourceManager.GetString("LabelName", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Telefoon.
         /// </summary>
-        internal static string LabelTelefoon {
+        internal static string LabelPhone {
             get {
-                return ResourceManager.GetString("LabelTelefoon", resourceCulture);
+                return ResourceManager.GetString("LabelPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seizoen.
+        /// </summary>
+        internal static string LabelSeason {
+            get {
+                return ResourceManager.GetString("LabelSeason", resourceCulture);
             }
         }
         

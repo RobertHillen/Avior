@@ -70,20 +70,20 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deze zijn gekoppeld aan dit team en is dus niet te verwijderen..
+        /// </summary>
+        internal static string LabelDeleteWarning {
+            get {
+                return ResourceManager.GetString("LabelDeleteWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Naam.
         /// </summary>
         internal static string LabelName {
             get {
                 return ResourceManager.GetString("LabelName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Spelers.
-        /// </summary>
-        internal static string LabelPlayers {
-            get {
-                return ResourceManager.GetString("LabelPlayers", resourceCulture);
             }
         }
         
@@ -102,6 +102,24 @@ namespace Resources {
         internal static string LabelTeam {
             get {
                 return ResourceManager.GetString("LabelTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teams.
+        /// </summary>
+        internal static string LabelTeams {
+            get {
+                return ResourceManager.GetString("LabelTeams", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training.
+        /// </summary>
+        internal static string LabelTraining {
+            get {
+                return ResourceManager.GetString("LabelTraining", resourceCulture);
             }
         }
         

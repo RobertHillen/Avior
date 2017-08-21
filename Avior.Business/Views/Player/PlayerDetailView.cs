@@ -1,6 +1,4 @@
-﻿using Avior.Business.Views.Coach;
-using Avior.Business.Views.Team;
-using Avior.Database.Entity;
+﻿using Avior.Business.Views.Team;
 
 namespace Avior.Business.Views.Player
 {

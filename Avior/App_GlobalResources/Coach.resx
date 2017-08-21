@@ -126,20 +126,14 @@
   <data name="LabelEmail" xml:space="preserve">
     <value>Email adres</value>
   </data>
-  <data name="LabelNaam" xml:space="preserve">
+  <data name="LabelName" xml:space="preserve">
     <value>Naam</value>
   </data>
-  <data name="LabelSeizoen" xml:space="preserve">
-    <value>Seizoen</value>
-  </data>
-  <data name="LabelSpelers" xml:space="preserve">
-    <value>Spelers</value>
-  </data>
-  <data name="LabelTeam" xml:space="preserve">
-    <value>Team</value>
-  </data>
-  <data name="LabelTelefoon" xml:space="preserve">
+  <data name="LabelPhone" xml:space="preserve">
     <value>Telefoon</value>
+  </data>
+  <data name="LabelSeason" xml:space="preserve">
+    <value>Seizoen</value>
   </data>
   <data name="LabelTraining" xml:space="preserve">
     <value>Training</value>

@@ -117,19 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LabelName" xml:space="preserve">
-    <value>Naam</value>
+  <data name="LabelLevel" xml:space="preserve">
+    <value>Level</value>
   </data>
-  <data name="LabelPhone" xml:space="preserve">
-    <value>Telefoon</value>
+  <data name="LabelLog" xml:space="preserve">
+    <value>Log</value>
   </data>
-  <data name="LabelPlayer" xml:space="preserve">
-    <value>Speler</value>
+  <data name="LabelLogger" xml:space="preserve">
+    <value>Logger</value>
   </data>
-  <data name="LabelPlayers" xml:space="preserve">
-    <value>Spelers</value>
+  <data name="LabelMessage" xml:space="preserve">
+    <value>Omschrijving</value>
   </data>
-  <data name="LabelSeason" xml:space="preserve">
-    <value>Seizoen</value>
+  <data name="LabelShowNoInfoLines" xml:space="preserve">
+    <value>Toon geen INFO regels</value>
+  </data>
+  <data name="LabelTime" xml:space="preserve">
+    <value>Tijd</value>
   </data>
 </root>

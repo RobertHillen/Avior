@@ -61,11 +61,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Coaches.
+        ///   Looks up a localized string similar to  Nieuw.
         /// </summary>
-        internal static string LabelCoaches {
+        internal static string LabelAdd {
             get {
-                return ResourceManager.GetString("LabelCoaches", resourceCulture);
+                return ResourceManager.GetString("LabelAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Verwijderen.
+        /// </summary>
+        internal static string LabelDelete {
+            get {
+                return ResourceManager.GetString("LabelDelete", resourceCulture);
             }
         }
         
@@ -79,65 +88,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log.
+        ///   Looks up a localized string similar to  Wijzigen.
         /// </summary>
-        internal static string LabelLog {
+        internal static string LabelEdit {
             get {
-                return ResourceManager.GetString("LabelLog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  Nieuw.
-        /// </summary>
-        internal static string LabelNieuw {
-            get {
-                return ResourceManager.GetString("LabelNieuw", resourceCulture);
+                return ResourceManager.GetString("LabelEdit", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to  Overzicht.
         /// </summary>
-        internal static string LabelOverzicht {
+        internal static string LabelList {
             get {
-                return ResourceManager.GetString("LabelOverzicht", resourceCulture);
+                return ResourceManager.GetString("LabelList", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spelers.
+        ///   Looks up a localized string similar to Opslaan.
         /// </summary>
-        internal static string LabelPlayers {
+        internal static string LabelSave {
             get {
-                return ResourceManager.GetString("LabelPlayers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Teams.
-        /// </summary>
-        internal static string LabelTeams {
-            get {
-                return ResourceManager.GetString("LabelTeams", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  Verwijderen.
-        /// </summary>
-        internal static string LabelVerwijderen {
-            get {
-                return ResourceManager.GetString("LabelVerwijderen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to  Wijzigen.
-        /// </summary>
-        internal static string LabelWijzigen {
-            get {
-                return ResourceManager.GetString("LabelWijzigen", resourceCulture);
+                return ResourceManager.GetString("LabelSave", resourceCulture);
             }
         }
     }

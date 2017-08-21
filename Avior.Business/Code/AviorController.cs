@@ -47,10 +47,10 @@ namespace Avior.Business.Code
             //}
             else
             {
-                ModelState.AddModelError(string.Format(Resources.Generic.ErrorPrefixAndKey, key), "Er is een fout opgetreden.");
+                ModelState.AddModelError(string.Format(Resources.Generic.ErrorPrefixAndKey, key), Resources.Generic.AnErrorHasOccurred);
 
                 var logManager = LogManager.GetLogger(GetType());
-                logManager.Error("Unknown exception controller.", e);
+                logManager.Error(Resources.Generic.UnknownController, e);
             }
         }
 

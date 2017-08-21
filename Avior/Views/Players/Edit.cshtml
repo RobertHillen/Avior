@@ -14,12 +14,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelPlayers / @Resources.General.LabelWijzigen</a>
+            <a class="avior-blue navbar-brand" href="#">@Resources.Player.LabelPlayers / @Resources.General.LabelEdit</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelList</a></li>
             </ul>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="container">
             <div class="form-group row">
                 <div class="col-md-2">
-                    @Resources.Player.LabelNaam
+                    @Resources.Player.LabelName
                 </div>
                 <div class="col-md-8">
                     @Html.EditorFor(m => command.Name, new { htmlAttributes = new { @class = "form-control" } })
@@ -44,7 +44,7 @@
 
             <div class="form-group row">
                 <div class="col-md-2">
-                    @Resources.Player.LabelTelefoon
+                    @Resources.Player.LabelPhone
                 </div>
                 <div class="col-md-8">
                     @Html.EditorFor(m => command.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
@@ -54,7 +54,7 @@
 
             <div class="form-group row">
                 <div class="col-md-2">
-                    @Resources.Player.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                    @Resources.Team.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
                 </div>
                 <div class="col-md-8">
                     @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID), new { @class = "form-control" })
@@ -69,7 +69,7 @@
 
             <div class="form-group row">
                 <div class="col-md-offset-2 col-md-8">
-                    <input type="submit" value="Opslaan" class="btn btn-primary" />
+                    <input type="submit" value="@(Resources.General.LabelSave)" class="btn btn-primary" />
                 </div>
             </div>
         </div>

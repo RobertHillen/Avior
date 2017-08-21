@@ -6,17 +6,16 @@ using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
 using Avior.Business.Commands.Coach;
+using Avior.Business.Commands.Player;
+using Avior.Business.Commands.Team;
 using Avior.Business.Queries.Coach;
+using Avior.Business.Queries.Log;
 using Avior.Business.Queries.Player;
 using Avior.Business.Queries.Team;
 using Avior.Business.Views.Coach;
+using Avior.Business.Views.Log;
 using Avior.Business.Views.Player;
 using Avior.Business.Views.Team;
-using Avior.Business.Commands.Player;
-using Avior.Models.Log;
-using Avior.Business.Queries.Log;
-using Avior.Business.Views.Log;
-using Avior.Business.Commands.Team;
 
 namespace Avior.Helpers
 {

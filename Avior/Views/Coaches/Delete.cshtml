@@ -9,12 +9,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="avior-blue navbar-brand" href="#">@Resources.General.LabelCoaches / @Resources.General.LabelVerwijderen</a>
+            <a class="avior-blue navbar-brand" href="#">@Resources.Coach.LabelCoaches / @Resources.General.LabelDelete</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelOverzicht</a></li>
+                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelList</a></li>
             </ul>
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="container">
             <div class="form-group row">
                 <div class="col-md-3">
-                    @Resources.Coach.LabelNaam
+                    @Resources.Coach.LabelName
                 </div>
                 <div class="col-md-6">
                     @Model.Details.Name
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-3">
-                    @Resources.Coach.LabelTelefoon
+                    @Resources.Coach.LabelPhone
                 </div>
                 <div class="col-md-6">
                     @Model.Details.PhoneNumber
@@ -55,7 +55,7 @@
             {
                 <div class="form-group row">
                     <div class="col-md-3">
-                        @Resources.Coach.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                        @Resources.Team.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
                     </div>
                     <div class="col-md-6">
                         @Model.Details.Team.Name
@@ -65,7 +65,7 @@
             
             <div class="form-group row">
                 <div class="col-md-offset-3 col-md-6">
-                <input type="submit" value="Verwijderen" class="btn btn-primary" />
+                <input type="submit" value="@(Resources.General.LabelDelete)" class="btn btn-primary" />
                 </div>
             </div>
         </div>

@@ -63,9 +63,18 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Naam.
         /// </summary>
-        internal static string LabelNaam {
+        internal static string LabelName {
             get {
-                return ResourceManager.GetString("LabelNaam", resourceCulture);
+                return ResourceManager.GetString("LabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefoon.
+        /// </summary>
+        internal static string LabelPhone {
+            get {
+                return ResourceManager.GetString("LabelPhone", resourceCulture);
             }
         }
         
@@ -90,27 +99,9 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Seizoen.
         /// </summary>
-        internal static string LabelSeizoen {
+        internal static string LabelSeason {
             get {
-                return ResourceManager.GetString("LabelSeizoen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Team.
-        /// </summary>
-        internal static string LabelTeam {
-            get {
-                return ResourceManager.GetString("LabelTeam", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Telefoon.
-        /// </summary>
-        internal static string LabelTelefoon {
-            get {
-                return ResourceManager.GetString("LabelTelefoon", resourceCulture);
+                return ResourceManager.GetString("LabelSeason", resourceCulture);
             }
         }
     }

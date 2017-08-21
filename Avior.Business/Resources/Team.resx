@@ -123,4 +123,10 @@
   <data name="ExceptionIdentifierDescriptionId" xml:space="preserve">
     <value>ID</value>
   </data>
+  <data name="ListLabelName" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+  <data name="ListLabelTraining" xml:space="preserve">
+    <value>Trainingstijd</value>
+  </data>
 </root>

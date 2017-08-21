@@ -19,10 +19,10 @@ namespace Avior.Business.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Team {
+    public class Team {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Avior.Business.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Avior.Business.Resources.Team", typeof(Team).Assembly);
@@ -51,7 +51,7 @@ namespace Avior.Business.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Avior.Business.Resources {
         /// <summary>
         ///   Looks up a localized string similar to het team.
         /// </summary>
-        internal static string ExceptionEntityDescription {
+        public static string ExceptionEntityDescription {
             get {
                 return ResourceManager.GetString("ExceptionEntityDescription", resourceCulture);
             }
@@ -72,9 +72,27 @@ namespace Avior.Business.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
-        internal static string ExceptionIdentifierDescriptionId {
+        public static string ExceptionIdentifierDescriptionId {
             get {
                 return ResourceManager.GetString("ExceptionIdentifierDescriptionId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naam.
+        /// </summary>
+        public static string ListLabelName {
+            get {
+                return ResourceManager.GetString("ListLabelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trainingstijd.
+        /// </summary>
+        public static string ListLabelTraining {
+            get {
+                return ResourceManager.GetString("ListLabelTraining", resourceCulture);
             }
         }
     }
