@@ -17,7 +17,7 @@ namespace Avior
 
         protected void Application_Start()
         {
-            log.Info("Starting Avior application");
+            log.Info("Starting Avior Volleybal Manager");
 
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();

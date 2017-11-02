@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Avior Volleybal Training</title>
+    <title>@ViewBag.Title - Avior Volleybal Manager</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -26,6 +26,7 @@
                     <li>@Html.ActionLink("Teams", "Index", "Teams")</li>
                     <li>@Html.ActionLink("Coaches", "Index", "Coaches")</li>
                     <li>@Html.ActionLink("Spelers", "Index", "Players")</li>
+                    <li>@Html.ActionLink("Aanwezigheid", "Index", "Presence")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Log", "Index", "Log")</li>
@@ -37,7 +38,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Robert Hillen</p>
+            <p>&copy; @DateTime.Now.Year - Robert Hillen - Avior Volleybal Manager</p>
         </footer>
     </div>
 
