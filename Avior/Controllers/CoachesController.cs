@@ -1,9 +1,13 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
 using Avior.Business.Commands.Coach;
-using Avior.Helpers;
+using Avior.Business.Queries.Coach;
+using Avior.Business.Queries.Team;
+using Avior.Business.Views.Coach;
+using Avior.Business.Views.Team;
 using Avior.Models.Coaches;
 using log4net;
 
@@ -11,25 +15,35 @@ namespace Avior.Controllers
 {
     public class CoachesController : AviorController
     {
+        private readonly IQueryHandler<GetCoachEditQuery, EditCoachCommand> _editCoachQuery;
+        private readonly IQueryHandler<GetCoachListQuery, IQueryable<CoachDetailView>> _listCoachQuery;
+        private readonly IQueryHandler<GetCoachDetailsQuery, CoachDetailView> _detailCoachQuery;
+        private readonly IQueryHandler<GetTeamHtmlSelectQuery, TeamHtmlSelectView[]> _htmlselectTeamQuery;
+
         private readonly ICommandHandler<AddCoachCommand> _addCoachCommand;
         private readonly ICommandHandler<EditCoachCommand> _editCoachCommand;
         private readonly ICommandHandler<DeleteCoachCommand> _deleteCoachCommand;
-        private readonly QueryExecutor _queryExecutor;
 
         private readonly ILog logger = LogManager.GetLogger(typeof(CoachesController));
 
         #region Constructor
 
         public CoachesController(
+            IQueryHandler<GetCoachEditQuery, EditCoachCommand> editCoachQuery,
+            IQueryHandler<GetCoachListQuery, IQueryable<CoachDetailView>> listCoachQuery,
+            IQueryHandler<GetCoachDetailsQuery, CoachDetailView> detailCoachQuery,
+            IQueryHandler<GetTeamHtmlSelectQuery, TeamHtmlSelectView[]> htmlselectTeamQuery,
             ICommandHandler<AddCoachCommand> addCoachCommand,
             ICommandHandler<EditCoachCommand> editCoachCommand,
-            ICommandHandler<DeleteCoachCommand> deleteCoachCommand,
-            QueryExecutor queryExecutor)
+            ICommandHandler<DeleteCoachCommand> deleteCoachCommand)
         {
+            _editCoachQuery = editCoachQuery;
+            _listCoachQuery = listCoachQuery;
+            _detailCoachQuery = detailCoachQuery;
+            _htmlselectTeamQuery = htmlselectTeamQuery;
             _addCoachCommand = addCoachCommand;
             _editCoachCommand = editCoachCommand;
             _deleteCoachCommand = deleteCoachCommand;
-            _queryExecutor = queryExecutor;
         }
 
         #endregion
@@ -154,18 +168,18 @@ namespace Avior.Controllers
             var model = new CoachAddModel
             {
                 Command = new AddCoachCommand(),
-                Teams = _queryExecutor.GetTeamHtmlSelectList(this, HtmlSelectOption.None)
+                Teams = _htmlselectTeamQuery.Handle(new GetTeamHtmlSelectQuery() { HtmlSelectOption = HtmlSelectOption.None })
             };
 
             return model;
         }
 
-        private CoachEditModel GetEditData(int Id)
+        private CoachEditModel GetEditData(int id)
         {
             var model = new CoachEditModel
             {
-                Command = _queryExecutor.GetCoachEdit(this, Id),
-                Teams = _queryExecutor.GetTeamHtmlSelectList(this,  HtmlSelectOption.FirstRow_DefaultText)
+                Command = _editCoachQuery.Handle(new GetCoachEditQuery() { Id = id }),
+                Teams = _htmlselectTeamQuery.Handle(new GetTeamHtmlSelectQuery() { HtmlSelectOption = HtmlSelectOption.FirstRow_DefaultText })
             };
 
             return model;
@@ -175,7 +189,7 @@ namespace Avior.Controllers
         {
             var model = new CoachListModel
             {
-                CoachList = _queryExecutor.GetCoachList(this)
+                CoachList = _listCoachQuery.Handle(new GetCoachListQuery() { })
             };
 
             return model;
@@ -185,7 +199,7 @@ namespace Avior.Controllers
         {
             var model = new CoachDetailModel
             {
-                Details = _queryExecutor.GetCoachDetails(this, Id)
+                Details = _detailCoachQuery.Handle(new GetCoachDetailsQuery() { ID = Id })
             };
 
             return model;

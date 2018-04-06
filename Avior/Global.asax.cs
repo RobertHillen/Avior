@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -7,7 +6,6 @@ using log4net;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using Avior.App_Start;
-using Avior.Helpers;
 
 namespace Avior
 {
@@ -23,7 +21,6 @@ namespace Avior
             container.Options.DefaultScopedLifestyle = new WebRequestLifestyle();
             ServicePointManager.DefaultConnectionLimit = 50;
 
-            container.Register<QueryExecutor>();
             DependencyConfig.RegisterDependencyContainer(container);
 
             container.Verify();

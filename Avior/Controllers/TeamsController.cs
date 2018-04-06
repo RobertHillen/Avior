@@ -1,35 +1,46 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using log4net;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
 using Avior.Business.Commands.Team;
-using Avior.Helpers;
 using Avior.Models.Teams;
+using Avior.Business.Commands.Player;
+using Avior.Business.Queries.Team;
+using Avior.Business.Views.Team;
 
 namespace Avior.Controllers
 {
     public class TeamsController : AviorController
     {
+        IQueryHandler<GetTeamEditQuery, EditTeamCommand> _editTeamQuery;
+        IQueryHandler<GetTeamListQuery, IQueryable<TeamDetailView>> _listTeamQuery;
+        IQueryHandler<GetTeamDetailsQuery, TeamDetailView> _detailTeamQuery;
+
         private readonly ICommandHandler<AddTeamCommand> _addTeamCommand;
         private readonly ICommandHandler<EditTeamCommand> _editTeamCommand;
         private readonly ICommandHandler<DeleteTeamCommand> _deleteTeamCommand;
-        private readonly QueryExecutor _queryExecutor;
 
         private readonly ILog logger = LogManager.GetLogger(typeof(TeamsController));
 
         #region Constructor
 
         public TeamsController(
+            IQueryHandler<GetTeamEditQuery, EditTeamCommand> editTeamQuery,
+            IQueryHandler<GetTeamListQuery, IQueryable<TeamDetailView>> listTeamQuery,
+            IQueryHandler<GetTeamDetailsQuery, TeamDetailView> detailTeamQuery,
             ICommandHandler<AddTeamCommand> addTeamCommand,
             ICommandHandler<EditTeamCommand> editTeamCommand,
-            ICommandHandler<DeleteTeamCommand> deleteTeamCommand,
-            QueryExecutor queryExecutor)
+            ICommandHandler<DeleteTeamCommand> deleteTeamCommand)
         {
+            _editTeamQuery = editTeamQuery;
+            _listTeamQuery = listTeamQuery;
+            _detailTeamQuery = detailTeamQuery;
+
             _addTeamCommand = addTeamCommand;
             _editTeamCommand = editTeamCommand;
             _deleteTeamCommand = deleteTeamCommand;
-            _queryExecutor = queryExecutor;
         }
 
         #endregion
@@ -166,11 +177,11 @@ namespace Avior.Controllers
             return model;
         }
 
-        private TeamEditModel GetEditData(int Id)
+        private TeamEditModel GetEditData(int id)
         {
             var model = new TeamEditModel
             {
-                Command = _queryExecutor.GetTeamEdit(this, Id)
+                Command = _editTeamQuery.Handle(new GetTeamEditQuery() { Id = id }),
             };
 
             return model;
@@ -180,7 +191,7 @@ namespace Avior.Controllers
         {
             var model = new TeamListModel
             {
-                TeamList = _queryExecutor.GetTeamList(this)
+                TeamList = _listTeamQuery.Handle(new GetTeamListQuery() { })
             };
 
             return model;
@@ -190,7 +201,7 @@ namespace Avior.Controllers
         {
             var model = new TeamDetailModel
             {
-                Details = _queryExecutor.GetTeamDetails(this, Id)
+                Details = _detailTeamQuery.Handle(new GetTeamDetailsQuery() { ID = Id })
             };
 
             return model;

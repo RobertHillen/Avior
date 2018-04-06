@@ -1,35 +1,49 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using log4net;
 using Avior.Base.Enums;
 using Avior.Base.Interfaces;
 using Avior.Business.Code;
 using Avior.Business.Commands.Player;
-using Avior.Helpers;
 using Avior.Models.Players;
+using Avior.Business.Queries.Player;
+using Avior.Business.Views.Player;
+using Avior.Business.Queries.Team;
+using Avior.Business.Views.Team;
 
 namespace Avior.Controllers
 {
     public class PlayersController : AviorController
     {
+        private readonly IQueryHandler<GetPlayerEditQuery, EditPlayerCommand> _editPlayerQuery;
+        private readonly IQueryHandler<GetPlayerListQuery, IQueryable<PlayerDetailView>> _listPlayerQuery;
+        private readonly IQueryHandler<GetPlayerDetailsQuery, PlayerDetailView> _detailPlayerQuery;
+        private readonly IQueryHandler<GetTeamHtmlSelectQuery, TeamHtmlSelectView[]> _htmlselectTeamQuery;
+
         private readonly ICommandHandler<AddPlayerCommand> _addPlayerCommand;
         private readonly ICommandHandler<EditPlayerCommand> _editPlayerCommand;
         private readonly ICommandHandler<DeletePlayerCommand> _deletePlayerCommand;
-        private readonly QueryExecutor _queryExecutor;
 
         private readonly ILog logger = LogManager.GetLogger(typeof(PlayersController));
 
         #region Constructor
 
         public PlayersController(
+            IQueryHandler<GetPlayerEditQuery, EditPlayerCommand> editPlayerQuery,
+            IQueryHandler<GetPlayerListQuery, IQueryable<PlayerDetailView>> listPlayerQuery,
+            IQueryHandler<GetPlayerDetailsQuery, PlayerDetailView> detailPlayerQuery,
+            IQueryHandler<GetTeamHtmlSelectQuery, TeamHtmlSelectView[]> htmlselectTeamQuery,
             ICommandHandler<AddPlayerCommand> addPlayerCommand,
             ICommandHandler<EditPlayerCommand> editPlayerCommand,
-            ICommandHandler<DeletePlayerCommand> deletePlayerCommand,
-            QueryExecutor queryExecutor)
+            ICommandHandler<DeletePlayerCommand> deletePlayerCommand)
         {
+            _editPlayerQuery = editPlayerQuery;
+            _listPlayerQuery = listPlayerQuery;
+            _detailPlayerQuery = detailPlayerQuery;
+            _htmlselectTeamQuery = htmlselectTeamQuery;
             _addPlayerCommand = addPlayerCommand;
             _editPlayerCommand = editPlayerCommand;
             _deletePlayerCommand = deletePlayerCommand;
-            _queryExecutor = queryExecutor;
         }
 
         #endregion
@@ -154,18 +168,18 @@ namespace Avior.Controllers
             var model = new PlayerAddModel
             {
                 Command = new AddPlayerCommand(),
-                Teams = _queryExecutor.GetTeamHtmlSelectList(this, HtmlSelectOption.None)
+                Teams = _htmlselectTeamQuery.Handle(new GetTeamHtmlSelectQuery() { HtmlSelectOption = HtmlSelectOption.None })
             };
 
             return model;
         }
 
-        private PlayerEditModel GetEditData(int Id)
+        private PlayerEditModel GetEditData(int id)
         {
             var model = new PlayerEditModel
             {
-                Command = _queryExecutor.GetPlayerEdit(this, Id),
-                Teams = _queryExecutor.GetTeamHtmlSelectList(this, HtmlSelectOption.FirstRow_DefaultText)
+                Command = _editPlayerQuery.Handle(new GetPlayerEditQuery() { Id = id }),
+                Teams = _htmlselectTeamQuery.Handle(new GetTeamHtmlSelectQuery() { HtmlSelectOption = HtmlSelectOption.FirstRow_DefaultText })
             };
 
             return model;
@@ -175,7 +189,7 @@ namespace Avior.Controllers
         {
             var model = new PlayerListModel
             {
-                PlayerList = _queryExecutor.GetPlayerList(this)
+                PlayerList = _listPlayerQuery.Handle(new GetPlayerListQuery() { })
             };
 
             return model;
@@ -185,7 +199,7 @@ namespace Avior.Controllers
         {
             var model = new PlayerDetailModel
             {
-                Details = _queryExecutor.GetPlayerDetails(this, Id)
+                Details = _detailPlayerQuery.Handle(new GetPlayerDetailsQuery() { ID = Id })
             };
 
             return model;

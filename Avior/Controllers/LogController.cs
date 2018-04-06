@@ -3,22 +3,27 @@ using System.Web.Mvc;
 using log4net;
 using Avior.Base.Enums;
 using Avior.Business.Code;
-using Avior.Helpers;
 using Avior.Models.Log;
 using Avior.Business.Helpers;
+using Avior.Base.Interfaces;
+using Avior.Business.Queries.Log;
+using Avior.Business.Views.Log;
 
 namespace Avior.Controllers
 {
     public class LogController : AviorController
     {
-        private readonly QueryExecutor _queryExecutor;
+        private readonly IQueryHandler<GetLogFileHtmlSelectQuery, LogFileHtmlSelectView[]> _htmllogfileHtmlselectTeamQuery;
+
         private readonly LogHelper _logHelper;
 
         private readonly ILog logger = LogManager.GetLogger(typeof(LogController));
 
-        public LogController(QueryExecutor queryExecutor, LogHelper logHelper)
+        public LogController(
+            IQueryHandler<GetLogFileHtmlSelectQuery, LogFileHtmlSelectView[]> htmllogfileHtmlselectTeamQuery,
+            LogHelper logHelper)
         {
-            _queryExecutor = queryExecutor;
+            _htmllogfileHtmlselectTeamQuery = htmllogfileHtmlselectTeamQuery;
             _logHelper = logHelper;
         }
 
@@ -67,7 +72,7 @@ namespace Avior.Controllers
             var model = new LogListModel
             {
                 Root = root,
-                Files = _queryExecutor.GetLogFileHtmlSelectList(this, root, HtmlSelectOption.None),
+                Files = _htmllogfileHtmlselectTeamQuery.Handle(new GetLogFileHtmlSelectQuery { Root = root, HtmlSelectOption = HtmlSelectOption.None }),
                 noInfoLevel = false
             };
 

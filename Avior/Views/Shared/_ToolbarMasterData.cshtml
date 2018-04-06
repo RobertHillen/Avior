@@ -1,0 +1,32 @@
+﻿@{
+    var Title = ViewBag.Title;
+    var Id = ViewBag.Id == null ? 0 : ViewBag.Id;
+    var isList = ViewBag.isList == null ? false : ViewBag.isList;
+    var isCreate = ViewBag.isCreate == null ? false : ViewBag.isCreate;
+    var isEdit = ViewBag.isEdit == null ? false : ViewBag.isEdit;
+}
+
+<br />
+<nav class="navbar navbar-xs navbar-expand-sm">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMasterData" aria-controls="navbarCoach" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMasterData">
+        <a class="avior-toolbar-title avior-blue navbar-brand" href="#">@Title</a>
+        <ul class="navbar-nav mr-auto">
+            @if (isList)
+            {
+                <li class="nav-item"><a class="nav-link" href='@Url.Action("Index")'><i class="fa fa-list"></i> Overzicht</a></li>
+            }
+            @if (isCreate)
+            {
+                <li class="nav-item"><a class="nav-link" href='@Url.Action("Add")'><i class="fa fa-plus-circle"></i> Nieuw</a></li>
+            }
+            @if (isEdit)
+            {
+                <li class="nav-item"><a class="nav-link" href='@Url.Action("Edit", new { id = @Id })'><i class="fa fa-edit"></i> Wijzigen</a></li>
+            }
+        </ul>
+    </div>
+</nav>

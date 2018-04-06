@@ -6,24 +6,10 @@
     var teams = Model.Teams;
 }
 
-<nav class="navbar-xs navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="avior-blue navbar-brand" href="#">@Resources.Coach.LabelCoaches / @Resources.General.LabelAdd</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href='@Url.Action("Index")'><i class="fa fa-list"></i>@Resources.General.LabelList</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+@Html.Partial("_ToolbarMasterData", new ViewDataDictionary {
+    { "Title", "Coaches / Nieuw" },
+    { "isList", true },
+})
 
 @using (Html.BeginForm())
 {
@@ -71,11 +57,6 @@
                     @Html.ValidationMessageFor(m => command.TeamID, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            @Html.HiddenFor(m => command.Name)
-            @Html.HiddenFor(m => command.Email)
-            @Html.HiddenFor(m => command.PhoneNumber)
-            @Html.HiddenFor(m => command.TeamID)
 
             <div class="form-group row">
                 <div class="col-md-offset-2 col-md-8">
