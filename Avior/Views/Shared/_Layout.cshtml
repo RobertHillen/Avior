@@ -1,44 +1,67 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <base href="~/src/" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Avior Volleybal Manager</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="/node_modules/core-js/client/shim.min.js"></script>
+    <script src="/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="/src/systemjs.config.js"></script>
+    <script>
+        System.import('/src/main.js').catch(function (err) {
+            console.error(err);
+        });
+    </script>
 </head>
 <body>
     <nav class="navbar fixed-top navbar-expand-sm navbar-inverse">
-        <a class="navbar-brand" href="@Url.Action("Index","Home")"><img class="aviorlogo pull-left" src="~/Content/Images/avior-logo.png" /></a>
-    
+        <a class="navbar-brand" href="/Home"><img class="aviorlogo pull-left" src="~/Content/Images/avior-logo.png" /></a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLayout" aria-controls="navbarLayout" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarLayout">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">@Html.ActionLink("Teams", "Index", "Teams", new object { }, new { @class = "avior-orange nav-link"})</li>
+                <li class="nav-item">@Html.ActionLink("Teams", "Index", "Teams", new object { }, new { @class = "avior-orange nav-link" })</li>
                 <li class="nav-item">@Html.ActionLink("Coaches", "Index", "Coaches", new object { }, new { @class = "avior-orange nav-link" })</li>
                 <li class="nav-item">@Html.ActionLink("Spelers", "Index", "Players", new object { }, new { @class = "avior-orange nav-link" })</li>
                 <li class="nav-item">@Html.ActionLink("Aanwezigheid", "Index", "Presence", new object { }, new { @class = "avior-orange nav-link" })</li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">@Html.ActionLink("Log", "Index", "Log", new object { }, new { @class = "avior-orange nav-link" })</li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle avior-orange" href="#" id="navbarExtra" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Support
+                    </a>
+                    <div class="dropdown-menu avior-blue-background" aria-labelledby="navbarExtra">
+                        <a class="dropdown-item avior-orange" href="/Log">Log</a>
+                        <a class="dropdown-item avior-orange" href="http://www.vv-avior.nl" target="_blank">Avior</a>
+                        <a class="dropdown-item avior-orange" href="/About">Info</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
+    <br />
     <div class="container body-content">
+        <avior-app>Loading ...</avior-app>
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Robert Hillen - Avior Volleybal Manager</p>
+            <p>&copy; @DateTime.Now.Year - Avior Volleybal Training</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

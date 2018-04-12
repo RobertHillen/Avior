@@ -3,8 +3,8 @@
 @model Avior.Models.Coaches.CoachListModel
 
 @Html.Partial("_ToolbarMasterData", new ViewDataDictionary {
-    { "Title", "Coaches" },
-    { "isCreate", true },
+{ "Title", "Coaches" },
+{ "isCreate", true },
 })
 
 <table class="table no-border table-condensed">
@@ -42,6 +42,8 @@
         }
     </tbody>
 </table>
+
+<avior-test>AVIOR-TEST</avior-test>
 
 @section Scripts {
     <script type="text/javascript">

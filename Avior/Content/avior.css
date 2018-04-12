@@ -31,11 +31,6 @@ textarea {
     background-color: #004990;
 }
 
-table {
-    border-collapse: separate;
-    border-spacing: 0 5px;
-}
-
 thead th {
     background-color: #004990;
     color: #FF7618;
@@ -80,4 +75,9 @@ tr th:last-child {
 
 .avior-toolbar-title {
     font-style: italic;
+}
+
+.avior-table tr {
+    padding: 0.25rem;
+    font-size: small
 }
