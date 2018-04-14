@@ -11,9 +11,11 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var about_component_1 = require("./about/about.component");
+var toolbar_component_1 = require("../Shared/toolbar.component");
 var log_component_1 = require("./log/log.component");
-var log_service_1 = require("./log/log.service");
+var about_component_1 = require("./about/about.component");
+var log_service_1 = require("./log.service");
+var packagesconfig_service_1 = require("./packagesconfig.service");
 var routes = [
     { path: 'log', component: log_component_1.LogComponent },
     { path: 'Log', redirectTo: 'log' },
@@ -26,8 +28,8 @@ var SupportModule = /** @class */ (function () {
     SupportModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forChild(routes)],
-            declarations: [log_component_1.LogComponent, about_component_1.AboutComponent],
-            providers: [log_service_1.LogService]
+            declarations: [toolbar_component_1.ToolbarComponent, log_component_1.LogComponent, about_component_1.AboutComponent],
+            providers: [log_service_1.LogService, packagesconfig_service_1.PackagesConfigService]
         })
     ], SupportModule);
     return SupportModule;

@@ -1,3 +1,32 @@
-﻿<div><span class="badge badge-pill badge-success">Placeholder ANGULAR ABOUT</span></div>
-<a [routerLink]="['/home']" routerLinkActive="active">Home</a>
-<a [routerLink]="['/log']" routerLinkActive="active">Log</a>
+﻿<toolbarmasterdata [Title]="toolbarTitle"></toolbarmasterdata>
+
+<div class="row" *ngIf="content && content.length">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-condensed table-striped avior-table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Version</th>
+                        <th>TargetFramework</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let line of content">
+                        <td>{{line.Id}}</td>
+                        <td>{{line.Version}}</td>
+                        <td>{{line.TargetFramework}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row" *ngIf="messages && messages.length">
+    <div class="col-xs-12">
+        <div class="alert alert-warning">
+            <div *ngFor="let msg of messages">{{msg}}</div>
+        </div>
+    </div>
+</div>

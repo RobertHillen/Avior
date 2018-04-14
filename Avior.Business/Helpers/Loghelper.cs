@@ -5,12 +5,17 @@ using System.Text.RegularExpressions;
 using log4net;
 using Avior.Base.Helpers;
 using Avior.Business.Views.Log;
+using Avior.Business.Views.About;
+using NuGet;
+using System.Linq;
 
 namespace Avior.Business.Helpers
 {
     public class LogHelper
     {
         private readonly ILog logger = LogManager.GetLogger(typeof(LogHelper));
+
+        #region Log
 
         public LogContentView[] processLog(string filename, bool noInfo)
         {
@@ -102,5 +107,36 @@ namespace Avior.Business.Helpers
                 return null;
             }
         }
+
+        #endregion
+
+        #region About
+
+        public AboutPackagesConfigView[] processPackagesConfig(string root)
+        {
+            var filename = Path.Combine(root, "packages.config");
+                
+            PackageReferenceFile nugetPkgConfig = new PackageReferenceFile(filename);
+            IEnumerable<PackageReference> allPackages = nugetPkgConfig.GetPackageReferences();
+
+            var packages = (from pkg in allPackages
+                            select pkg).ToList();
+
+            List<AboutPackagesConfigView> result = new List<AboutPackagesConfigView>();
+            foreach (var item in packages)
+            {
+                result.Add(new AboutPackagesConfigView
+                {
+                    Id = item.Id,
+                    Version = item.Version.ToString(),
+                    TargetFramework = item.TargetFramework.FullName
+                });
+            }
+
+            return result.ToArray();
+        }
+
+        #endregion
+
     }
 }
