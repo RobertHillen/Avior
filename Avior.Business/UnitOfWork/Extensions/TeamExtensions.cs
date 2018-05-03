@@ -8,7 +8,7 @@ namespace Avior.Business.UnitOfWork.Extensions
     {
         public static Teams GetById(this IQueryable<Teams> collection, int id)
         {
-            var team = collection.SingleOrDefault(e => e.ID == id);
+            var team = collection.SingleOrDefault(e => e.Id == id);
             if (team == null)
             {
                 throw ExceptionHelper.CreateAviorDataNotFoundException(Resources.Team.ExceptionEntityDescription, id, Resources.Team.ExceptionIdentifierDescriptionId);

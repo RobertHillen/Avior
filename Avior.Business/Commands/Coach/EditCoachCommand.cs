@@ -10,7 +10,7 @@ namespace Avior.Business.Commands.Coach
     public class EditCoachCommand
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -27,7 +27,7 @@ namespace Avior.Business.Commands.Coach
         [Display(Name = "ListLabelEmail", ResourceType = typeof(Resources.Coach))]
         public string Email { get; set; }
 
-        public int TeamID { get; set; }
+        public int TeamId { get; set; }
     }
 
     public sealed class EditCoachCommandHandler : ICommandHandler<EditCoachCommand>
@@ -41,11 +41,11 @@ namespace Avior.Business.Commands.Coach
 
         public void Handle(EditCoachCommand command)
         {
-            var coach = uow.Coaches.GetById(command.ID);
+            var coach = uow.Coaches.GetById(command.Id);
             coach.Name = command.Name;
             coach.Email = command.Email;
             coach.PhoneNumber = command.PhoneNumber;
-            coach.Team = command.TeamID != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamID) : null;
+            coach.Team = command.TeamId != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamId) : null;
 
             uow.SaveChanges();
         }

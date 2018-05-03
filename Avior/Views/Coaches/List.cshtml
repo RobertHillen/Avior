@@ -1,4 +1,4 @@
-﻿@using System.Linq.Expressions
+﻿@*@using System.Linq.Expressions
 @using Avior.Base.Helpers
 @model Avior.Models.Coaches.CoachListModel
 
@@ -37,13 +37,11 @@
                 <td>
                     @item.Team.Season.GetDisplayName()
                 </td>
-                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.ID } })
+                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.Id } })
             </tr>
         }
     </tbody>
 </table>
-
-<avior-test>AVIOR-TEST</avior-test>
 
 @section Scripts {
     <script type="text/javascript">
@@ -51,4 +49,4 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-}
+}*@

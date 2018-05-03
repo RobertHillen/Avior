@@ -8,7 +8,7 @@ namespace Avior.Business.UnitOfWork.Extensions
     {
         public static Coaches GetById(this IQueryable<Coaches> collection, int id)
         {
-            var coach = collection.SingleOrDefault(e => e.ID == id);
+            var coach = collection.SingleOrDefault(e => e.Id == id);
             if (coach == null)
             {
                 throw ExceptionHelper.CreateAviorDataNotFoundException(Resources.Coach.ExceptionEntityDescription, id, Resources.Coach.ExceptionIdentifierDescriptionId);

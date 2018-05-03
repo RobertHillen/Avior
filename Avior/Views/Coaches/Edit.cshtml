@@ -1,4 +1,4 @@
-﻿@using Avior.Base.Helpers
+﻿@*@using Avior.Base.Helpers
 @model Avior.Models.Coaches.CoachEditModel
 
 @{
@@ -50,15 +50,15 @@
 
             <div class="form-group row">
                 <div class="col-md-2">
-                    @Resources.Team.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                    @Resources.Team.LabelTeam / @Avior.Base.Constants.Season_Id.GetDisplayName()
                 </div>
                 <div class="col-md-8">
-                    @Html.DropDownListFor(m => command.TeamID, new SelectList(teams, "Value", "Key", command.TeamID), new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => command.TeamID, "", new { @class = "text-danger" })
+                    @Html.DropDownListFor(m => command.TeamId, new SelectList(teams, "Value", "Key", command.TeamId), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => command.TeamId, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            @Html.HiddenFor(m => command.ID)
+            @Html.HiddenFor(m => command.Id)
 
             <div class="form-group row">
                 <div class="col-md-offset-2 col-md-8">
@@ -71,4 +71,4 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

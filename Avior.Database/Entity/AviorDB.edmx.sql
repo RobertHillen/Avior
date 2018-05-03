@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/06/2018 12:28:45
+-- Date Created: 04/20/2018 13:47:09
 -- Generated from EDMX file: D:\Dev\VisualStudio.NET\Avior\Avior.Database\Entity\AviorDB.edmx
 -- --------------------------------------------------
 
@@ -17,13 +17,19 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_CoachesTeams]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Coaches] DROP CONSTRAINT [FK_CoachesTeams];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PlayersTeams]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Players] DROP CONSTRAINT [FK_PlayersTeams];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[__MigrationHistory]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[__MigrationHistory];
+IF OBJECT_ID(N'[dbo].[C__MigrationHistory]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[C__MigrationHistory];
 GO
 IF OBJECT_ID(N'[dbo].[Coaches]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Coaches];
@@ -50,26 +56,26 @@ GO
 
 -- Creating table 'Coaches'
 CREATE TABLE [dbo].[Coaches] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(100)  NOT NULL,
     [PhoneNumber] nvarchar(20)  NULL,
     [Email] nvarchar(50)  NULL,
-    [TeamID] int  NULL
+    [TeamId] int  NULL
 );
 GO
 
 -- Creating table 'Players'
 CREATE TABLE [dbo].[Players] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(100)  NOT NULL,
     [PhoneNumber] nvarchar(20)  NULL,
-    [TeamID] int  NULL
+    [TeamId] int  NULL
 );
 GO
 
 -- Creating table 'Teams'
 CREATE TABLE [dbo].[Teams] (
-    [ID] int IDENTITY(1,1) NOT NULL,
+    [Id] int IDENTITY(1,1) NOT NULL,
     [Season] int  NOT NULL,
     [Category] int  NOT NULL,
     [Name] nvarchar(100)  NOT NULL,
@@ -90,56 +96,56 @@ ADD CONSTRAINT [PK_C__MigrationHistory]
     PRIMARY KEY CLUSTERED ([MigrationId], [ContextKey] ASC);
 GO
 
--- Creating primary key on [ID] in table 'Coaches'
+-- Creating primary key on [Id] in table 'Coaches'
 ALTER TABLE [dbo].[Coaches]
 ADD CONSTRAINT [PK_Coaches]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [ID] in table 'Players'
+-- Creating primary key on [Id] in table 'Players'
 ALTER TABLE [dbo].[Players]
 ADD CONSTRAINT [PK_Players]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [ID] in table 'Teams'
+-- Creating primary key on [Id] in table 'Teams'
 ALTER TABLE [dbo].[Teams]
 ADD CONSTRAINT [PK_Teams]
-    PRIMARY KEY CLUSTERED ([ID] ASC);
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [TeamID] in table 'Coaches'
+-- Creating foreign key on [TeamId] in table 'Coaches'
 ALTER TABLE [dbo].[Coaches]
 ADD CONSTRAINT [FK_CoachesTeams]
-    FOREIGN KEY ([TeamID])
+    FOREIGN KEY ([TeamId])
     REFERENCES [dbo].[Teams]
-        ([ID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CoachesTeams'
 CREATE INDEX [IX_FK_CoachesTeams]
 ON [dbo].[Coaches]
-    ([TeamID]);
+    ([TeamId]);
 GO
 
--- Creating foreign key on [TeamID] in table 'Players'
+-- Creating foreign key on [TeamId] in table 'Players'
 ALTER TABLE [dbo].[Players]
 ADD CONSTRAINT [FK_PlayersTeams]
-    FOREIGN KEY ([TeamID])
+    FOREIGN KEY ([TeamId])
     REFERENCES [dbo].[Teams]
-        ([ID])
+        ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PlayersTeams'
 CREATE INDEX [IX_FK_PlayersTeams]
 ON [dbo].[Players]
-    ([TeamID]);
+    ([TeamId]);
 GO
 
 -- --------------------------------------------------

@@ -33,7 +33,7 @@
                 <td>
                     @item.Team.Season.GetDisplayName()
                 </td>
-                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.ID } })
+                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.Id } })
             </tr>
         }
     </tbody>

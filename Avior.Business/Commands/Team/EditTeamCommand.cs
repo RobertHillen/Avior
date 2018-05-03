@@ -11,7 +11,7 @@ namespace Avior.Business.Commands.Team
     public class EditTeamCommand
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public enuSeason Season { get; set; }
@@ -50,7 +50,7 @@ namespace Avior.Business.Commands.Team
 
         public void Handle(EditTeamCommand command)
         {
-            var team = uow.Teams.GetById(command.ID);
+            var team = uow.Teams.GetById(command.Id);
 
             team.Season = (int)command.Season;
             team.Category = (int)command.Category;

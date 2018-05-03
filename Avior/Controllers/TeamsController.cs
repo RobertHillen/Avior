@@ -121,13 +121,13 @@ namespace Avior.Controllers
         {
             if (ModelState.IsValid)
             {
-                logger.InfoFormat("Edit Save {0}", command.ID);
+                logger.InfoFormat("Edit Save {0}", command.Id);
 
                 _editTeamCommand.Handle(command);
                 return RedirectToAction("Index");
             }
 
-            var model = GetEditData(command.ID);
+            var model = GetEditData(command.Id);
             model.Command = command;
 
             return View(model);
@@ -153,7 +153,7 @@ namespace Avior.Controllers
             {
                 logger.InfoFormat("Deleted Id: {0}", id);
 
-                _deleteTeamCommand.Handle(new DeleteTeamCommand { ID = id });
+                _deleteTeamCommand.Handle(new DeleteTeamCommand { Id = id });
             }
 
             return RedirectToAction("List");
@@ -201,7 +201,7 @@ namespace Avior.Controllers
         {
             var model = new TeamDetailModel
             {
-                Details = _detailTeamQuery.Handle(new GetTeamDetailsQuery() { ID = Id })
+                Details = _detailTeamQuery.Handle(new GetTeamDetailsQuery() { Id = Id })
             };
 
             return model;

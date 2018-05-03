@@ -2,10 +2,9 @@
 
 @Component({
     selector: 'toolbarmasterdata',
-    templateUrl: './toolbar.component.html',
+    templateUrl: './toolbarmasterdata.component.html',
 })
-export class ToolbarComponent {
-
+export class ToolbarMasterDataComponent {
     @Input() Title: string;
     @Input() Id: number;
     @Input() IsList: boolean;

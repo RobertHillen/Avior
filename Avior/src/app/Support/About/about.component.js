@@ -19,13 +19,13 @@ var AboutComponent = /** @class */ (function () {
         this.content = [];
     }
     AboutComponent.prototype.ngOnInit = function () {
-        this.getContent();
+        this.getPackages();
     };
-    AboutComponent.prototype.getContent = function () {
+    AboutComponent.prototype.getPackages = function () {
         var _this = this;
         this.messages = [];
         this.content = [];
-        this.pcService.getList()
+        this.pcService.getPackages()
             .subscribe(function (c) { _this.content = c; }, function (errors) { return _this.handleErrors(errors); });
     };
     AboutComponent.prototype.handleErrors = function (errors) {

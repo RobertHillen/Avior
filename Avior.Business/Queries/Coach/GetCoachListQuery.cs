@@ -25,6 +25,7 @@ namespace Avior.Business.Queries.Coach
                            select c).ToCoachListView().ToList();
 
             return coaches.OrderBy(m => m.Team.Name)
+                          .ThenBy(m => m.Name)  
                           .AsQueryable();
         }
     }

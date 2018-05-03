@@ -6,6 +6,6 @@ namespace Avior.Base
     {
         public const int Invalid_Id = -1;
 
-        public const enuSeason Season_ID = enuSeason.s2017_2018;
+        public const enuSeason Season_Id = enuSeason.s2017_2018;
     }
 }

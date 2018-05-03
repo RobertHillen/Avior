@@ -10,7 +10,7 @@ namespace Avior.Business.Queries.Player
     public class GetPlayerDetailsQuery : IQuery<PlayerDetailView>
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 
     public sealed class GetPlayerDetailsQueryHandler : IQueryHandler<GetPlayerDetailsQuery, PlayerDetailView>
@@ -25,7 +25,7 @@ namespace Avior.Business.Queries.Player
         public PlayerDetailView Handle(GetPlayerDetailsQuery parameters)
         {
             return (from p in _uow.Players
-                    where p.ID == parameters.ID
+                    where p.Id == parameters.Id
                     select p).SingleOrDefault().ToPlayerDisplayView();
         }
     }

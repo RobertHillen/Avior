@@ -8,7 +8,7 @@ namespace Avior.Business.Commands.Coach
     public class DeleteCoachCommand
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 
     public sealed class DeleteCoachCommandHandler : ICommandHandler<DeleteCoachCommand>
@@ -22,7 +22,7 @@ namespace Avior.Business.Commands.Coach
 
         public void Handle(DeleteCoachCommand command)
         {
-            uow.Coaches.DeleteObject(uow.Coaches.GetById(command.ID));
+            uow.Coaches.DeleteObject(uow.Coaches.GetById(command.Id));
 
             uow.SaveChanges();
         }

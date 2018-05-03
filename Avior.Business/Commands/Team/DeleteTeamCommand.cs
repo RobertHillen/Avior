@@ -8,7 +8,7 @@ namespace Avior.Business.Commands.Team
     public class DeleteTeamCommand
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 
     public sealed class DeleteTeamCommandHandler : ICommandHandler<DeleteTeamCommand>
@@ -22,7 +22,7 @@ namespace Avior.Business.Commands.Team
 
         public void Handle(DeleteTeamCommand command)
         {
-            uow.Teams.DeleteObject(uow.Teams.GetById(command.ID));
+            uow.Teams.DeleteObject(uow.Teams.GetById(command.Id));
 
             uow.SaveChanges();
         }

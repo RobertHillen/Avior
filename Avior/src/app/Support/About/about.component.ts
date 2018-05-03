@@ -17,14 +17,14 @@ export class AboutComponent implements OnInit {
     constructor(private pcService: PackagesConfigService) { }
 
     ngOnInit() {
-        this.getContent();
+        this.getPackages();
     }
 
-    private getContent() {
+    private getPackages() {
         this.messages = [];
         this.content = [];
 
-        this.pcService.getList()
+        this.pcService.getPackages()
             .subscribe(c => { this.content = c },
                 errors => this.handleErrors(errors));
     }

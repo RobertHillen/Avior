@@ -15,32 +15,33 @@ namespace Avior.Business.EntityConversions
                    orderby team.Name
                    select new TeamHtmlSelectView
                    {
-                       Key = team.Name,
-                       Value = team.ID
+                       
+                       Key = team.Name + "(" + team.Season.ToString() + ")",
+                       Value = team.Id
                    };
         }
 
         internal static IQueryable<TeamDetailView> ToTeamListView(this IQueryable<Teams> teams)
         {
             return from team in teams
-                   select new TeamDetailView
-                   {
-                       ID = team.ID,
-                       Season = (enuSeason)team.Season,
-                       Category = (enuCategory)team.Category,
-                       Name = team.Name,
-                       TrainingDay1 = (DayOfWeek)team.TrainingDay1,
-                       TrainingTime1 = team.TrainingTime1,
-                       TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
-                       TrainingTime2 = team.TrainingTime2
-                   };
+                select new TeamDetailView
+                {
+                    Id = team.Id,
+                    Season = (enuSeason)team.Season,
+                    Category = (enuCategory)team.Category,
+                    Name = team.Name,
+                    TrainingDay1 = (DayOfWeek)team.TrainingDay1,
+                    TrainingTime1 = team.TrainingTime1,
+                    TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
+                    TrainingTime2 = team.TrainingTime2
+                };
         }
 
         internal static TeamDetailView ToTeamDetailView(this Teams team)
         {
             return new TeamDetailView
             {
-                ID = team.ID,
+                Id = team.Id,
                 Season = (enuSeason)team.Season,
                 Category = (enuCategory)team.Category,
                 Name = team.Name,
@@ -53,11 +54,26 @@ namespace Avior.Business.EntityConversions
             };
         }
 
+        internal static TeamView ToTeamView(this Teams team)
+        {
+            return new TeamView
+            {
+                Id = team.Id,
+                Season = (enuSeason)team.Season,
+                Category = (enuCategory)team.Category,
+                Name = team.Name,
+                TrainingDay1 = (DayOfWeek)team.TrainingDay1,
+                TrainingTime1 = team.TrainingTime1,
+                TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
+                TrainingTime2 = team.TrainingTime2
+            };
+        }
+
         internal static EditTeamCommand ToEditTeamCommand(this Teams team)
         {
             return new EditTeamCommand
             {
-                ID = team.ID,
+                Id = team.Id,
                 Season = (enuSeason)team.Season,
                 Category = (enuCategory)team.Category,
                 Name = team.Name,

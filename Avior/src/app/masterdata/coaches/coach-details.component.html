@@ -1,0 +1,111 @@
+﻿<div *ngIf="coachdata != null">
+    <toolbarmasterdata [Title]="toolbarTitle" [IsList]="toolbarIsList" [IsEdit]="toolbarIsEdit" [Id]="coachdata.Id"></toolbarmasterdata>
+
+    <div class="card border-primary mb-3" style="max-width: 75rem;">
+        <div class="card-body">
+            <div class="panel panel-default">
+                <h5><span class="badge badge-pill avior-blue-background avior-orange">Coach</span></h5>
+                <div class="panel-body avior-blue">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                Naam
+                            </div>
+                            <div>
+                                {{ coachdata.Name }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Email
+                            </div>
+                            <div>
+                                {{ coachdata.Email }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Telefoon
+                            </div>
+                            <div>
+                                {{ coachdata.PhoneNumber }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="coachdata.Team != null" class="panel panel-default">
+        <div class="card border-primary mb-3" style="max-width: 75rem;">
+            <div class="card-body">
+                <h5><span class="badge badge-pill avior-blue-background avior-orange">Team</span></h5>
+                <div class="panel-body avior-blue">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                Naam
+                            </div>
+                            <div>
+                                {{ coachdata.Team.Name }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Seizoen
+                            </div>
+                            <div>
+                                {{ getSeason(coachdata.Team.Season) }}
+                            </div>
+                        </div>
+                        <div *ngIf="coachdata.Team.TrainingDay1 != null" class="row">
+                            <div class="col-md-5">
+                                Training 1
+                            </div>
+                            <div>
+                                {{ getDayOfWeek(coachdata.Team.TrainingDay1) }} / {{ coachdata.Team.TrainingTime1 }}
+                            </div>
+                        </div>
+                        <div *ngIf="coachdata.Team.TrainingDay2 != null" class="row">
+                            <div class="col-md-5">
+                                Training 2
+                            </div>
+                            <div>
+                                {{ getDayOfWeek(coachdata.Team.TrainingDay2) }} / {{ coachdata.Team.TrainingTime2 }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="coachdata.Players != null" class="panel panel-default">
+        <div class="card border-primary mb-3" style="max-width: 75rem;">
+            <div class="card-body">
+                <h5><span class="badge badge-pill avior-blue-background avior-orange">Spelers</span></h5>
+                <div class="panel-body avior-blue">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5 avior-orange">
+                                <strong class="label label-default">Naam</strong>
+                            </div>
+                            <div class="avior-orange">
+                                <strong class="label label-default">Telefoon</strong>
+                            </div>
+                        </div>
+                        <div class="row" *ngFor="let player of coachdata.Players">
+                            <div class="col-md-5">
+                                {{ player.Name }}
+                            </div>
+                            <div>
+                                {{ player.PhoneNumber }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@ var PackagesConfigService = /** @class */ (function () {
         this.http = http;
         this.url = "/api/AboutApi";
     }
-    PackagesConfigService.prototype.getList = function () {
+    PackagesConfigService.prototype.getPackages = function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.url + '/PackagesList', null, options)
@@ -34,7 +34,7 @@ var PackagesConfigService = /** @class */ (function () {
     PackagesConfigService.prototype.handleListErrors = function (error) {
         var errors = [];
         switch (error.status) {
-            case 400:// Bad Request
+            case 400: // Bad Request
                 var err = error.json();
                 if (err.message) {
                     errors.push(err.message);
@@ -43,10 +43,10 @@ var PackagesConfigService = /** @class */ (function () {
                     errors.push("Een onbekende fout is opgetreden");
                 }
                 break;
-            case 404:// Not Found
+            case 404: // Not Found
                 errors.push("Er is geen packages.config bestand aanwezig");
                 break;
-            case 500:// Internal Error
+            case 500: // Internal Error
                 errors.push(error.json().exceptionMessage);
                 break;
             default:

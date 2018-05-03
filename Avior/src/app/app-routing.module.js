@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var home_component_1 = require("./home/home.component");
+var masterdata_module_1 = require("./masterdata/masterdata.module");
 var support_module_1 = require("./support/support.module");
+var home_component_1 = require("./home/home.component");
 var routes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'Home', redirectTo: 'home' },
@@ -21,8 +22,7 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes),
-                support_module_1.SupportModule],
+            imports: [router_1.RouterModule.forRoot(routes), masterdata_module_1.MasterDataModule, support_module_1.SupportModule],
             exports: [router_1.RouterModule]
         })
     ], AppRoutingModule);

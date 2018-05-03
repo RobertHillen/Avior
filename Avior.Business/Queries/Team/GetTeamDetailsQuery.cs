@@ -10,7 +10,7 @@ namespace Avior.Business.Queries.Team
     public sealed class GetTeamDetailsQuery : IQuery<TeamDetailView>
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 
     public sealed class GetTeamDetailsQueryHandler : IQueryHandler<GetTeamDetailsQuery, TeamDetailView>
@@ -25,7 +25,7 @@ namespace Avior.Business.Queries.Team
         public TeamDetailView Handle(GetTeamDetailsQuery parameters)
         {
             var team = (from t in _uow.Teams
-                        where t.ID == parameters.ID
+                        where t.Id == parameters.Id
                         select t).SingleOrDefault().ToTeamDetailView();
 
             return team;

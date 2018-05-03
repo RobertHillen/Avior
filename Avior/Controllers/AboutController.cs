@@ -1,5 +1,5 @@
-﻿using Avior.Business.Code;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Avior.Business.Code;
 
 namespace Avior.Controllers
 {

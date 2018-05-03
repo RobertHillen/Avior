@@ -42,7 +42,7 @@ var LogService = /** @class */ (function () {
     LogService.prototype.handleListErrors = function (error) {
         var errors = [];
         switch (error.status) {
-            case 400:// Bad Request
+            case 400: // Bad Request
                 var err = error.json();
                 if (err.message) {
                     errors.push(err.message);
@@ -51,10 +51,10 @@ var LogService = /** @class */ (function () {
                     errors.push("Een onbekende fout is opgetreden");
                 }
                 break;
-            case 404:// Not Found
+            case 404: // Not Found
                 errors.push("Er zijn geen log bestanden aanwezig");
                 break;
-            case 500:// Internal Error
+            case 500: // Internal Error
                 errors.push(error.json().exceptionMessage);
                 break;
             default:
@@ -68,10 +68,10 @@ var LogService = /** @class */ (function () {
     LogService.prototype.handleContentErrors = function (error) {
         var errors = [];
         switch (error.status) {
-            case 404:// Not Found
+            case 404: // Not Found
                 errors.push("Het log bestand bevat geen informatie wat getoond kan worden");
                 break;
-            case 500:// Internal Error
+            case 500: // Internal Error
                 errors.push(error.json().exceptionMessage);
                 break;
             default:

@@ -16,12 +16,12 @@ namespace Avior.Business.EntityConversions
             return from player in players
                    select new PlayerDetailView
                    {
-                       ID = player.ID,
+                       Id = player.Id,
                        Name = player.Name,
                        PhoneNumber = player.PhoneNumber,
                        Team = new TeamDetailView
                        {
-                           ID = player.Team.ID,
+                           Id = player.Team.Id,
                            Season = (enuSeason)player.Team.Season,
                            Category = (enuCategory)player.Team.Category,
                            Name = player.Team.Name,
@@ -37,10 +37,20 @@ namespace Avior.Business.EntityConversions
         {
             return new PlayerDetailView()
             {
-                ID = player.ID,
+                Id = player.Id,
                 Name = player.Name,
                 PhoneNumber = player.PhoneNumber,
                 Team = player.Team.ToTeamDetailView()
+            };
+        }
+
+        internal static PlayerView ToPlayerView(this Players player)
+        {
+            return new PlayerView()
+            {
+                Id = player.Id,
+                Name = player.Name,
+                PhoneNumber = player.PhoneNumber,
             };
         }
 
@@ -48,10 +58,10 @@ namespace Avior.Business.EntityConversions
         {
             return new EditPlayerCommand
             {
-                ID = player.ID,
+                Id = player.Id,
                 Name = player.Name,
                 PhoneNumber = player.PhoneNumber,
-                TeamID = player.Team == null ? Constants.Invalid_Id : player.Team.ID
+                TeamId = player.Team == null ? Constants.Invalid_Id : player.Team.Id
             };
         }
     }

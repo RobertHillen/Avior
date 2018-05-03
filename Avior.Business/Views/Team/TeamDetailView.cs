@@ -7,7 +7,7 @@ namespace Avior.Business.Views.Team
 {
     public class TeamDetailView
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         public enuSeason Season { get; set; }
 

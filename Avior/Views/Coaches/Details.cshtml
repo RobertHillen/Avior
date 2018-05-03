@@ -1,11 +1,11 @@
-﻿@using Avior.Base.Helpers
+﻿@*@using Avior.Base.Helpers
 @model Avior.Models.Coaches.CoachDetailModel
 
 @Html.Partial("_ToolbarMasterData", new ViewDataDictionary {
     { "Title", "Coaches / Details" },
     { "isList", true },
     { "isEdit", true },
-    { "Id", Model.Details.ID }
+    { "Id", Model.Details.Id }
 })
 
 <div class="panel panel-default">
@@ -108,4 +108,4 @@
             }
         </div>
     </div>
-</div>
+</div>*@

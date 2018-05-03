@@ -6,6 +6,7 @@ using Avior.Business.Commands.Coach;
 using Avior.Business.Views.Coach;
 using Avior.Business.Views.Team;
 using Avior.Database.Entity;
+using Avior.Base.Helpers;
 
 namespace Avior.Business.EntityConversions
 {
@@ -16,21 +17,21 @@ namespace Avior.Business.EntityConversions
             return from coach in coaches
                 select new CoachDetailView
                 {
-                    ID = coach.ID,
+                    Id = coach.Id,
                     Name = coach.Name,
                     Email = coach.Email,
                     PhoneNumber = coach.PhoneNumber,
-                    Team = new TeamDetailView
-                           {
-                                    ID = coach.Team.ID,
-                                    Season = (enuSeason)coach.Team.Season,
-                                    Category = (enuCategory)coach.Team.Category,
-                                    Name = coach.Team.Name,
-                                    TrainingDay1 = (DayOfWeek)coach.Team.TrainingDay1,
-                                    TrainingTime1 = coach.Team.TrainingTime1,
-                                    TrainingDay2 = (DayOfWeek)coach.Team.TrainingDay2,
-                                    TrainingTime2 = coach.Team.TrainingTime2
-                           }
+                    Team = new TeamView
+                    {
+                        Id = coach.Team.Id,
+                        Season = (enuSeason)coach.Team.Season,
+                        Category = (enuCategory)coach.Team.Category,
+                        Name = coach.Team.Name,
+                        TrainingDay1 = (DayOfWeek)coach.Team.TrainingDay1,
+                        TrainingTime1 = coach.Team.TrainingTime1,
+                        TrainingDay2 = (DayOfWeek)coach.Team.TrainingDay2,
+                        TrainingTime2 = coach.Team.TrainingTime2
+                    }
                 };
         }
 
@@ -38,11 +39,11 @@ namespace Avior.Business.EntityConversions
         {
             return new CoachDetailView()
             {
-                ID = coach.ID,
+                Id = coach.Id,
                 Name = coach.Name,
                 Email = coach.Email,
                 PhoneNumber = coach.PhoneNumber,
-                Team = coach.Team.ToTeamDetailView()
+                Team = coach.Team.ToTeamView()
             };
         }
 
@@ -50,11 +51,11 @@ namespace Avior.Business.EntityConversions
         {
             return new EditCoachCommand
             {
-                ID = coach.ID,
+                Id = coach.Id,
                 Name = coach.Name,
                 Email = coach.Email,
                 PhoneNumber = coach.PhoneNumber,
-                TeamID = coach.Team == null ? Constants.Invalid_Id : coach.Team.ID
+                TeamId = coach.Team == null ? Constants.Invalid_Id : coach.Team.Id
             };
         }
     }

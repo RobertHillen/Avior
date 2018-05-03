@@ -6,9 +6,9 @@
     <div class="collapse navbar-collapse" id="navbarMasterData">
         <div class="avior-toolbar-title avior-blue navbar-brand">{{Title}}</div>
         <ul class="navbar-nav mr-auto">
-            <li *ngIf="IsList" class="nav-item"><a class="nav-link" href='@Url.Action("Index")'><i class="fa fa-list"></i> Overzicht</a></li>
-            <li *ngIf="IsCreate" class="nav-item"><a class="nav-link" href='@Url.Action("Add")'><i class="fa fa-plus-circle"></i> Nieuw</a></li>
-            <li *ngIf="IsEdit" class="nav-item"><a class="nav-link" href='@Url.Action("Edit", new { id = {{Id}} })'><i class="fa fa-edit"></i> Wijzigen</a></li>
+            <li *ngIf="IsList" class="nav-item"><a routerLink='/coaches' class="nav-link"><i class="fa fa-list"></i> Overzicht</a></li>
+            <li *ngIf="IsCreate" class="nav-item"><a routerLink="/coachadd" class="nav-link"><i class="fa fa-plus-circle"></i> Nieuw</a></li>
+            <li *ngIf="IsEdit" class="nav-item"><a routerLink='/coachedit/{{Id}}' class="nav-link"><i class="fa fa-edit"></i> Wijzigen</a></li>
         </ul>
     </div>
 </nav>

@@ -10,36 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ToolbarComponent = /** @class */ (function () {
-    function ToolbarComponent() {
+var ToolbarMasterDataComponent = /** @class */ (function () {
+    function ToolbarMasterDataComponent() {
     }
     __decorate([
         core_1.Input(),
         __metadata("design:type", String)
-    ], ToolbarComponent.prototype, "Title", void 0);
+    ], ToolbarMasterDataComponent.prototype, "Title", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Number)
-    ], ToolbarComponent.prototype, "Id", void 0);
+    ], ToolbarMasterDataComponent.prototype, "Id", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Boolean)
-    ], ToolbarComponent.prototype, "IsList", void 0);
+    ], ToolbarMasterDataComponent.prototype, "IsList", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Boolean)
-    ], ToolbarComponent.prototype, "IsCreate", void 0);
+    ], ToolbarMasterDataComponent.prototype, "IsCreate", void 0);
     __decorate([
         core_1.Input(),
         __metadata("design:type", Boolean)
-    ], ToolbarComponent.prototype, "IsEdit", void 0);
-    ToolbarComponent = __decorate([
+    ], ToolbarMasterDataComponent.prototype, "IsEdit", void 0);
+    ToolbarMasterDataComponent = __decorate([
         core_1.Component({
             selector: 'toolbarmasterdata',
-            templateUrl: './toolbar.component.html',
+            templateUrl: './toolbarmasterdata.component.html',
         })
-    ], ToolbarComponent);
-    return ToolbarComponent;
+    ], ToolbarMasterDataComponent);
+    return ToolbarMasterDataComponent;
 }());
-exports.ToolbarComponent = ToolbarComponent;
-//# sourceMappingURL=toolbar.component.js.map
+exports.ToolbarMasterDataComponent = ToolbarMasterDataComponent;
+//# sourceMappingURL=toolbarmasterdata.component.js.map

@@ -10,7 +10,7 @@ namespace Avior.Business.Commands.Player
     public class EditPlayerCommand
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -22,7 +22,7 @@ namespace Avior.Business.Commands.Player
         [Display(Name = "ListLabelPhone", ResourceType = typeof(Resources.Player))]
         public string PhoneNumber { get; set; }
 
-        public int TeamID { get; set; }
+        public int TeamId { get; set; }
     }
 
     public sealed class EditPlayerCommandHandler : ICommandHandler<EditPlayerCommand>
@@ -36,10 +36,10 @@ namespace Avior.Business.Commands.Player
 
         public void Handle(EditPlayerCommand command)
         {
-            var player = uow.Players.GetById(command.ID);
+            var player = uow.Players.GetById(command.Id);
             player.Name = command.Name;
             player.PhoneNumber = command.PhoneNumber;
-            player.Team = command.TeamID != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamID) : null;
+            player.Team = command.TeamId != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamId) : null;
 
             uow.SaveChanges();
         }

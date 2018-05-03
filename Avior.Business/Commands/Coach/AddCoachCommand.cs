@@ -25,7 +25,7 @@ namespace Avior.Business.Commands.Coach
         [Display(Name = "ListLabelEmail", ResourceType = typeof(Resources.Coach))]
         public string Email { get; set; }
 
-        public int TeamID { get; set; }
+        public int TeamId { get; set; }
     }
 
     public sealed class AddCoachCommandHandler : ICommandHandler<AddCoachCommand>
@@ -44,7 +44,7 @@ namespace Avior.Business.Commands.Coach
                 Name = command.Name,
                 Email = command.Email,
                 PhoneNumber = command.PhoneNumber,
-                Team = command.TeamID != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamID) : null,
+                Team = command.TeamId != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamId) : null,
             });
 
             uow.SaveChanges();

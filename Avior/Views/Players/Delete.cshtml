@@ -33,7 +33,7 @@
             {
                 <div class="form-group row">
                     <div class="col-md-3">
-                        @Resources.Team.LabelTeam / @Avior.Base.Constants.Season_ID.GetDisplayName()
+                        @Resources.Team.LabelTeam / @Avior.Base.Constants.Season_Id.GetDisplayName()
                     </div>
                     <div class="col-md-6">
                         @Model.Details.Team.Name
@@ -49,5 +49,5 @@
         </div>
     </div>
 
-    @Html.HiddenFor(m => Model.Details.ID)
+    @Html.HiddenFor(m => Model.Details.Id)
 }

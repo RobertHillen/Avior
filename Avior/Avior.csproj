@@ -28,7 +28,7 @@
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
     <Use64BitIISExpress />
-    <TypeScriptToolsVersion>2.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,8 +85,8 @@
     <Reference Include="Microsoft.ApplicationInsights, Version=2.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.1\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.3\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -101,20 +101,20 @@
     <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector, Version=4.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.4.1.1\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=4.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.2.2\lib\net45\SimpleInjector.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Wcf, Version=4.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.Wcf.4.1.1\lib\net45\SimpleInjector.Integration.Wcf.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Wcf, Version=4.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Wcf.4.2.2\lib\net45\SimpleInjector.Integration.Wcf.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=4.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.Web.4.1.1\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.4.2.2\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.1.1\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.2.2\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.WebApi.4.1.1\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.4.2.2\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -216,19 +216,23 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutApiController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CoachesApiController.cs" />
     <Compile Include="Controllers\CoachesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogApiController.cs" />
     <Compile Include="Controllers\LogController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\TeamsApiController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Coaches\CoachAddModel.cs" />
+    <Compile Include="Models\Coaches\CoachContentRequestModel.cs" />
     <Compile Include="Models\Coaches\CoachDetailModel.cs" />
     <Compile Include="Models\Coaches\CoachEditModel.cs" />
     <Compile Include="Models\Coaches\CoachListModel.cs" />
+    <Compile Include="Models\Coaches\CoachUpdateRequestModel.cs" />
     <Compile Include="Models\Log\LogContentModel.cs" />
     <Compile Include="Models\Log\LogContentRequest.cs" />
     <Compile Include="Models\Log\LogListModel.cs" />
@@ -237,6 +241,7 @@
     <Compile Include="Models\Players\PlayerEditModel.cs" />
     <Compile Include="Models\Players\PlayerListModel.cs" />
     <Compile Include="Models\Teams\TeamAddModel.cs" />
+    <Compile Include="Models\Teams\TeamContentRequest.cs" />
     <Compile Include="Models\Teams\TeamDetailModel.cs" />
     <Compile Include="Models\Teams\TeamEditModel.cs" />
     <Compile Include="Models\Teams\TeamListModel.cs" />
@@ -315,10 +320,15 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="src\app\Support\About\about.component.html" />
+    <Content Include="src\app\masterdata\coaches\coach-add.component.html" />
+    <Content Include="src\app\masterdata\coaches\coach-delete.component.html" />
+    <Content Include="src\app\masterdata\coaches\coach-details.component.html" />
+    <Content Include="src\app\masterdata\coaches\coach-edit.component.html" />
+    <Content Include="src\app\masterdata\coaches\coaches.component.html" />
+    <Content Include="src\app\support\about\about.component.html" />
     <Content Include="src\app\app.component.html" />
-    <Content Include="src\app\Home\home.component.html" />
-    <Content Include="src\app\Support\Log\log.component.html" />
+    <Content Include="src\app\home\home.component.html" />
+    <Content Include="src\app\support\log\log.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\styles.css" />
@@ -369,7 +379,8 @@
     <Content Include="tslint.json" />
     <Content Include="src\tsconfig.json" />
     <Content Include="Views\About\Index.cshtml" />
-    <Content Include="src\app\Shared\toolbar.component.html" />
+    <Content Include="src\app\shared\toolbarmasterdata\toolbarmasterdata.component.html" />
+    <Content Include="Views\Coaches\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -433,19 +444,34 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\Shared\toolbar.component.ts" />
-    <TypeScriptCompile Include="src\app\Shared\toolbarmasterdata.ts" />
-    <TypeScriptCompile Include="src\app\Support\About\about.component.ts" />
-    <TypeScriptCompile Include="src\app\Support\packagesconfig.service.ts" />
-    <TypeScriptCompile Include="src\app\Support\About\packagesconfigcontent.ts" />
-    <TypeScriptCompile Include="src\app\Support\log.service.ts" />
-    <TypeScriptCompile Include="src\app\Support\Log\logcontent.ts" />
-    <TypeScriptCompile Include="src\app\Support\support.module.ts" />
+    <TypeScriptCompile Include="src\app\enum\dayofweek.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\coaches.service.ts" />
+    <TypeScriptCompile Include="src\app\enum\category.ts" />
+    <TypeScriptCompile Include="src\app\enum\season.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\coaches\coach-add.component.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\coaches\coach-delete.component.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\coaches\coach-details.component.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\coaches\coach-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\model\coach.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\coaches\coaches.component.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\masterdata.module.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\model\coachdetails.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\model\player.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\model\team.ts" />
+    <TypeScriptCompile Include="src\app\masterdata\teams.service.ts" />
+    <TypeScriptCompile Include="src\app\shared\shared.module.ts" />
+    <TypeScriptCompile Include="src\app\shared\toolbarmasterdata\toolbarmasterdata.component.ts" />
+    <TypeScriptCompile Include="src\app\support\about\about.component.ts" />
+    <TypeScriptCompile Include="src\app\support\packagesconfig.service.ts" />
+    <TypeScriptCompile Include="src\app\support\about\packagesconfigcontent.ts" />
+    <TypeScriptCompile Include="src\app\support\log.service.ts" />
+    <TypeScriptCompile Include="src\app\support\log\logcontent.ts" />
+    <TypeScriptCompile Include="src\app\support\support.module.ts" />
     <TypeScriptCompile Include="src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
-    <TypeScriptCompile Include="src\app\Home\home.component.ts" />
-    <TypeScriptCompile Include="src\app\Support\Log\log.component.ts" />
+    <TypeScriptCompile Include="src\app\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\support\log\log.component.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <PropertyGroup>

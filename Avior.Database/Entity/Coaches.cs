@@ -14,11 +14,11 @@ namespace Avior.Database.Entity
     
     public partial class Coaches
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public Nullable<int> TeamID { get; set; }
+        public Nullable<int> TeamId { get; set; }
     
         public virtual Teams Team { get; set; }
     }

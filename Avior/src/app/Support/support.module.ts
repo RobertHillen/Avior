@@ -4,12 +4,13 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ToolbarComponent } from '../Shared/toolbar.component';
+import { LogService } from './log.service';
+import { PackagesConfigService } from './packagesconfig.service';
+
 import { LogComponent } from './log/log.component';
 import { AboutComponent } from './about/about.component';
 
-import { LogService } from './log.service';
-import { PackagesConfigService } from './packagesconfig.service';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
     { path: 'log', component: LogComponent },
@@ -19,8 +20,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, FormsModule, HttpModule, RouterModule.forChild(routes)],
-    declarations: [ToolbarComponent, LogComponent, AboutComponent],
+    imports: [CommonModule, FormsModule, HttpModule, RouterModule.forChild(routes), SharedModule],
+    declarations: [LogComponent, AboutComponent],
     providers: [LogService, PackagesConfigService]
 })
 export class SupportModule { }  

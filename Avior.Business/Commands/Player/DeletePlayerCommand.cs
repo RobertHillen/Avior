@@ -8,7 +8,7 @@ namespace Avior.Business.Commands.Player
     public class DeletePlayerCommand
     {
         [Required]
-        public int ID { get; set; }
+        public int Id { get; set; }
     }
 
     public sealed class DeletePlayerCommandHandler : ICommandHandler<DeletePlayerCommand>
@@ -22,7 +22,7 @@ namespace Avior.Business.Commands.Player
 
         public void Handle(DeletePlayerCommand command)
         {
-            uow.Players.DeleteObject(uow.Players.GetById(command.ID));
+            uow.Players.DeleteObject(uow.Players.GetById(command.Id));
 
             uow.SaveChanges();
         }

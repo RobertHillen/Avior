@@ -20,7 +20,7 @@ namespace Avior.Business.Commands.Player
         [Display(Name = "ListLabelPhone", ResourceType = typeof(Resources.Player))]
         public string PhoneNumber { get; set; }
 
-        public int TeamID { get; set; }
+        public int TeamId { get; set; }
     }
 
     public sealed class AddPlayerCommandHandler : ICommandHandler<AddPlayerCommand>
@@ -38,7 +38,7 @@ namespace Avior.Business.Commands.Player
             {
                 Name = command.Name,
                 PhoneNumber = command.PhoneNumber,
-                Team = command.TeamID != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamID) : null,
+                Team = command.TeamId != Constants.Invalid_Id ? uow.Teams.GetById(command.TeamId) : null,
             });
 
             uow.SaveChanges();

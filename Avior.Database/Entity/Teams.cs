@@ -21,7 +21,7 @@ namespace Avior.Database.Entity
             this.Players = new HashSet<Players>();
         }
     
-        public int ID { get; set; }
+        public int Id { get; set; }
         public int Season { get; set; }
         public int Category { get; set; }
         public string Name { get; set; }
