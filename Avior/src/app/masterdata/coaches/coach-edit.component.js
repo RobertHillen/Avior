@@ -14,6 +14,8 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var coaches_service_1 = require("../coaches.service");
 var teams_service_1 = require("../teams.service");
+var phone_validator_1 = require("../validators/phone.validator");
+var email_validator_1 = require("../validators/email.validator");
 var coach_1 = require("../model/coach");
 var season_1 = require("../../enum/season");
 var CoachEditComponent = /** @class */ (function () {
@@ -25,14 +27,33 @@ var CoachEditComponent = /** @class */ (function () {
         this.toolbarTitle = "Coaches / Wijzigen";
         this.toolbarIsList = true;
         this.messages = [];
+        this.validation_messages = {
+            'Name': [
+                { type: 'required', message: 'Naam is een verplicht veld' },
+                { type: 'maxlength', message: 'De maximum lengte is 25 posities' }
+            ],
+            'Phone': [
+                { type: 'maxlength', message: 'De maximum lengte is 15 posities' },
+                { type: 'validPhonenumber', message: 'Voer een geldig telefoon nummer in' }
+            ],
+            'Email': [
+                { type: 'required', message: 'Email is een verplicht veld' },
+                { type: 'validEmail', message: 'Voer een geldig email adres in' },
+            ],
+            'Team': [
+                { type: 'required', message: 'Team is een verplicht veld' }
+            ]
+        };
     }
     CoachEditComponent.prototype.ngOnInit = function () {
         this.coachdata = new coach_1.Coach();
         this.coachform = new forms_1.FormGroup({
-            Name: new forms_1.FormControl(),
-            Phone: new forms_1.FormControl(),
-            Email: new forms_1.FormControl(),
-            Team: new forms_1.FormControl()
+            Name: new forms_1.FormControl('', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.maxLength(25)])),
+            Phone: new forms_1.FormControl('', phone_validator_1.PhoneValidator.validPhonenumber),
+            Email: new forms_1.FormControl('', forms_1.Validators.compose([forms_1.Validators.required, email_validator_1.EmailValidator.validEmail])),
+            Team: new forms_1.FormControl(null, forms_1.Validators.required)
+        }, {
+            updateOn: 'blur'
         });
         this.getData();
         this.getTeamsList();

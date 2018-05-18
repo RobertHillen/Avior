@@ -30,7 +30,7 @@ var CoachDetailsComponent = /** @class */ (function () {
         this.route.params.forEach(function (params) {
             if (params['id'] !== undefined) {
                 _this.coachService.getCoachDetails(params['id'])
-                    .subscribe(function (c) { _this.coachdata = c, console.log(_this.coachdata); }, function (errors) { return _this.handleErrors(errors); });
+                    .subscribe(function (c) { return _this.coachdata = c; }, function (errors) { return _this.handleErrors(errors); });
             }
         });
     };

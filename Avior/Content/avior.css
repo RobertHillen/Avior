@@ -1,4 +1,6 @@
-﻿body {
+﻿@import '/node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -80,4 +82,8 @@ tr th:last-child {
 .avior-table tr {
     padding: 0.25rem;
     font-size: small
+}
+
+.avior-row-input {
+    padding: 0.5rem;
 }

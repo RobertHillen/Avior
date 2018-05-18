@@ -1,39 +1,58 @@
 ﻿<div *ngIf="coachdata != null">
     <toolbarmasterdata [Title]="toolbarTitle" [IsList]="toolbarIsList"></toolbarmasterdata>
 
-    <div class="card border-primary mb-3" style="max-width: 75rem;">
-        <div class="card-body">
+    <mat-card class="border-primary">
+        <mat-card-content>
             <form [formGroup]="coachform" novalidate (ngSubmit)="onSubmit()">
-                <div class="form-group row">
-                    <label class="form-control-label col-sm-2" for="inputName">Naam</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" formControlName="Name" placeholder="< naam >">
+                <div class="row avior-row-input">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-label>Naam</mat-label>
+                            <input matInput type="text" class="form-control form-control-sm" formControlName="Name" required>
+                            <mat-error *ngFor="let validation of validation_messages.Name">
+                                <mat-error class="error-message" *ngIf="coachform.get('Name').hasError(validation.type) && (coachform.get('Name').dirty || coachform.get('Name').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-label>Telefoon</mat-label>
+                            <input matInput type="text" class="form-control form-control-sm" formControlName="Phone">
+                            <mat-error *ngFor="let validation of validation_messages.Phone">
+                                <mat-error class="error-message" *ngIf="coachform.get('Phone').hasError(validation.type) && (coachform.get('Phone').dirty || coachform.get('Phone').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="form-control-label col-sm-2" for="inputPhone">Telefoon</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" formControlName="Phone" placeholder="< mobiel nummer >">
+                <div class="row avior-row-input">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput type="text" class="form-control form-control-sm" formControlName="Email" required>
+                            <mat-error *ngFor="let validation of validation_messages.Email">
+                                <mat-error class="error-message" *ngIf="coachform.get('Email').hasError(validation.type) && (coachform.get('Email').dirty || coachform.get('Email').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-label>Team</mat-label>
+                            <mat-select formControlName="Team" required>
+                                <mat-option *ngFor="let team of teamslist" [value]="team.Id">
+                                    {{team.Name}} ({{getSeason(team.Season)}})
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngFor="let validation of validation_messages.Team">
+                                <mat-error class="error-message" *ngIf="coachform.get('Team').hasError(validation.type) && (coachform.get('Team').dirty || coachform.get('Team').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="form-control-label col-sm-2" for="inputEmail">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control form-control-sm" formControlName="Email" placeholder="< email adres >">
-                    </div>
+                <div class="row avior-row-input">
+                    <button mat-raised-button type="submit" class="btn btn-primary" [disabled]="!coachform.valid">OPSLAAN</button>
                 </div>
-                <div class="form-group row">
-                    <label class="form-control-label col-sm-2" for="inputTeam">Team</label>
-                    <div class="col-sm-10">
-                        <select formControlName="Team" class="form-control form-control-sm">
-                            <option *ngFor="let team of teamslist" [value]="team.Id">
-                                {{team.Name}} ({{getSeason(team.Season)}})
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Opslaan</button>
             </form>
-        </div>
-    </div>
+        </mat-card-content>
+    </mat-card>
+
 </div>

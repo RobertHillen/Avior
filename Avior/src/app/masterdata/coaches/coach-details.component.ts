@@ -11,7 +11,6 @@ import { Player } from '../model/player';
 import { Season } from '../../enum/season';
 import { DaysOfWeek } from '../../enum/dayofweek';
 
-
 @Component({
     templateUrl: './coach-details.component.html',
 })
@@ -35,7 +34,7 @@ export class CoachDetailsComponent implements OnInit {
         this.route.params.forEach((params: Params) => {
             if (params['id'] !== undefined) {
                 this.coachService.getCoachDetails(params['id'])
-                    .subscribe(c => { this.coachdata = c, console.log(this.coachdata) },
+                    .subscribe(c => this.coachdata = c,
                                     errors => this.handleErrors(errors)); 
             }
         });

@@ -1,5 +1,8 @@
 ﻿import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {
+    MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule, MatCardModule,
+    MatChipsModule, MatDividerModule } from '@angular/material';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,7 +28,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forChild(routes), SharedModule],
+    imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpModule, RouterModule.forChild(routes), SharedModule,
+        MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule, MatCardModule,
+        MatChipsModule, MatDividerModule],
     declarations: [CoachesComponent, CoachAddComponent, CoachEditComponent, CoachDetailsComponent, CoachDeleteComponent],
     providers: [CoachesService, TeamsService]
 })

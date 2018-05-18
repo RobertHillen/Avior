@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
+var animations_1 = require("@angular/platform-browser/animations");
 var app_routing_module_1 = require("./app-routing.module");
 var masterdata_module_1 = require("./masterdata/masterdata.module");
 var support_module_1 = require("./support/support.module");
@@ -20,7 +21,7 @@ var AppModule = /** @class */ (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, router_1.RouterModule, forms_1.FormsModule, app_routing_module_1.AppRoutingModule, masterdata_module_1.MasterDataModule, support_module_1.SupportModule],
+            imports: [platform_browser_1.BrowserModule, router_1.RouterModule, forms_1.FormsModule, app_routing_module_1.AppRoutingModule, masterdata_module_1.MasterDataModule, support_module_1.SupportModule, animations_1.BrowserAnimationsModule],
             declarations: [app_component_1.AppComponent, home_component_1.HomeComponent],
             bootstrap: [app_component_1.AppComponent]
         })

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
+var material_1 = require("@angular/material");
 var http_1 = require("@angular/http");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
@@ -32,7 +33,9 @@ var MasterDataModule = /** @class */ (function () {
     }
     MasterDataModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, forms_1.ReactiveFormsModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forChild(routes), shared_module_1.SharedModule],
+            imports: [common_1.CommonModule, forms_1.ReactiveFormsModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forChild(routes), shared_module_1.SharedModule,
+                material_1.MatInputModule, material_1.MatFormFieldModule, material_1.MatButtonModule, material_1.MatSelectModule, material_1.MatCardModule,
+                material_1.MatChipsModule, material_1.MatDividerModule],
             declarations: [coaches_component_1.CoachesComponent, coach_add_component_1.CoachAddComponent, coach_edit_component_1.CoachEditComponent, coach_details_component_1.CoachDetailsComponent, coach_delete_component_1.CoachDeleteComponent],
             providers: [coaches_service_1.CoachesService, teams_service_1.TeamsService]
         })

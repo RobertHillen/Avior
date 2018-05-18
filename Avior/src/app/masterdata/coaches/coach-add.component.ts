@@ -5,13 +5,16 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { CoachesService } from '../coaches.service';
 import { TeamsService } from '../teams.service';
 
+import { PhoneValidator } from '../validators/phone.validator';
+import { EmailValidator } from '../validators/email.validator';
+
 import { Coach } from '../model/coach';
 import { Team } from '../model/team';
 
 import { Season } from '../../enum/season';
 
 @Component({
-    templateUrl: './coach-add.component.html',
+    templateUrl: './coach-add.component.html'
 })
 export class CoachAddComponent implements OnInit {
 
@@ -28,16 +31,37 @@ export class CoachAddComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute,
         private coachService: CoachesService,
-        private teamService: TeamsService
+        private teamService: TeamsService,
+        private fb: FormBuilder
     ) { }
+
+    validation_messages = {
+        'Name': [
+            { type: 'required', message: 'Naam is een verplicht veld' },
+            { type: 'maxlength', message: 'De maximum lengte is 25 posities' }
+        ],
+        'Phone': [
+            { type: 'maxlength', message: 'De maximum lengte is 15 posities' },
+            { type: 'validPhonenumber', message: 'Voer een geldig telefoon nummer in' }
+        ],
+        'Email': [
+            { type: 'required', message: 'Email is een verplicht veld' },
+            { type: 'validEmail', message: 'Voer een geldig email adres in' },
+        ],
+        'Team': [
+            { type: 'required', message: 'Team is een verplicht veld' }
+        ]
+    };
 
     ngOnInit() {
         this.coachdata = new Coach();
-        this.coachform = new FormGroup({
-            Name: new FormControl(),
-            Phone: new FormControl(),
-            Email: new FormControl(),
-            Team: new FormControl()
+        this.coachform = this.fb.group({
+            Name: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(25)])),
+            Phone: new FormControl('', PhoneValidator.validPhonenumber),
+            Email: new FormControl('', Validators.compose([Validators.required, EmailValidator.validEmail])),
+            Team: new FormControl(null, Validators.required)
+        }, {
+            updateOn: 'blur'
         });
 
         this.getTeamsList();
