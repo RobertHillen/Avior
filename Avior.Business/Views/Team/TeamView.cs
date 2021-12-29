@@ -19,18 +19,22 @@ namespace Avior.Business.Views.Team
 
         public TimeSpan TrainingTime1 { get; set; }
 
+        public string TrainingLocation1 { get; set; }
+
         public DayOfWeek? TrainingDay2 { get; set; }
 
         public TimeSpan? TrainingTime2 { get; set; }
 
+        public string TrainingLocation2 { get; set; }
+
         public string Training1()
         {
-            return TeamHelper.TrainingDayTime(TrainingDay1, TrainingTime1);
+            return TeamHelper.TrainingDayTime(TrainingDay1, TrainingTime1, TrainingLocation1);
         }
 
         public string Training2()
         {
-            return TeamHelper.TrainingDayTime(TrainingDay2, TrainingTime2);
+            return TeamHelper.TrainingDayTime(TrainingDay2, TrainingTime2, TrainingLocation2);
         }
 
         public string SeasonToString()

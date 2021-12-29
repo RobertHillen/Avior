@@ -1,5 +1,5 @@
 ﻿<div *ngIf="coachdata != null">
-    <toolbarmasterdata [Title]="toolbarTitle" [IsList]="toolbarIsList" [IsEdit]="toolbarIsEdit" [Id]="coachdata.Id"></toolbarmasterdata>
+    <toolbarmasterdata [Master]="toolbarMaster" [Title]="toolbarTitle" [IsList]="toolbarIsList" [IsEdit]="toolbarIsEdit" [Id]="coachdata.Id"></toolbarmasterdata>
 
     <mat-card class="border-primary">
         <mat-card-title>
@@ -64,7 +64,7 @@
                             Training 1
                         </div>
                         <div>
-                            {{ getDayOfWeek(coachdata.Team.TrainingDay1) }} / {{ coachdata.Team.TrainingTime1 }}
+                            {{ getDayOfWeek(coachdata.Team.TrainingDay1) }} / {{ coachdata.Team.TrainingTime1 }} / {{ coachdata.Team.TrainingLocation1 }}
                         </div>
                     </div>
                     <div *ngIf="coachdata.Team.TrainingDay2 != null" class="row">
@@ -72,7 +72,7 @@
                             Training 2
                         </div>
                         <div>
-                            {{ getDayOfWeek(coachdata.Team.TrainingDay2) }} / {{ coachdata.Team.TrainingTime2 }}
+                            {{ getDayOfWeek(coachdata.Team.TrainingDay2) }} / {{ coachdata.Team.TrainingTime2 }} / {{ coachdata.Team.TrainingLocation2 }}
                         </div>
                     </div>
                 </div>

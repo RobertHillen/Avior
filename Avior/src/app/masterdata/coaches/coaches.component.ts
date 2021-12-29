@@ -7,11 +7,12 @@ import { Coach } from '../model/coach';
 import { Season } from '../../enum/season';
 
 @Component({
-    selector: 'coaches',
+    selector: 'coachlist',
     templateUrl: './coaches.component.html',
 })
 export class CoachesComponent implements OnInit {
 
+    toolbarMaster: string = "coach";
     toolbarTitle: string = "Coaches";
     toolbarIsCreate: boolean = true;
 

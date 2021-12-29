@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CoachEditComponent = void 0;
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
@@ -24,6 +25,7 @@ var CoachEditComponent = /** @class */ (function () {
         this.route = route;
         this.coachService = coachService;
         this.teamService = teamService;
+        this.toolbarMaster = "coach";
         this.toolbarTitle = "Coaches / Wijzigen";
         this.toolbarIsList = true;
         this.messages = [];
@@ -96,7 +98,7 @@ var CoachEditComponent = /** @class */ (function () {
         var _this = this;
         var ok;
         this.coachService.editCoach(this.coachdata)
-            .subscribe(function (c) { ok = c, _this.router.navigate(['/coaches']); }, function (errors) { return _this.handleErrors(errors); });
+            .subscribe(function (c) { ok = c, _this.router.navigate(['/coachlist']); }, function (errors) { return _this.handleErrors(errors); });
     };
     ;
     CoachEditComponent.prototype.getTeamsList = function () {
@@ -113,7 +115,7 @@ var CoachEditComponent = /** @class */ (function () {
         }
     };
     CoachEditComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             templateUrl: './coach-edit.component.html',
         }),
         __metadata("design:paramtypes", [router_1.Router,

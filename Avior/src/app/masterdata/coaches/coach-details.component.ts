@@ -16,6 +16,7 @@ import { DaysOfWeek } from '../../enum/dayofweek';
 })
 export class CoachDetailsComponent implements OnInit {
 
+    toolbarMaster: string = "coach";
     toolbarTitle: string = "Coaches / Details";
     toolbarIsList: boolean = true;
     toolbarIsEdit: boolean = true;

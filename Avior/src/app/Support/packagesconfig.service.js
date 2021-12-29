@@ -9,27 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PackagesConfigService = void 0;
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/common/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-require("rxjs/add/observable/throw");
+var httpOptions = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
 var PackagesConfigService = /** @class */ (function () {
-    function PackagesConfigService(http) {
-        this.http = http;
+    function PackagesConfigService(httpclient) {
+        this.httpclient = httpclient;
         this.url = "/api/AboutApi";
     }
     PackagesConfigService.prototype.getPackages = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.url + '/PackagesList', null, options)
-            .map(this.extractData)
+        return this.httpclient.post(this.url + '/PackagesList', null, httpOptions)
+            .map(function (response) { return response; })
             .catch(this.handleListErrors);
-    };
-    PackagesConfigService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body || {};
     };
     PackagesConfigService.prototype.handleListErrors = function (error) {
         var errors = [];
@@ -58,8 +53,8 @@ var PackagesConfigService = /** @class */ (function () {
         return Observable_1.Observable.throw(errors);
     };
     PackagesConfigService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
+        (0, core_1.Injectable)(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], PackagesConfigService);
     return PackagesConfigService;
 }());

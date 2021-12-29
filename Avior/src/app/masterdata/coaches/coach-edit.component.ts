@@ -18,6 +18,7 @@ import { Season } from '../../enum/season';
 })
 export class CoachEditComponent implements OnInit {
 
+    toolbarMaster: string = "coach";
     toolbarTitle: string = "Coaches / Wijzigen";
     toolbarIsList: boolean = true;
 
@@ -108,7 +109,7 @@ export class CoachEditComponent implements OnInit {
     private saveData() {
         let ok: boolean;
         this.coachService.editCoach(this.coachdata)
-            .subscribe(c => { ok = c, this.router.navigate(['/coaches']); },
+            .subscribe(c => { ok = c, this.router.navigate(['/coachlist']); },
                        errors => this.handleErrors(errors));
     };
 

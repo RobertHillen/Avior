@@ -24,7 +24,8 @@ namespace Avior.Business.Queries.Team
             var teams = (from t in _uow.Teams
                          select t).ToTeamListView().ToList();
 
-            return teams.OrderBy(m => m.Name)
+            return teams.OrderByDescending(m => m.Season)
+                        .ThenBy(m => m.Name)
                         .AsQueryable();
         }
     }

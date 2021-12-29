@@ -60,6 +60,8 @@
     <Property Name="TrainingTime1" Type="time" Nullable="false" Precision="7" />
     <Property Name="TrainingDay2" Type="int" Nullable="true" />
     <Property Name="TrainingTime2" Type="time" Nullable="true" Precision="7" />
+    <Property Name="TrainingLocation1" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="TrainingLocation2" Type="nvarchar" Nullable="true" MaxLength="50" />
   </EntityType>
   <Association Name="CoachesTeams">
     <End Role="Coaches" Type="AviorModel.Store.Coaches" Multiplicity="*" />
@@ -134,6 +136,8 @@
           <Property Name="TrainingTime2" Type="Time" Precision="7" />
           <NavigationProperty Name="Coaches" Relationship="AviorModel.CoachesTeams" FromRole="Teams" ToRole="Coaches" />
           <NavigationProperty Name="Players" Relationship="AviorModel.PlayersTeams" FromRole="Teams" ToRole="Players" />
+          <Property Name="TrainingLocation1" Type="String" MaxLength="50" />
+          <Property Name="TrainingLocation2" Type="String" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="AviorDbEntity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
@@ -221,6 +225,8 @@
           <ScalarProperty Name="TrainingTime1" ColumnName="TrainingTime1" />
           <ScalarProperty Name="TrainingDay2" ColumnName="TrainingDay2" />
           <ScalarProperty Name="TrainingTime2" ColumnName="TrainingTime2" />
+          <ScalarProperty Name="TrainingLocation1" ColumnName="TrainingLocation1" />
+          <ScalarProperty Name="TrainingLocation2" ColumnName="TrainingLocation2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

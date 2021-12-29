@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/20/2018 13:47:09
+-- Date Created: 05/19/2018 15:14:31
 -- Generated from EDMX file: D:\Dev\VisualStudio.NET\Avior\Avior.Database\Entity\AviorDB.edmx
 -- --------------------------------------------------
 
@@ -82,7 +82,9 @@ CREATE TABLE [dbo].[Teams] (
     [TrainingDay1] int  NOT NULL,
     [TrainingTime1] time  NOT NULL,
     [TrainingDay2] int  NULL,
-    [TrainingTime2] time  NULL
+    [TrainingTime2] time  NULL,
+    [TrainingLocation1] nvarchar(50)  NOT NULL,
+    [TrainingLocation2] nvarchar(50)  NULL
 );
 GO
 

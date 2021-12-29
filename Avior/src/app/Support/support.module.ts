@@ -1,6 +1,6 @@
 ﻿import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, FormsModule, HttpModule, RouterModule.forChild(routes), SharedModule],
+    imports: [CommonModule, FormsModule, HttpClientModule, RouterModule.forChild(routes), SharedModule],
     declarations: [LogComponent, AboutComponent],
     providers: [LogService, PackagesConfigService]
 })

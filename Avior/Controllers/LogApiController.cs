@@ -66,7 +66,7 @@ namespace Avior.Controllers
             var root = ConfigurationManager.AppSettings["LogPath"].ToString();
             var fullname = Path.Combine(root, request.fileName);
 
-            var content = _logHelper.processLog(fullname, request.noInfo);
+            var content = _logHelper.ProcessLog(fullname, request.noInfo);
 
             IHttpActionResult ret;
             

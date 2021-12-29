@@ -29,6 +29,8 @@ namespace Avior.Database.Entity
         public System.TimeSpan TrainingTime1 { get; set; }
         public Nullable<int> TrainingDay2 { get; set; }
         public Nullable<System.TimeSpan> TrainingTime2 { get; set; }
+        public string TrainingLocation1 { get; set; }
+        public string TrainingLocation2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Coaches> Coaches { get; set; }

@@ -8,6 +8,8 @@ export class Team {
     Name: string;
     TrainingDay1: number;
     TrainingTime1: number;
+    TrainingLocation1: string;
     TrainingDay2: number;
     TrainingTime2: number;
+    TrainingLocation2: string;
 }

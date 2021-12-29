@@ -1,0 +1,126 @@
+﻿<div *ngIf="teamdata != null">
+    <toolbarmasterdata [Master]="toolbarMaster" [Title]="toolbarTitle" [IsList]="toolbarIsList"></toolbarmasterdata>
+
+    <mat-card class="border-primary">
+        <mat-card-content>
+            <form [formGroup]="teamform" novalidate (ngSubmit)="onSubmit()">
+                <div class="row avior-row-input">
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Naam</mat-label>
+                            <input matInput type="text" class="form-control form-control-sm" formControlName="Name" required>
+                            <mat-error *ngFor="let validation of validation_messages.Name">
+                                <mat-error class="error-message" *ngIf="teamform.get('Name').hasError(validation.type) && (teamform.get('Name').dirty || teamform.get('Name').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Category</mat-label>
+                            <mat-select formControlName="Category" [compareWith]="compareFn" required>
+                                <mat-option *ngFor="let category of arrCategory" value="{{category.key}}">
+                                    {{ category.value }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngFor="let validation of validation_messages.Category">
+                                <mat-error class="error-message" *ngIf="teamform.get('Category').hasError(validation.type) && (teamform.get('Category').dirty || teamform.get('Category').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Seizoen</mat-label>
+                            <mat-select formControlName="Season" [compareWith]="compareFn" required>
+                                <mat-option *ngFor="let season of arrSeason" value="{{season.key}}">
+                                    {{ season.value }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngFor="let validation of validation_messages.Season">
+                                <mat-error class="error-message" *ngIf="teamform.get('Season').hasError(validation.type) && (teamform.get('Season').dirty || teamform.get('Season').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row avior-row-input">
+                    <mat-chip-list><mat-chip class="avior-blue-background avior-orange">Eerste training</mat-chip></mat-chip-list>
+                </div>
+
+                <div class="row avior-row-input">
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Dag</mat-label>
+                            <mat-select formControlName="TrainingDay1" [compareWith]="compareFn" required>
+                                <mat-option *ngFor="let day of arrDaysOfWeek" value="{{day.key}}">
+                                    {{ day.value }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngFor="let validation of validation_messages.TrainingDay1">
+                                <mat-error class="error-message" *ngIf="teamform.get('TrainingDay1').hasError(validation.type) && (teamform.get('TrainingDay1').dirty || teamform.get('TrainingDay1').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Tijd</mat-label>
+                            <input matInput type="time" class="form-control form-control-sm" formControlName="TrainingTime1" required>
+                            <mat-error *ngFor="let validation of validation_messages.TrainingTime1">
+                                <mat-error class="error-message" *ngIf="teamform.get('TrainingTime1').hasError(validation.type) && (teamform.get('TrainingTime1').dirty || teamform.get('TrainingTime1').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Locatie</mat-label>
+                            <input matInput type="text" class="form-control form-control-sm" formControlName="TrainingLocation1" required>
+                            <mat-error *ngFor="let validation of validation_messages.TrainingLocation1">
+                                <mat-error class="error-message" *ngIf="teamform.get('TrainingLocation1').hasError(validation.type) && (teamform.get('TrainingLocation1').dirty || teamform.get('TrainingLocation1').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row avior-row-input">
+                    <mat-chip-list><mat-chip class="avior-blue-background avior-orange">Tweede training</mat-chip></mat-chip-list>
+                </div>
+
+                <div class="row avior-row-input">
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Dag</mat-label>
+                            <mat-select formControlName="TrainingDay2" [compareWith]="compareFn">
+                                <mat-option *ngFor="let day of arrDaysOfWeek" value="{{day.key}}">
+                                    {{ day.value }}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngFor="let validation of validation_messages.TrainingDay2">
+                                <mat-error class="error-message" *ngIf="teamform.get('TrainingDay2').hasError(validation.type) && (teamform.get('TrainingDay2').dirty || teamform.get('TrainingDay2').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Tijd</mat-label>
+                            <input matInput type="time" class="form-control form-control-sm" formControlName="TrainingTime2">
+                            <mat-error *ngFor="let validation of validation_messages.TrainingTime2">
+                                <mat-error class="error-message" *ngIf="teamform.get('TrainingTime2').hasError(validation.type) && (teamform.get('TrainingTime2').dirty || teamform.get('TrainingTime2').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-label>Locatie</mat-label>
+                            <input matInput type="text" class="form-control form-control-sm" formControlName="TrainingLocation2">
+                            <mat-error *ngFor="let validation of validation_messages.TrainingLocation2">
+                                <mat-error class="error-message" *ngIf="teamform.get('TrainingLocation2').hasError(validation.type) && (teamform.get('TrainingLocation2').dirty || teamform.get('TrainingLocation2').touched)">{{validation.message}}</mat-error>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row avior-row-input">
+                    <button mat-raised-button type="submit" class="btn btn-primary" [disabled]="!teamform.valid">OPSLAAN</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

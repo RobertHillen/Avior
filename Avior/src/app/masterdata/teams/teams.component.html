@@ -1,0 +1,35 @@
+﻿<toolbarmasterdata [Master]="toolbarMaster" [Title]="toolbarTitle" [IsCreate]="toolbarIsCreate"></toolbarmasterdata>
+
+<table class="table no-border table-condensed">
+    <thead>
+        <tr>
+            <th>Team</th>
+            <th>Seizoen</th>
+            <th>Categorie</th>
+            <th>Training 1</th>
+            <th>Training 2</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        BLA
+        <tr *ngFor="let team of teamData">
+            <td>{{ team.Name }}</td>
+            <td>{{ getSeason(team.Season) }}</td>
+            <td>{{ getCategory(team.Category) }}</td>
+            <td>{{ getTraining(team, 1) }}</td>
+            <td>{{ getTraining(team, 2) }}</td>
+            <td>
+                <a routerLink='/teamedit/{{team.Id}}' class="btn btn-outline-primary btn-link btn-sm" data-toggle="tooltip" title="Wijzigen">
+                    <span class="fa fa-edit" aria-hidden="true"></span>
+                </a>
+                <a routerLink='/teamdetails/{{team.Id}}' class="btn btn-outline-primary btn-link btn-sm" data-toggle="tooltip" title="Details">
+                    <span class="fa fa-list-alt" aria-hidden="true"></span>
+                </a>
+                <a routerLink='/teamdelete/{{team.Id}}' class="btn btn-outline-primary btn-link btn-sm" data-toggle="tooltip" title="Verwijderen">
+                    <span class="fa fa-trash-o" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

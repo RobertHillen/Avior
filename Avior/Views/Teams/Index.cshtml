@@ -1,0 +1,52 @@
+﻿@using Avior.Base.Helpers
+@model Avior.Models.Teams.TeamListModel
+
+@*@Html.Partial("_ToolbarMasterData", new ViewDataDictionary {
+    { "Title", "Teams" },
+    { "isCreate", true },
+})*@
+
+@*<table class="table no-border table-condensed">
+    <thead>
+        <tr>
+            <th>@Resources.Team.LabelName</th>
+            <th>@Resources.Team.LabelSeason</th>
+            <th>@Resources.Team.LabelCategory</th>
+            <th>@Resources.Team.LabelTraining1</th>
+            <th>@Resources.Team.LabelTraining2</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        BLOE
+        @foreach (var item in Model.TeamList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @(item.Season.GetDisplayName())
+                </td>
+                <td>
+                    @(item.Category.GetDisplayName())
+                </td>
+                <td>
+                    @(item.Training1())
+                </td>
+                <td>
+                    @(item.Training2())
+                </td>
+                @Html.Partial("_TableModifyButtons", new ViewDataDictionary { { "Id", item.Id } })
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+@section Scripts {
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        //    $('[data-toggle="tooltip"]').tooltip();
+        //});
+    </script>
+}

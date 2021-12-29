@@ -5,7 +5,7 @@
     JeugdA = 4
 }
 
-export class DaysOfWeek {
+export class Category {
 
     public static get(dow: CATEGORY) {
         let result = "";

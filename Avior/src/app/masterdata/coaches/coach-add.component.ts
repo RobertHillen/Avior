@@ -18,6 +18,7 @@ import { Season } from '../../enum/season';
 })
 export class CoachAddComponent implements OnInit {
 
+    toolbarMaster: string = "coach";
     toolbarTitle: string = "Coaches / Nieuw";
     toolbarIsList: boolean = true;
 

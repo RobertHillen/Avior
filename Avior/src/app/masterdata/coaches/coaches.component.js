@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CoachesComponent = void 0;
 var core_1 = require("@angular/core");
 var coaches_service_1 = require("../coaches.service");
 var season_1 = require("../../enum/season");
 var CoachesComponent = /** @class */ (function () {
     function CoachesComponent(coachService) {
         this.coachService = coachService;
+        this.toolbarMaster = "coach";
         this.toolbarTitle = "Coaches";
         this.toolbarIsCreate = true;
         this.messages = [];
@@ -40,8 +42,8 @@ var CoachesComponent = /** @class */ (function () {
         }
     };
     CoachesComponent = __decorate([
-        core_1.Component({
-            selector: 'coaches',
+        (0, core_1.Component)({
+            selector: 'coachlist',
             templateUrl: './coaches.component.html',
         }),
         __metadata("design:paramtypes", [coaches_service_1.CoachesService])

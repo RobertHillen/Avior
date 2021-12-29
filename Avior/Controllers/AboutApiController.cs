@@ -1,11 +1,7 @@
 ﻿using Avior.Business.Helpers;
 using log4net;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Avior.Controllers
@@ -28,7 +24,7 @@ namespace Avior.Controllers
             logger.Info($"GetPackagesList");
 
             var root = ConfigurationManager.AppSettings["RootPath"].ToString();
-            var packageList = _logHelper.processPackagesConfig(root);
+            var packageList = _logHelper.ProcessPackagesConfig(root);
 
             IHttpActionResult ret;
 

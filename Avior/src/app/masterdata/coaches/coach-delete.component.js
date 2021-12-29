@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CoachDeleteComponent = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var coaches_service_1 = require("../coaches.service");
@@ -19,6 +20,7 @@ var CoachDeleteComponent = /** @class */ (function () {
         this.router = router;
         this.route = route;
         this.coachService = coachService;
+        this.toolbarMaster = "coach";
         this.toolbarTitle = "Coaches / Verwijderen";
         this.toolbarIsList = true;
         this.messages = [];
@@ -57,7 +59,7 @@ var CoachDeleteComponent = /** @class */ (function () {
         }
     };
     CoachDeleteComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             templateUrl: './coach-delete.component.html',
         }),
         __metadata("design:paramtypes", [router_1.Router,

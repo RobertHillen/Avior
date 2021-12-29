@@ -1,42 +1,63 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Team } from './model/team';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 
-import { Team } from './model/team';
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class TeamsService {
     private url = "/api/teamsApi";
 
-    constructor(private http: Http) { }
+    constructor(private httpclient: HttpClient) { }
 
     getList(): Observable<Team[]> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.post(this.url + '/GetList', null, options)
-            .map(this.extractData)
+        return this.httpclient.post<Team[]>(this.url + '/GetList', null, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     getTeam(id: number): Observable<Team> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
         let args = JSON.stringify({ Id: id });
 
-        return this.http.post(this.url + '/GetTeam', args, options)
-            .map(this.extractData)
+        return this.httpclient.post<Team>(this.url + '/GetTeam', args, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        return body || {};
+    addTeam(team: Team): Observable<boolean> {
+        let args = JSON.stringify(team);
+
+        return this.httpclient.post<boolean>(this.url + '/Add', args, httpOptions)
+            .map(response => response)
+            .catch(this.handleListErrors);
     }
+
+    editTeam(team: Team): Observable<boolean> {
+        let args = JSON.stringify(team);
+
+        return this.httpclient.post<boolean>(this.url + '/Edit', args, httpOptions)
+            .map(response => response)
+            .catch(this.handleListErrors);
+    }
+
+    deleteTeam(id: number): Observable<boolean> {
+        let args = JSON.stringify({ Id: id });
+
+        return this.httpclient.post(this.url + '/Delete', args, httpOptions)
+            .map(response => response)
+            .catch(this.handleListErrors);
+    }
+
+    //getTeamDetails(id: number): Observable<TeamDetails> {
+    //    let args = JSON.stringify({ Id: id });
+
+    //    return this.httpclient.post(this.url + '/Details', args, httpOptions)
+    //        .map(response => response)
+    //        .catch(this.handleListErrors);
+    //}
 
     private handleListErrors(error: any): Observable<any> {
         let errors: string[] = [];

@@ -1,30 +1,22 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { PackagesConfigContent } from './about/packagesconfigcontent';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 
-import { PackagesConfigContent } from './about/packagesconfigcontent';
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class PackagesConfigService {
     private url = "/api/AboutApi";
 
-    constructor(private http: Http) { }
+    constructor(private httpclient: HttpClient) { }
 
     getPackages(): Observable<PackagesConfigContent[]> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.post(this.url + '/PackagesList', null, options)
-            .map(this.extractData)
+        return this.httpclient.post(this.url + '/PackagesList', null, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
-    }
-
-    private extractData(res: Response) {
-        let body = res.json();
-        return body || {};
     }
 
     private handleListErrors(error: any): Observable<any> {

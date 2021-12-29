@@ -32,8 +32,10 @@ namespace Avior.Business.EntityConversions
                     Name = team.Name,
                     TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                     TrainingTime1 = team.TrainingTime1,
+                    TrainingLocation1 = team.TrainingLocation1,
                     TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
-                    TrainingTime2 = team.TrainingTime2
+                    TrainingTime2 = team.TrainingTime2,
+                    TrainingLocation2 = team.TrainingLocation2
                 };
         }
 
@@ -47,8 +49,10 @@ namespace Avior.Business.EntityConversions
                 Name = team.Name,
                 TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                 TrainingTime1 = team.TrainingTime1,
+                TrainingLocation1 = team.TrainingLocation1,
                 TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
                 TrainingTime2 = team.TrainingTime2,
+                TrainingLocation2 = team.TrainingLocation2,
                 Coaches = team.Coaches.ToArray(),
                 Players = team.Players.ToArray()
             };
@@ -64,8 +68,10 @@ namespace Avior.Business.EntityConversions
                 Name = team.Name,
                 TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                 TrainingTime1 = team.TrainingTime1,
+                TrainingLocation1 = team.TrainingLocation1,
                 TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
-                TrainingTime2 = team.TrainingTime2
+                TrainingTime2 = team.TrainingTime2,
+                TrainingLocation2 = team.TrainingLocation2,
             };
         }
 
@@ -79,8 +85,10 @@ namespace Avior.Business.EntityConversions
                 Name = team.Name,
                 TrainingDay1 = (DayOfWeek)team.TrainingDay1,
                 TrainingTime1 = team.TrainingTime1,
+                TrainingLocation1 = team.TrainingLocation1,
                 TrainingDay2 = (DayOfWeek?)team.TrainingDay2,
-                TrainingTime2 = team.TrainingTime2
+                TrainingTime2 = team.TrainingTime2,
+                TrainingLocation2 = team.TrainingLocation2,
             };
         }
     }

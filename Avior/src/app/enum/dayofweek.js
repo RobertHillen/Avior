@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DaysOfWeek = exports.DAYSOFWEEK = void 0;
 var DAYSOFWEEK;
 (function (DAYSOFWEEK) {
     DAYSOFWEEK[DAYSOFWEEK["Sunday"] = 0] = "Sunday";

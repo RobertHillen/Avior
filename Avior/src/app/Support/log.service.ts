@@ -1,41 +1,32 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { LogContent } from './log/logcontent';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
 
-import { LogContent } from './log/logcontent';
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class LogService {
     private url = "/api/logApi";
 
-    constructor(private http: Http) {
-    }
+    result: string[];
+
+    constructor(private httpclient: HttpClient) { }
 
     getFileList(): Observable<string[]> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.post(this.url + '/FileList', null, options)
-            .map(this.extractData)
+        return this.httpclient.post<string[]>(this.url + '/FileList', null)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     getContent(file: string, noInfo: boolean): Observable<LogContent[]> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
         let args = JSON.stringify({ fileName: file, noInfo: noInfo });
 
-        return this.http.post(this.url + '/Content', args, options)
-            .map(this.extractData)
+        return this.httpclient.post<string[]>(this.url + '/Content', args, httpOptions)
+            .map(response => response)
             .catch(this.handleContentErrors);
-    }
-
-    private extractData(res: Response) {
-        let body = res.json();
-        return body || {};
     }
 
     private handleListErrors(error: any): Observable<any> {

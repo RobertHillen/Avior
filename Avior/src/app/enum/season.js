@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Season = exports.SEASON = void 0;
 var SEASON;
 (function (SEASON) {
     SEASON[SEASON["S_2017_2018"] = 1] = "S_2017_2018";

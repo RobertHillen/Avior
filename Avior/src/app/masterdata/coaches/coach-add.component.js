@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CoachAddComponent = void 0;
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
@@ -25,6 +26,7 @@ var CoachAddComponent = /** @class */ (function () {
         this.coachService = coachService;
         this.teamService = teamService;
         this.fb = fb;
+        this.toolbarMaster = "coach";
         this.toolbarTitle = "Coaches / Nieuw";
         this.toolbarIsList = true;
         this.messages = [];
@@ -95,7 +97,7 @@ var CoachAddComponent = /** @class */ (function () {
         }
     };
     CoachAddComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             templateUrl: './coach-add.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router,

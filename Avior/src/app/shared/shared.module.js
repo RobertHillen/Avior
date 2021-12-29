@@ -6,6 +6,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SharedModule = void 0;
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
@@ -15,7 +16,7 @@ var SharedModule = /** @class */ (function () {
     function SharedModule() {
     }
     SharedModule = __decorate([
-        core_1.NgModule({
+        (0, core_1.NgModule)({
             imports: [common_1.CommonModule, forms_1.FormsModule, router_1.RouterModule],
             exports: [toolbarmasterdata_component_1.ToolbarMasterDataComponent],
             declarations: [toolbarmasterdata_component_1.ToolbarMasterDataComponent],

@@ -5,6 +5,7 @@
     templateUrl: './toolbarmasterdata.component.html',
 })
 export class ToolbarMasterDataComponent {
+    @Input() Master: string;
     @Input() Title: string;
     @Input() Id: number;
     @Input() IsList: boolean;

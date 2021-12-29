@@ -1,86 +1,63 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-
 import { Coach } from './model/coach';
 import { CoachDetails } from './model/coachdetails';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class CoachesService {
     private url = "/api/coachesApi";
 
-    constructor(private http: Http) { }
+    constructor(private httpclient: HttpClient) { }
 
     getList(): Observable<Coach[]> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.post(this.url + '/List', null, options)
-            .map(this.extractData)
+        return this.httpclient.post<Coach[]>(this.url + '/List', null, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     getCoach(id: number): Observable<Coach> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
         let args = JSON.stringify({ Id: id });
 
-        return this.http.post(this.url + '/Get', args, options)
-            .map(this.extractData)
+        return this.httpclient.post<Coach>(this.url + '/Get', args, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     addCoach(coach: Coach): Observable<boolean> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
         let args = JSON.stringify(coach);
 
-        return this.http.post(this.url + '/Add', args, options)
-            .map(this.extractData)
+        return this.httpclient.post<boolean>(this.url + '/Add', args, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     editCoach(coach: Coach): Observable<boolean> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
         let args = JSON.stringify(coach);
 
-        return this.http.post(this.url + '/Edit', args, options)
-            .map(this.extractData)
+        return this.httpclient.post<boolean>(this.url + '/Edit', args, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     deleteCoach(id: number): Observable<boolean> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
         let args = JSON.stringify({ Id: id });
 
-        return this.http.post(this.url + '/Delete', args, options)
-            .map(this.extractData)
+        return this.httpclient.post(this.url + '/Delete', args, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
     }
 
     getCoachDetails(id: number): Observable<CoachDetails> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
         let args = JSON.stringify({ Id: id });
 
-        return this.http.post(this.url + '/Details', args, options)
-            .map(this.extractData)
+        return this.httpclient.post(this.url + '/Details', args, httpOptions)
+            .map(response => response)
             .catch(this.handleListErrors);
-    }
-
-    private extractData(res: Response) {
-        let body = res.json();
-        return body || {};
     }
 
     private handleListErrors(error: any): Observable<any> {

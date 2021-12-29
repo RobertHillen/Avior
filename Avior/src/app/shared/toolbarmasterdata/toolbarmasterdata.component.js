@@ -9,32 +9,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ToolbarMasterDataComponent = void 0;
 var core_1 = require("@angular/core");
 var ToolbarMasterDataComponent = /** @class */ (function () {
     function ToolbarMasterDataComponent() {
     }
     __decorate([
-        core_1.Input(),
+        (0, core_1.Input)(),
+        __metadata("design:type", String)
+    ], ToolbarMasterDataComponent.prototype, "Master", void 0);
+    __decorate([
+        (0, core_1.Input)(),
         __metadata("design:type", String)
     ], ToolbarMasterDataComponent.prototype, "Title", void 0);
     __decorate([
-        core_1.Input(),
+        (0, core_1.Input)(),
         __metadata("design:type", Number)
     ], ToolbarMasterDataComponent.prototype, "Id", void 0);
     __decorate([
-        core_1.Input(),
+        (0, core_1.Input)(),
         __metadata("design:type", Boolean)
     ], ToolbarMasterDataComponent.prototype, "IsList", void 0);
     __decorate([
-        core_1.Input(),
+        (0, core_1.Input)(),
         __metadata("design:type", Boolean)
     ], ToolbarMasterDataComponent.prototype, "IsCreate", void 0);
     __decorate([
-        core_1.Input(),
+        (0, core_1.Input)(),
         __metadata("design:type", Boolean)
     ], ToolbarMasterDataComponent.prototype, "IsEdit", void 0);
     ToolbarMasterDataComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             selector: 'toolbarmasterdata',
             templateUrl: './toolbarmasterdata.component.html',
         })

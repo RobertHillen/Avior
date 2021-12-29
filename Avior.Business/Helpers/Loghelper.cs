@@ -6,7 +6,6 @@ using log4net;
 using Avior.Base.Helpers;
 using Avior.Business.Views.Log;
 using Avior.Business.Views.About;
-using NuGet;
 using System.Linq;
 
 namespace Avior.Business.Helpers
@@ -17,12 +16,12 @@ namespace Avior.Business.Helpers
 
         #region Log
 
-        public LogContentView[] processLog(string filename, bool noInfo)
+        public LogContentView[] ProcessLog(string filename, bool noInfo)
         {
             try
             {
                 StringBuilder sb = new StringBuilder();
-                using (FileStream stream = System.IO.File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (FileStream stream = File.Open(filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
                     using (StreamReader reader = new StreamReader(stream))
                     {
@@ -112,26 +111,26 @@ namespace Avior.Business.Helpers
 
         #region About
 
-        public AboutPackagesConfigView[] processPackagesConfig(string root)
+        public AboutPackagesConfigView[] ProcessPackagesConfig(string root)
         {
-            var filename = Path.Combine(root, "packages.config");
+            //var filename = Path.Combine(root, "packages.config");
                 
-            PackageReferenceFile nugetPkgConfig = new PackageReferenceFile(filename);
-            IEnumerable<PackageReference> allPackages = nugetPkgConfig.GetPackageReferences();
+            //PackageReferenceFile nugetPkgConfig = new PackageReferenceFile(filename);
+            //IEnumerable<PackageReference> allPackages = nugetPkgConfig.GetPackageReferences();
 
-            var packages = (from pkg in allPackages
-                            select pkg).ToList();
+            //var packages = (from pkg in allPackages
+            //                select pkg).ToList();
 
             List<AboutPackagesConfigView> result = new List<AboutPackagesConfigView>();
-            foreach (var item in packages)
-            {
-                result.Add(new AboutPackagesConfigView
-                {
-                    Id = item.Id,
-                    Version = item.Version.ToString(),
-                    TargetFramework = item.TargetFramework.FullName
-                });
-            }
+            //foreach (var item in packages)
+            //{
+            //    result.Add(new AboutPackagesConfigView
+            //    {
+            //        Id = item.Id,
+            //        Version = item.Version.ToString(),
+            //        TargetFramework = item.TargetFramework.FullName
+            //    });
+            //}
 
             return result.ToArray();
         }

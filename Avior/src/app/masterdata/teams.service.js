@@ -9,36 +9,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TeamsService = void 0;
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/common/http");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-require("rxjs/add/observable/throw");
+var httpOptions = { headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' }) };
 var TeamsService = /** @class */ (function () {
-    function TeamsService(http) {
-        this.http = http;
+    function TeamsService(httpclient) {
+        this.httpclient = httpclient;
         this.url = "/api/teamsApi";
     }
     TeamsService.prototype.getList = function () {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.url + '/GetList', null, options)
-            .map(this.extractData)
+        return this.httpclient.post(this.url + '/GetList', null, httpOptions)
+            .map(function (response) { return response; })
             .catch(this.handleListErrors);
     };
     TeamsService.prototype.getTeam = function (id) {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
         var args = JSON.stringify({ Id: id });
-        return this.http.post(this.url + '/GetTeam', args, options)
-            .map(this.extractData)
+        return this.httpclient.post(this.url + '/GetTeam', args, httpOptions)
+            .map(function (response) { return response; })
             .catch(this.handleListErrors);
     };
-    TeamsService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body || {};
+    TeamsService.prototype.addTeam = function (team) {
+        var args = JSON.stringify(team);
+        return this.httpclient.post(this.url + '/Add', args, httpOptions)
+            .map(function (response) { return response; })
+            .catch(this.handleListErrors);
     };
+    TeamsService.prototype.editTeam = function (team) {
+        var args = JSON.stringify(team);
+        return this.httpclient.post(this.url + '/Edit', args, httpOptions)
+            .map(function (response) { return response; })
+            .catch(this.handleListErrors);
+    };
+    TeamsService.prototype.deleteTeam = function (id) {
+        var args = JSON.stringify({ Id: id });
+        return this.httpclient.post(this.url + '/Delete', args, httpOptions)
+            .map(function (response) { return response; })
+            .catch(this.handleListErrors);
+    };
+    //getTeamDetails(id: number): Observable<TeamDetails> {
+    //    let args = JSON.stringify({ Id: id });
+    //    return this.httpclient.post(this.url + '/Details', args, httpOptions)
+    //        .map(response => response)
+    //        .catch(this.handleListErrors);
+    //}
     TeamsService.prototype.handleListErrors = function (error) {
         var errors = [];
         switch (error.status) {
@@ -66,8 +83,8 @@ var TeamsService = /** @class */ (function () {
         return Observable_1.Observable.throw(errors);
     };
     TeamsService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
+        (0, core_1.Injectable)(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], TeamsService);
     return TeamsService;
 }());

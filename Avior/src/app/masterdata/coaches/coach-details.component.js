@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CoachDetailsComponent = void 0;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var coaches_service_1 = require("../coaches.service");
@@ -19,6 +20,7 @@ var CoachDetailsComponent = /** @class */ (function () {
     function CoachDetailsComponent(route, coachService) {
         this.route = route;
         this.coachService = coachService;
+        this.toolbarMaster = "coach";
         this.toolbarTitle = "Coaches / Details";
         this.toolbarIsList = true;
         this.toolbarIsEdit = true;
@@ -49,7 +51,7 @@ var CoachDetailsComponent = /** @class */ (function () {
         }
     };
     CoachDetailsComponent = __decorate([
-        core_1.Component({
+        (0, core_1.Component)({
             templateUrl: './coach-details.component.html',
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,

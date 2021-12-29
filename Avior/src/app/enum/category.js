@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Category = exports.CATEGORY = void 0;
 var CATEGORY;
 (function (CATEGORY) {
     CATEGORY[CATEGORY["CMV"] = 1] = "CMV";
@@ -7,10 +8,10 @@ var CATEGORY;
     CATEGORY[CATEGORY["JeugdB"] = 3] = "JeugdB";
     CATEGORY[CATEGORY["JeugdA"] = 4] = "JeugdA";
 })(CATEGORY = exports.CATEGORY || (exports.CATEGORY = {}));
-var DaysOfWeek = /** @class */ (function () {
-    function DaysOfWeek() {
+var Category = /** @class */ (function () {
+    function Category() {
     }
-    DaysOfWeek.get = function (dow) {
+    Category.get = function (dow) {
         var result = "";
         switch (dow) {
             case CATEGORY.CMV:
@@ -28,7 +29,7 @@ var DaysOfWeek = /** @class */ (function () {
         }
         return result;
     };
-    return DaysOfWeek;
+    return Category;
 }());
-exports.DaysOfWeek = DaysOfWeek;
+exports.Category = Category;
 //# sourceMappingURL=category.js.map

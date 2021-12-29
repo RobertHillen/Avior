@@ -29,11 +29,19 @@ namespace Avior.Business.Commands.Team
         [Display(Name = "ListLabelTraining", ResourceType = typeof(Resources.Team))]
         public TimeSpan TrainingTime1 { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string TrainingLocation1 { get; set; }
+
         public DayOfWeek? TrainingDay2 { get; set; }
 
         [TimeSpan]
         [Display(Name = "ListLabelTraining", ResourceType = typeof(Resources.Team))]
         public TimeSpan? TrainingTime2 { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string TrainingLocation2 { get; set; }
     }
 
     public sealed class AddTeamCommandHandler : ICommandHandler<AddTeamCommand>
@@ -54,8 +62,10 @@ namespace Avior.Business.Commands.Team
                 Name = command.Name,
                 TrainingDay1 = (int)command.TrainingDay1,
                 TrainingTime1 = command.TrainingTime1,
+                TrainingLocation1 = command.TrainingLocation1,
                 TrainingDay2 = (int?)command.TrainingDay2,
-                TrainingTime2 = command.TrainingDay2 == null ? null : command.TrainingTime2
+                TrainingTime2 = command.TrainingDay2 == null ? null : command.TrainingTime2,
+                TrainingLocation2 = command.TrainingLocation2
             });
 
             uow.SaveChanges();

@@ -49,12 +49,7 @@ namespace Avior.Controllers
 
         public ActionResult Index()
         {
-            return RedirectToAction("List");
-        }
-
-        public ActionResult List()
-        {
-            logger.Info("List");
+            logger.Info("Index");
 
             var model = GetListData();
 

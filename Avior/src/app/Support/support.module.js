@@ -6,9 +6,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SupportModule = void 0;
 var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
+var http_1 = require("@angular/common/http");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var log_service_1 = require("./log.service");
@@ -26,8 +27,8 @@ var SupportModule = /** @class */ (function () {
     function SupportModule() {
     }
     SupportModule = __decorate([
-        core_1.NgModule({
-            imports: [common_1.CommonModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forChild(routes), shared_module_1.SharedModule],
+        (0, core_1.NgModule)({
+            imports: [common_1.CommonModule, forms_1.FormsModule, http_1.HttpClientModule, router_1.RouterModule.forChild(routes), shared_module_1.SharedModule],
             declarations: [log_component_1.LogComponent, about_component_1.AboutComponent],
             providers: [log_service_1.LogService, packagesconfig_service_1.PackagesConfigService]
         })

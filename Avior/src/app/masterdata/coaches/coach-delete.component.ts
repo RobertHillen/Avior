@@ -12,6 +12,7 @@ import { CoachDetails } from '../model/coachdetails';
 })
 export class CoachDeleteComponent implements OnInit {
 
+    toolbarMaster: string = "coach";
     toolbarTitle: string = "Coaches / Verwijderen";
     toolbarIsList: boolean = true;
 

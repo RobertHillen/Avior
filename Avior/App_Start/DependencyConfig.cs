@@ -12,6 +12,8 @@ namespace Avior.App_Start
         {
             container.RegisterTypes();
 
+            container.Options.ResolveUnregisteredConcreteTypes = true;
+
             DependencyResolver.SetResolver(new SimpleInjectorDependencyResolver(container));
             SimpleInjectorServiceHostFactory.SetContainer(container);
         }
